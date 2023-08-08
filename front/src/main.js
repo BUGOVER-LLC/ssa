@@ -23,10 +23,10 @@ Vue.use(VueMeta);
 
 // Start Vue Js Instance
 new Vue({
-    el: '#app-boss',
+    el: '#app',
     router,
     i18n,
     store,
     vuetify,
     render: h => h(App),
-}).$mount('#app-boss');
+}).$mount('#app');
