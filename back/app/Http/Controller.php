@@ -2,9 +2,9 @@
 
 namespace App\Http;
 
-use JsonSerializable;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Http\JsonResponse;
+use JsonSerializable;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
 class Controller extends BaseController
@@ -12,9 +12,9 @@ class Controller extends BaseController
     /**
      * Create a json response.
      *
-     * @param  mixed  $data
-     * @param  integer  $statusCode
-     * @param  array  $headers
+     * @param mixed $data
+     * @param int $statusCode
+     * @param array $headers
      *
      * @return Illuminate\Http\JsonResponse
      */

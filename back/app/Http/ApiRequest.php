@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Http;
 
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Http\Request;
@@ -12,12 +14,12 @@ use Laravel\Lumen\Http\Request;
 abstract class ApiRequest extends Request
 {
     /**
-     * @var \Illuminate\Contracts\Container\Container
+     * @var Container
      */
     protected $app;
 
     /**
-     * @var \Illuminate\Contracts\Validation\Validator
+     * @var Validator
      */
     protected $validator;
 

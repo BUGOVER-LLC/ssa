@@ -16,14 +16,8 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  */
 class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
 {
-    use Authenticatable, Authorizable;
-
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'users';
+    use Authenticatable;
+    use Authorizable;
 
     /**
      * Indicates if the model should be timestamped.
@@ -31,7 +25,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var bool
      */
     public $timestamps = false;
-
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'users';
     /**
      * The attributes that are mass assignable.
      *
@@ -73,7 +72,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function getName()
     {
-        return $this->first_name. ' '. $this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     /**

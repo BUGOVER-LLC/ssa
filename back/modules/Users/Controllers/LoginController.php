@@ -13,7 +13,7 @@ class LoginController extends Controller
     /**
      * Get a JWT via given credentials.
      *
-     * @param  LoginRequest  $request
+     * @param LoginRequest $request
      * @return JSON
      */
     public function login(LoginRequest $request)

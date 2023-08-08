@@ -11,7 +11,7 @@ class RegisterController extends Controller
     /**
      * Store a new user.
      *
-     * @param  RegisterRequest  $request
+     * @param RegisterRequest $request
      * @return JSON
      */
     public function register(RegisterRequest $request)
