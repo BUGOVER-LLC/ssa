@@ -1858,6 +1858,13 @@
   resolved "https://registry.yarnpkg.com/@vue/web-component-wrapper/-/web-component-wrapper-1.3.0.tgz#b6b40a7625429d2bd7c2281ddba601ed05dc7f1a"
   integrity sha512-Iu8Tbg3f+emIIMmI2ycSI8QcEuAUgPTgHwesDU1eKMLE4YC/c/sFbGc70QgMq31ijRftV0R7vCm9co6rldCeOA==
 
+"@vuetify/cli-plugin-utils@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@vuetify/cli-plugin-utils/-/cli-plugin-utils-0.0.10.tgz#d38c7bc1b0655fbb21978292a89727e55ec77ac0"
+  integrity sha512-unXcP+3sWjSoO1TU3hjmoP66iCNoKn4Ar9clnuYAZfRmTGkXM7yXbnV9Ic7K5kYb7DjAt0kiRlrGasnN4sBrZA==
+  dependencies:
+    semver "^7.1.2"
+
 "@webassemblyjs/ast@1.11.6", "@webassemblyjs/ast@^1.11.5":
   version "1.11.6"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.11.6.tgz#db046555d3c413f8966ca50a95176a0e2c642e24"
@@ -6732,6 +6739,11 @@ vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
+
+vee-validate@^3.4.15:
+  version "3.4.15"
+  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-3.4.15.tgz#d1b2fe2120d28bd833efadce15d73b482f6f7bcb"
+  integrity sha512-qEtvq9X2N7l5pjBe/6YGrrIBHxJA4KTrb3QrER3qzM7fzkH730m8LyVWMIzM47l//618nlUa7VvTdMFTRKr8tQ==
 
 vue-cli-plugin-i18n@^2.3.2:
   version "2.3.2"

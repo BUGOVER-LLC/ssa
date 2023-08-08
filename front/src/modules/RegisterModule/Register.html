@@ -1,71 +1,113 @@
 <!-- @format -->
 
 <authLayout>
-    <div class="w-full flex flex-wrap">
-        <div class="w-full md:w-1/2 flex flex-col">
+    <div class="auth-wrapper auth-v1">
+        <div class="auth-inner">
+            <v-card class="auth-card">
+                <!-- logo -->
+                <v-card-title class="d-flex align-center justify-center py-7">
+                    <router-link to="/" class="d-flex align-center">
+                        <v-img
+                            :src="require('@/assets/img/logo.svg')"
+                            max-height="30px"
+                            max-width="30px"
+                            alt="logo"
+                            contain
+                            class="me-3"
+                        ></v-img>
 
-            <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
-                <p class="text-center text-3xl">{{ $t('auth.register') }}.</p>
-                <form class="flex flex-col pt-3 md:pt-8" onsubmit="event.preventDefault();">
-                    <div class="flex flex-col pt-4">
-                        <label for="name" class="text-lg">{{ $t('auth.first_name') }}</label>
-                        <input
-                            type="text"
-                            v-model="registerData.first_name"
-                            :class="{ 'border-pink-400': errors.first_name }"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                        <h2 class="text-2xl font-weight-semibold"> Materio </h2>
+                    </router-link>
+                </v-card-title>
+
+                <!-- title -->
+                <v-card-text>
+                    <p class="text-2xl font-weight-semibold text--primary mb-2"> Adventure starts here 🚀 </p>
+                    <p class="mb-2"> Make your app management easy and fun! </p>
+                </v-card-text>
+
+                <!-- login form -->
+                <v-card-text>
+                    <v-form>
+                        <v-text-field
+                            v-model="registerData.username"
+                            outlined
+                            label="Username"
+                            placeholder="JohnDoe"
+                            hide-details
+                            class="mb-3"
                         />
-                    </div>
 
-                    <div class="flex flex-col pt-4">
-                        <label for="name" class="text-lg">{{ $t('auth.last_name') }}</label>
-                        <input
-                            type="text"
-                            v-model="registerData.last_name"
-                            :class="{ 'border-pink-400': errors.last_name }"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
-                        />
-                    </div>
-
-                    <div class="flex flex-col pt-4">
-                        <label for="email" class="text-lg">{{ $t('auth.email') }}</label>
-                        <input
-                            type="email"
-                            id="email"
+                        <v-text-field
                             v-model="registerData.email"
-                            :class="{ 'border-pink-400': errors.email }"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                            outlined
+                            label="Email"
+                            placeholder="john@example.com"
+                            hide-details
+                            class="mb-3"
                         />
-                    </div>
 
-                    <div class="flex flex-col pt-4">
-                        <label for="password" class="text-lg">{{ $t('auth.password') }}</label>
-                        <input
-                            type="password"
-                            id="password"
+                        <v-text-field
                             v-model="registerData.password"
-                            :class="{ 'border-pink-400': errors.password }"
-                            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                            outlined
+                            :type="isPasswordVisible ? 'text' : 'password'"
+                            label="Password"
+                            placeholder="············"
+                            :append-icon="isPasswordVisible ? icons.mdiEyeOutline : icons.mdiEyeOffOutline"
+                            hide-details
+                            @click:append="isPasswordVisible = !isPasswordVisible"
                         />
-                    </div>
 
-                    <input
-                        type="submit"
-                        value="Register"
-                        v-on:click.prevent="register()"
-                        class="cursor-pointer bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8"
-                    />
-                </form>
+                        <v-checkbox hide-details class="mt-1">
+                            <template #label>
+                                <div class="d-flex align-center flex-wrap">
+                                    <span class="me-2">I agree to</span>
+                                    <a v-model="registerData.agree" href="javascript:void(0)"
+                                        >privacy policy &amp; terms</a
+                                    >
+                                </div>
+                            </template>
+                        </v-checkbox>
 
-                <div class="text-center pt-12 pb-12">
+                        <v-btn block color="primary" class="mt-6"> Sign Up </v-btn>
+                    </v-form>
+                </v-card-text>
+
+                <!-- create new account  -->
+                <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
                     <p>
                         {{ $t('auth.login_info') }}
-                        <router-link class="underline font-semibold" :to="{ name: 'login' }">
-                            {{ $t('auth.login') }}</router-link
-                        >.
+                        <router-link class="underline font-semibold" :to="{ name: 'login' }"> {{ $t('auth.login') }}</router-link>.
                     </p>
-                </div>
-            </div>
+                </v-card-text>
+
+                <!-- divider -->
+                <v-card-text class="d-flex align-center mt-2">
+                    <v-divider />
+                    <span class="mx-5">or</span>
+                    <v-divider />
+                </v-card-text>
+
+                <!-- social link -->
+                <v-card-actions class="d-flex justify-center">
+                    <v-btn v-for="link in socialLink" :key="link.icon" icon class="ms-1">
+                        <v-icon :color="$vuetify.theme.dark ? link.colorInDark:link.color"> {{ link.icon }} </v-icon>
+                    </v-btn>
+                </v-card-actions>
+            </v-card>
         </div>
+
+        <!-- background triangle shape  -->
+        <img
+            class="auth-mask-bg"
+            height="190"
+            :src="require(`@/assets/img/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`)"
+        />
+
+        <!-- tree -->
+        <v-img class="auth-tree" width="247" height="185" src="@/assets/img/misc/tree.png" />
+
+        <!-- tree  -->
+        <v-img class="auth-tree-3" width="377" height="289" src="@/assets/img/misc/tree-3.png" />
     </div>
 </authLayout>

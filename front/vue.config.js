@@ -2,6 +2,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const { mergeSassVariables } = require('@vuetify/cli-plugin-utils');
 
 module.exports = {
     pluginOptions: {
@@ -13,6 +14,7 @@ module.exports = {
         },
     },
 
+    transpileDependencies: ['vuetify'],
     chainWebpack: config => {
         config.module
             .rule('vue')
@@ -21,9 +23,21 @@ module.exports = {
                 return options;
             });
         config.resolve.alias.set('@', path.resolve(__dirname, 'src/'));
-    },
 
-    transpileDependencies: ['vuetify'],
+        // const modules = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+        // modules.forEach(match => {
+        //     config.module
+        //         .rule('sass')
+        //         .oneOf(match)
+        //         .use('sass-loader')
+        //         .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss'"));
+        //     config.module
+        //         .rule('scss')
+        //         .oneOf(match)
+        //         .use('sass-loader')
+        //         .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss';"));
+        // });
+    },
 
     devServer: {
         https: {
@@ -39,8 +53,8 @@ module.exports = {
 
     // css: {
     //     loaderOptions: {
-    //         sass: {
-    //             data: '@import "@/assets/sass/main.sass"',
+    //         style: {
+    //             data: '@import "@/assets/style/main.style"',
     //         },
     //     },
     // },
