@@ -1,0 +1,6 @@
+{
+    "extends": ["stylelint-config-standard", "stylelint-config-recommended-vue", "stylelint-config-recommended-scss"],
+    "processors": ["stylelint-processor-html"],
+    "overrides": [{ "files": ["assets/**/*.vue"], "customSyntax": "postcss-scss" }],
+    "rules": { "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["v-deep"] }] }
+}
