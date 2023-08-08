@@ -2,6 +2,6 @@
 
 ```bash
 copy .env.example .env
-npm install
+yarn install
 npm run serve
 ```
