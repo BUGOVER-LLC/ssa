@@ -1,10 +1,10 @@
 /** @format */
 
 // Import Modules
-import dashboardModule from '@/modules/DashboardModule';
-import error404Module from '@/modules/Error404Module';
-import loginModule from '@/modules/LoginModule';
-import registerModule from '@/modules/RegisterModule';
+const dashboardModule = () => import('@/modules/DashboardModule');
+const error404Module = () => import('@/modules/Error404Module');
+const loginModule = () => import('@/modules/LoginModule');
+const registerModule = () => import('@/modules/RegisterModule');
 
 export default [
     // Home Page

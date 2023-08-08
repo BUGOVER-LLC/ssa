@@ -10,10 +10,9 @@ import vuetify from './plugins/vuetify';
 import VueMeta from 'vue-meta';
 
 // Register layouts
-const authLayout = () => import('./layouts/auth');
-const adminLayout = () => import('./layouts/admin');
-Vue.component('AuthLayout', authLayout);
-Vue.component('AdminLayout', adminLayout);
+Vue.component('AuthLayout', () => import('./layouts/auth.vue'));
+Vue.component('GreetingLayout', () => import('./layouts/greeting.vue'));
+Vue.component('AdminLayout', () => import('./layouts/admin.vue'));
 
 // Config
 Vue.config.productionTip = false;

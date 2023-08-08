@@ -20,6 +20,8 @@ export default new Vuetify({
             },
         },
     },
+    customVariables: ['@/assets/sass/main.sass'],
+    treeShake: true,
     icons: {
         iconfont: 'mdiSvg',
     },
