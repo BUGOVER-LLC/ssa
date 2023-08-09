@@ -1,8 +1,10 @@
 /** @format */
 
+import 'vuetify/dist/vuetify.min.css';
+
 import Vue from 'vue';
 import Vuetify from 'vuetify/lib/framework';
-import 'vuetify/dist/vuetify.min.css';
+
 import preset from './default-preset/preset';
 
 Vue.use(Vuetify);

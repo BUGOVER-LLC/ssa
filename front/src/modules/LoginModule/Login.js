@@ -1,10 +1,23 @@
 /** @format */
 
+import { mdiEyeOffOutline, mdiEyeOutline, mdiFacebook, mdiGithub, mdiGoogle, mdiTwitter } from '@mdi/js';
+import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-validate';
+import { email, max, min, required } from 'vee-validate/dist/rules';
+
 import httpAxios from '@/services/httpAxios.js';
-import { mdiFacebook, mdiTwitter, mdiGithub, mdiGoogle, mdiEyeOutline, mdiEyeOffOutline } from '@mdi/js';
+
+extend('email', email);
+extend('min', min);
+extend('max', max);
+extend('required', required);
 
 export default {
     name: 'LoginModule',
+
+    components: {
+        ValidationProvider,
+        ValidationObserver,
+    },
 
     metaInfo() {
         return {
@@ -50,11 +63,16 @@ export default {
                 email: false,
                 password: false,
             },
+            loginRules: {
+                email: 'min:6|email|required|max:150',
+                password: 'min:3|max:64|required',
+            },
         };
     },
 
     methods: {
         login() {
+            validate();
             const self = this;
 
             Object.keys(this.errors).forEach(key => {

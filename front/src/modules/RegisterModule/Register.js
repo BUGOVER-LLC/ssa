@@ -1,7 +1,8 @@
 /** @format */
 
-import httpAxios from '@/services/httpAxios.js';
 import { mdiEyeOffOutline, mdiEyeOutline, mdiFacebook, mdiGithub, mdiGoogle, mdiTwitter } from '@mdi/js';
+
+import httpAxios from '@/services/httpAxios.js';
 
 export default {
     name: 'RegisterModule',

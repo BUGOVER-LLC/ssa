@@ -29,7 +29,7 @@ export default {
     },
 
     computed: {
-        ...mapGetters({
+        ...mapGetters('notifyModule', {
             displayLoader: 'getDisplayLoader',
         }),
     },

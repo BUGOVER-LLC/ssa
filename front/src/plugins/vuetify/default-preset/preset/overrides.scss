@@ -1,3 +1,5 @@
+/** @format */
+
 // Variable Overrides
 @import './variables.scss';
 
@@ -30,33 +32,33 @@
 
 // * Change the font size of content
 @include theme(v-application) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+    color: map-deep-get($material, 'text', 'secondary') !important;
 }
 @include theme(v-card) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+    color: map-deep-get($material, 'text', 'secondary') !important;
 }
 @include theme(v-sheet) using ($material) {
-  color: map-deep-get($material, 'text', 'secondary') !important;
+    color: map-deep-get($material, 'text', 'secondary') !important;
 
-  .v-card__title {
-    color: map-deep-get($material, 'text', 'primary') !important;
-  }
+    .v-card__title {
+        color: map-deep-get($material, 'text', 'primary') !important;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: map-deep-get($material, 'text', 'primary') !important;
-  }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: map-deep-get($material, 'text', 'primary') !important;
+    }
 }
 
 // Remove outline from button on focus
 button {
-  &:focus {
-    outline: none;
-  }
+    &:focus {
+        outline: none;
+    }
 }
 
 // ————————————————————————————————————
@@ -123,13 +125,13 @@ button {
 
 // Navigation Drawer
 @include app-elevation(
-  'v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)',
-  $navigation-drawer-mobile-temporary-elevation
+    'v-navigation-drawer--is-mobile:not(.v-navigation-drawer--close)',
+    $navigation-drawer-mobile-temporary-elevation
 );
 
 @include app-elevation(
-  'v-navigation-drawer--temporary:not(.v-navigation-drawer--close)',
-  $navigation-drawer-mobile-temporary-elevation
+    'v-navigation-drawer--temporary:not(.v-navigation-drawer--close)',
+    $navigation-drawer-mobile-temporary-elevation
 );
 
 // Pagination
@@ -143,14 +145,14 @@ button {
 
 // VSwitch
 @include app-elevation(
-  'v-input--switch:not(v-input--switch--flat):not(v-input--switch--inset) .v-input--switch__thumb',
-  $switch-thumb-elevation
+    'v-input--switch:not(v-input--switch--flat):not(v-input--switch--inset) .v-input--switch__thumb',
+    $switch-thumb-elevation
 );
 
 // VTextField
 @include app-elevation(
-  'v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot',
-  2
+    'v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot',
+    2
 );
 
 // VTimeline
@@ -198,12 +200,12 @@ button {
 
 // Vuetify Fix: `dense` prop isn't working with SVG icons
 .v-chip {
-  .v-chip__content {
-    .v-icon--dense {
-      height: 20px;
-      width: 20px;
+    .v-chip__content {
+        .v-icon--dense {
+            height: 20px;
+            width: 20px;
+        }
     }
-  }
 }
 
 //
@@ -211,114 +213,114 @@ button {
 //
 
 .v-card {
-  .v-card__title {
-    line-height: 1;
-    padding-top: $card-spacer;
-    padding-bottom: $card-spacer;
-  }
-  .v-card__title ~ .v-card__title {
-    padding-top: $card-spacer-content;
-  }
-
-  .v-card__subtitle,
-  .v-card__text,
-  .v-card__actions {
-    padding-top: 0;
-
-    @at-root {
-      .v-card {
-        > .v-card__subtitle:first-child,
-        > .v-card__text:first-child,
-        > .v-card__actions:first-child {
-          padding-top: $card-spacer;
-        }
-      }
+    .v-card__title {
+        line-height: 1;
+        padding-top: $card-spacer;
+        padding-bottom: $card-spacer;
+    }
+    .v-card__title ~ .v-card__title {
+        padding-top: $card-spacer-content;
     }
 
-    &:last-child {
-      padding-bottom: $card-spacer;
-    }
-  }
-
-  .v-divider + {
     .v-card__subtitle,
     .v-card__text,
     .v-card__actions {
-      padding-top: $card-spacer-content;
-    }
-  }
+        padding-top: 0;
 
-  .v-card__actions {
-    &.dense {
-      padding: 0 calc(#{$card-spacer} - 8px) calc(#{$card-spacer} - 8px);
-      .v-btn {
-        &:not(.v-btn--icon) {
-          min-width: 68px;
+        @at-root {
+            .v-card {
+                > .v-card__subtitle:first-child,
+                > .v-card__text:first-child,
+                > .v-card__actions:first-child {
+                    padding-top: $card-spacer;
+                }
+            }
         }
-      }
+
+        &:last-child {
+            padding-bottom: $card-spacer;
+        }
     }
-  }
+
+    .v-divider + {
+        .v-card__subtitle,
+        .v-card__text,
+        .v-card__actions {
+            padding-top: $card-spacer-content;
+        }
+    }
+
+    .v-card__actions {
+        &.dense {
+            padding: 0 calc(#{$card-spacer} - 8px) calc(#{$card-spacer} - 8px);
+            .v-btn {
+                &:not(.v-btn--icon) {
+                    min-width: 68px;
+                }
+            }
+        }
+    }
 }
 
 // Vuetify Fix: We have replace the icon with svg icon badge don't have any style for svg inside the badge.
 .v-badge__badge {
-  .v-icon {
-    height: $badge-font-size;
-    width: $badge-font-size;
-  }
+    .v-icon {
+        height: $badge-font-size;
+        width: $badge-font-size;
+    }
 }
 
 .v-badge--dot {
-  .v-badge__badge {
-    height: 10px !important;
-    width: 10px !important;
-    &::after {
-      border-width: 2px !important;
+    .v-badge__badge {
+        height: 10px !important;
+        width: 10px !important;
+        &::after {
+            border-width: 2px !important;
+        }
     }
-  }
 }
 
 // Vuetify Fix: Calendar default color should be primary but they add accent class
 .v-date-picker-table {
-  .v-date-picker-table__current,
-  .v-btn--active {
-    &.accent {
-      background-color: var(--v-primary-base) !important;
-      border-color: var(--v-primary-base) !important;
+    .v-date-picker-table__current,
+    .v-btn--active {
+        &.accent {
+            background-color: var(--v-primary-base) !important;
+            border-color: var(--v-primary-base) !important;
+        }
+        &.accent--text {
+            color: var(--v-primary-base) !important;
+            caret-color: var(--v-primary-base) !important;
+        }
     }
-    &.accent--text {
-      color: var(--v-primary-base) !important;
-      caret-color: var(--v-primary-base) !important;
-    }
-  }
 }
 
 // Vuetify Fix: month picker header text should be primary
 
 .v-date-picker-header {
-  .v-date-picker-header__value {
-    .accent--text {
-      button:hover {
-        color: var(--v-primary-base);
-      }
+    .v-date-picker-header__value {
+        .accent--text {
+            button:hover {
+                color: var(--v-primary-base);
+            }
+        }
     }
-  }
 }
 
 // Vuetify Fix: Time picker active time should be primary
 .v-picker--time {
-  .v-time-picker-clock__hand {
-    &.accent {
-      background-color: var(--v-primary-base) !important;
-      border-color: var(--v-primary-base) !important;
+    .v-time-picker-clock__hand {
+        &.accent {
+            background-color: var(--v-primary-base) !important;
+            border-color: var(--v-primary-base) !important;
+        }
     }
-  }
-  .v-time-picker-clock__item--active {
-    &.accent {
-      background-color: var(--v-primary-base) !important;
-      border-color: var(--v-primary-base) !important;
+    .v-time-picker-clock__item--active {
+        &.accent {
+            background-color: var(--v-primary-base) !important;
+            border-color: var(--v-primary-base) !important;
+        }
     }
-  }
 }
 
 //
@@ -326,35 +328,35 @@ button {
 //
 
 @include theme(v-expansion-panels) using ($material) {
-  .v-expansion-panel-content__wrap {
-    color: map-deep-get($material, 'text', 'secondary');
-  }
+    .v-expansion-panel-content__wrap {
+        color: map-deep-get($material, 'text', 'secondary');
+    }
 }
 
 .v-expansion-panels {
-  &.v-expansion-panels--focusable {
-    .v-expansion-panel--active {
-      > .v-expansion-panel-header {
-        min-height: unset;
-      }
-    }
+    &.v-expansion-panels--focusable {
+        .v-expansion-panel--active {
+            > .v-expansion-panel-header {
+                min-height: unset;
+            }
+        }
 
-    .v-expansion-panel-content__wrap {
-      padding-top: 1rem;
+        .v-expansion-panel-content__wrap {
+            padding-top: 1rem;
+        }
     }
-  }
 }
 
 @include app-elevation('v-expansion-panel.v-expansion-panel--active', 3, true);
 
 .v-expansion-panel {
-  .v-expansion-panel-header {
-    padding: 1rem;
-  }
+    .v-expansion-panel-header {
+        padding: 1rem;
+    }
 
-  .v-expansion-panel-content__wrap {
-    padding: 0rem 1rem 1rem;
-  }
+    .v-expansion-panel-content__wrap {
+        padding: 0rem 1rem 1rem;
+    }
 }
 
 //
@@ -363,9 +365,9 @@ button {
 
 // Add some space between divider and buttons
 .v-dialog {
-  .v-divider + .v-card__actions {
-    padding-top: $card-spacer-content !important;
-  }
+    .v-divider + .v-card__actions {
+        padding-top: $card-spacer-content !important;
+    }
 }
 
 //
@@ -374,19 +376,19 @@ button {
 
 // ? We have to use various selectors because `!important` isn't working
 .v-application[class*='theme'] {
-  .v-pagination__item,
-  .v-pagination__navigation {
-    box-shadow: none !important;
-  }
+    .v-pagination__item,
+    .v-pagination__navigation {
+        box-shadow: none !important;
+    }
 }
 
 @include theme(v-pagination) using ($material) {
-  .v-pagination__item,
-  .v-pagination__navigation {
-    &:hover {
-      background-color: rgba(map-get($material, 'primary-shade'), map-deep-get($material, 'states', 'hover'));
+    .v-pagination__item,
+    .v-pagination__navigation {
+        &:hover {
+            background-color: rgba(map-get($material, 'primary-shade'), map-deep-get($material, 'states', 'hover'));
+        }
     }
-  }
 }
 
 //
@@ -395,12 +397,12 @@ button {
 
 .v-autocomplete,
 .v-select {
-  .v-input__icon--clear {
-    svg {
-      height: 20px;
-      width: 20px;
+    .v-input__icon--clear {
+        svg {
+            height: 20px;
+            width: 20px;
+        }
     }
-  }
 }
 
 //
@@ -409,9 +411,9 @@ button {
 
 // ? Reason: Textarea hover underline color is too dark
 @include theme(v-text-field) using ($material) {
-  &:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
-    border-color: rgba(map-get($material, 'primary-shade'), 0.28) !important;
-  }
+    &:not(.v-input--has-state):hover > .v-input__control > .v-input__slot:before {
+        border-color: rgba(map-get($material, 'primary-shade'), 0.28) !important;
+    }
 }
 
 //
@@ -419,12 +421,12 @@ button {
 //
 
 .v-date-picker-table {
-  .v-btn {
-    &.v-btn--active.v-btn--disabled {
-      color: #fff !important;
-      opacity: 0.5;
+    .v-btn {
+        &.v-btn--active.v-btn--disabled {
+            color: #fff !important;
+            opacity: 0.5;
+        }
     }
-  }
 }
 
 //
@@ -432,45 +434,45 @@ button {
 //
 
 .v-application {
-  .v-btn:not(.v-btn--outlined) {
-    &.primary,
-    &.secondary,
-    &.accent,
-    &.success,
-    &.error,
-    &.warning,
-    &.info {
-      color: map-deep-get($shades, 'white');
+    .v-btn:not(.v-btn--outlined) {
+        &.primary,
+        &.secondary,
+        &.accent,
+        &.success,
+        &.error,
+        &.warning,
+        &.info {
+            color: map-deep-get($shades, 'white');
+        }
     }
-  }
 }
 
 $btn-custom-heights: (
-  'x-small': 26,
-  'small': 30,
-  'default': 38,
-  'large': 42,
-  'x-large': 46,
+    'x-small': 26,
+    'small': 30,
+    'default': 38,
+    'large': 42,
+    'x-large': 46,
 );
 
 .v-btn {
-  &:not(.v-btn--round) {
-    @each $name, $height in $btn-custom-heights {
-      &.v-size--#{$name} {
-        height: #{$height}px !important;
-        // min-width: #{round($size * 1.777777777777778)}px // default ratio
-      }
+    &:not(.v-btn--round) {
+        @each $name, $height in $btn-custom-heights {
+            &.v-size--#{$name} {
+                height: #{$height}px !important;
+                // min-width: #{round($size * 1.777777777777778)}px // default ratio
+            }
+        }
     }
-  }
 }
 
 .v-btn--icon {
-  @each $name, $height in $btn-custom-heights {
-    &.v-size--#{$name} {
-      height: #{$height}px !important;
-      width: #{$height}px !important;
+    @each $name, $height in $btn-custom-heights {
+        &.v-size--#{$name} {
+            height: #{$height}px !important;
+            width: #{$height}px !important;
+        }
     }
-  }
 }
 
 @include app-elevation(v-btn--is-elevated, 3, !important);
@@ -482,19 +484,19 @@ $btn-custom-heights: (
 //
 
 @at-root .v-application--wrap {
-  @include theme(v-picker) using ($material) {
-    // ? `.v-application--wrap` is used to make sure pickers shown in/from dialog/input don't have border.
-    .v-picker__body {
-      border: 1px solid rgba(map-deep-get($material, 'primary-shade'), 0.22);
+    @include theme(v-picker) using ($material) {
+        // ? `.v-application--wrap` is used to make sure pickers shown in/from dialog/input don't have border.
+        .v-picker__body {
+            border: 1px solid rgba(map-deep-get($material, 'primary-shade'), 0.22);
+        }
     }
-  }
 }
 
 @include theme-diff(v-picker, map-get($shades, 'white'), map-deep-get($material-dark, 'background')) using
-  ($property-value) {
-  .v-picker__actions {
-    background-color: $property-value;
-  }
+    ($property-value) {
+    .v-picker__actions {
+        background-color: $property-value;
+    }
 }
 
 //
@@ -503,17 +505,17 @@ $btn-custom-heights: (
 
 // Modify small chip
 .v-chip {
-  &.v-size--small {
-    font-size: 12px;
-    height: 20px;
-    padding: 0 8px;
-  }
-  .v-chip__close svg {
-    opacity: 0.38;
-  }
-  &:not(.v-chip-light-bg):not(.v-chip--no-color):not(.v-chip--outlined) {
-    color: #fff !important;
-  }
+    &.v-size--small {
+        font-size: 12px;
+        height: 20px;
+        padding: 0 8px;
+    }
+    .v-chip__close svg {
+        opacity: 0.38;
+    }
+    &:not(.v-chip-light-bg):not(.v-chip--no-color):not(.v-chip--outlined) {
+        color: #fff !important;
+    }
 }
 
 //
@@ -521,18 +523,18 @@ $btn-custom-heights: (
 //
 
 .v-snack__wrapper {
-  .v-snack__content {
-    letter-spacing: 0.25px;
-    // line-height: 1.5;
-  }
+    .v-snack__content {
+        letter-spacing: 0.25px;
+        // line-height: 1.5;
+    }
 }
 
 @include theme-diff(v-snack__wrapper, #5e5669, map-get($shades, 'white')) using ($property-value) {
-  &:not([class*='--text']) {
-    .v-snack__content {
-      color: $property-value;
+    &:not([class*='--text']) {
+        .v-snack__content {
+            color: $property-value;
+        }
     }
-  }
 }
 
 //
@@ -540,34 +542,34 @@ $btn-custom-heights: (
 //
 
 .v-menu__content {
-  &:not(.list-style) {
-    .v-list-item {
-      height: 2.375rem;
-      min-height: 2.375rem;
+    &:not(.list-style) {
+        .v-list-item {
+            height: 2.375rem;
+            min-height: 2.375rem;
 
-      .v-list-item__icon {
-        margin: 8px 0;
-      }
+            .v-list-item__icon {
+                margin: 8px 0;
+            }
+        }
+
+        .v-list.v-list--dense {
+            .v-list-item {
+                min-height: 2rem;
+                height: 2rem;
+            }
+
+            .v-list-item__icon {
+                margin: 5px 0;
+            }
+
+            .v-list-item__title,
+            .v-list-item__subtitle,
+            .v-list-item .v-list-item__title,
+            .v-list-item .v-list-item__subtitle {
+                font-size: 0.875rem;
+            }
+        }
     }
-
-    .v-list.v-list--dense {
-      .v-list-item {
-        min-height: 2rem;
-        height: 2rem;
-      }
-
-      .v-list-item__icon {
-        margin: 5px 0;
-      }
-
-      .v-list-item__title,
-      .v-list-item__subtitle,
-      .v-list-item .v-list-item__title,
-      .v-list-item .v-list-item__subtitle {
-        font-size: 0.875rem;
-      }
-    }
-  }
 }
 
 //
@@ -575,44 +577,44 @@ $btn-custom-heights: (
 //
 
 @if $customize-form-icons {
-  .v-input {
-    &.v-input--dense {
-      .v-input__prepend-inner,
-      .v-input__append-inner {
-        .v-input__icon {
-          .v-icon__svg {
-            font-size: 20px;
-            height: 20px;
-            width: 20px;
-          }
-        }
-      }
-    }
-    .v-input__prepend-inner,
-    .v-input__append-inner {
-      .v-input__icon {
-        .v-icon {
-          transform-origin: 10px;
-          .v-icon__svg {
-            @include ltr() {
-              margin-right: 10px;
+    .v-input {
+        &.v-input--dense {
+            .v-input__prepend-inner,
+            .v-input__append-inner {
+                .v-input__icon {
+                    .v-icon__svg {
+                        font-size: 20px;
+                        height: 20px;
+                        width: 20px;
+                    }
+                }
             }
-            @include rtl() {
-              margin-left: 10px;
-            }
-          }
         }
-      }
+        .v-input__prepend-inner,
+        .v-input__append-inner {
+            .v-input__icon {
+                .v-icon {
+                    transform-origin: 10px;
+                    .v-icon__svg {
+                        @include ltr() {
+                            margin-right: 10px;
+                        }
+                        @include rtl() {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
 }
 
 .v-input {
-  &.error--text {
-    .v-text-field__details {
-      margin-bottom: 0 !important;
+    &.error--text {
+        .v-text-field__details {
+            margin-bottom: 0 !important;
+        }
     }
-  }
 }
 
 //
@@ -620,13 +622,13 @@ $btn-custom-heights: (
 //
 
 .v-slider__track-background {
-  opacity: 0.38;
+    opacity: 0.38;
 }
 
 .v-slider__thumb-label-container {
-  svg {
-    color: #fff;
-  }
+    svg {
+        color: #fff;
+    }
 }
 
 //
@@ -634,12 +636,12 @@ $btn-custom-heights: (
 //
 
 @include theme-diff(v-input, #fff, map-deep-get($material-light, 'text', 'secondary')) using ($value) {
-  &.v-text-field--solo-inverted.v-input--is-focused {
-    input,
-    textarea {
-      color: $value !important;
+    &.v-text-field--solo-inverted.v-input--is-focused {
+        input,
+        textarea {
+            color: $value !important;
+        }
     }
-  }
 }
 
 //
@@ -647,7 +649,7 @@ $btn-custom-heights: (
 //
 
 .v-input--selection-controls__ripple:before {
-  opacity: 0.08 !important;
+    opacity: 0.08 !important;
 }
 
 //
@@ -658,25 +660,25 @@ $btn-custom-heights: (
 
 // tabs shadow
 .v-tabs:not(.v-tabs--vertical) {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .v-tabs {
-  &.v-tabs--vertical {
-    .v-tabs-slider-wrapper {
-      right: 0 !important;
-      left: unset !important;
+    &.v-tabs--vertical {
+        .v-tabs-slider-wrapper {
+            right: 0 !important;
+            left: unset !important;
+        }
     }
-  }
 }
 
 @include theme(v-tabs) using ($material) {
-  &.v-tabs--vertical {
-    .v-slide-group__wrapper {
-      border-right: thin solid map-get($material, 'dividers');
+    &.v-tabs--vertical {
+        .v-slide-group__wrapper {
+            border-right: thin solid map-get($material, 'dividers');
+        }
     }
-  }
 }
 
 //
@@ -684,103 +686,102 @@ $btn-custom-heights: (
 //
 
 .v-data-table {
-  th {
-    font-weight: 600;
-    background-color: #fafafa !important;
-  }
-
-  .v-data-footer {
-    .v-data-footer__select {
-      @include ltr() {
-        margin-left: 14px;
-      }
-
-      @include rtl() {
-        margin-right: 14px;
-      }
-      .v-input__append-inner {
-        align-self: flex-start;
-      }
-
-      .v-select {
-        margin-bottom: 6px !important;
-        margin-top: 8px !important;
-        @include ltr() {
-          margin-left: 6px;
-        }
-        @include rtl() {
-          margin-right: 6px;
-        }
-        > .v-input__control > .v-input__slot {
-          &::before,
-          &::after {
-            display: none;
-          }
-        }
-      }
+    th {
+        font-weight: 600;
+        background-color: #fafafa !important;
     }
 
-    .v-data-footer__pagination {
-      @include ltr() {
-        margin-left: auto;
-      }
-      @include rtl() {
-        margin-right: auto;
-      }
-    }
-  }
+    .v-data-footer {
+        .v-data-footer__select {
+            @include ltr() {
+                margin-left: 14px;
+            }
 
-  // remove box shadow from expanded content
-  > .v-data-table__wrapper {
-    tbody {
-      tr.v-data-table__expanded__content {
-        box-shadow: none !important;
-      }
+            @include rtl() {
+                margin-right: 14px;
+            }
+            .v-input__append-inner {
+                align-self: flex-start;
+            }
+
+            .v-select {
+                margin-bottom: 6px !important;
+                margin-top: 8px !important;
+                @include ltr() {
+                    margin-left: 6px;
+                }
+                @include rtl() {
+                    margin-right: 6px;
+                }
+                > .v-input__control > .v-input__slot {
+                    &::before,
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .v-data-footer__pagination {
+            @include ltr() {
+                margin-left: auto;
+            }
+            @include rtl() {
+                margin-right: auto;
+            }
+        }
     }
-  }
+
+    // remove box shadow from expanded content
+    > .v-data-table__wrapper {
+        tbody {
+            tr.v-data-table__expanded__content {
+                box-shadow: none !important;
+            }
+        }
+    }
 }
 
 @include theme(v-data-table) using ($material) {
-  th {
-    color: map-deep-get($material, 'text', 'primary') !important;
-    border-top: thin solid map-deep-get($material, 'dividers');
-  }
-  td {
-    color: map-deep-get($material, 'text', 'secondary') !important;
-  }
+    th {
+        color: map-deep-get($material, 'text', 'primary') !important;
+        border-top: thin solid map-deep-get($material, 'dividers');
+    }
+    td {
+        color: map-deep-get($material, 'text', 'secondary') !important;
+    }
 }
 
 @media (max-width: 450px) {
-  .v-data-table {
-    .v-data-footer {
-      .v-data-footer__select {
-        min-width: 100%;
-        @include ltr() {
-          margin-left: 0;
+    .v-data-table {
+        .v-data-footer {
+            .v-data-footer__select {
+                min-width: 100%;
+                @include ltr() {
+                    margin-left: 0;
+                }
+                @include rtl() {
+                    margin-right: 0;
+                }
+            }
         }
-        @include rtl() {
-          margin-right: 0;
-        }
-      }
     }
-  }
 }
-
 
 // Browser Autofill styles
 .v-application.theme--light {
-  input:-webkit-autofill,
-  textarea:-webkit-autofill,
-  select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-light, 'cards') inset !important;
-    -webkit-text-fill-color: map-deep-get($material-light, 'text', 'secondary') !important;
-  }
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-light, 'cards') inset !important;
+        -webkit-text-fill-color: map-deep-get($material-light, 'text', 'secondary') !important;
+    }
 }
 .v-application.theme--dark {
-  input:-webkit-autofill,
-  textarea:-webkit-autofill,
-  select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-dark, 'cards') inset !important;
-    -webkit-text-fill-color: map-deep-get($material-dark, 'text', 'secondary') !important;
-  }
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px map-deep-get($material-dark, 'cards') inset !important;
+        -webkit-text-fill-color: map-deep-get($material-dark, 'text', 'secondary') !important;
+    }
 }

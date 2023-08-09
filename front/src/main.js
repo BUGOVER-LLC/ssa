@@ -2,12 +2,13 @@
 
 // Import
 import Vue from 'vue';
+import VueMeta from 'vue-meta';
+
 import App from './App.vue';
 import i18n from './locales';
+import vuetify from './plugins/vuetify';
 import router from './router';
 import store from './store';
-import vuetify from './plugins/vuetify';
-import VueMeta from 'vue-meta';
 
 // Register layouts
 Vue.component('AuthLayout', () => import('./layouts/auth.vue'));

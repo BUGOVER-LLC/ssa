@@ -1,31 +1,33 @@
+/** @format */
+
 @import './mixins';
 
 // ? This includes dark theme related style
 .v-application {
-  &.theme--dark {
-    @at-root {
-      .v-alert {
-        &.v-sheet.theme--dark {
-          &:not([class*='--text']) {
-            color: #fff !important;
-            svg {
-              color: #fff !important;
+    &.theme--dark {
+        @at-root {
+            .v-alert {
+                &.v-sheet.theme--dark {
+                    &:not([class*='--text']) {
+                        color: #fff !important;
+                        svg {
+                            color: #fff !important;
+                        }
+                    }
+                }
             }
-          }
         }
-      }
-    }
 
-    // ————————————————————————————————————
-    //* ——— Data table
-    // ————————————————————————————————————
-    .v-data-table {
-      th {
-        font-weight: 600;
-        background-color: #3b355a !important;
-      }
+        // ————————————————————————————————————
+        //* ——— Data table
+        // ————————————————————————————————————
+        .v-data-table {
+            th {
+                font-weight: 600;
+                background-color: #3b355a !important;
+            }
+        }
     }
-  }
 }
 
 // ————————————————————————————————————
@@ -33,12 +35,12 @@
 // ————————————————————————————————————
 
 .v-application.theme--dark {
-  .ps__rail-y,
-  .ps__rail-x {
-    background-color: transparent !important;
-  }
+    .ps__rail-y,
+    .ps__rail-x {
+        background-color: transparent !important;
+    }
 
-  .ps__thumb-y {
-    background-color: map-deep-get($material-dark, 'cards');
-  }
+    .ps__thumb-y {
+        background-color: map-deep-get($material-dark, 'cards');
+    }
 }

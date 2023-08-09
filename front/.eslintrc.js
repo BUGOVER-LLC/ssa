@@ -27,5 +27,25 @@ module.exports = {
     rules: {
         'vue/multi-word-component-names': 'off',
         'prettier/prettier': ['error', { singleQuote: true }],
+        'no-unused-vars': [2, { vars: 'all', args: 'none' }],
+        // 'simple-import-sort/imports': 'error',
+        // 'simple-import-sort/exports': 'error',
+        // 'unused-imports/no-unused-imports': 'error',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            {
+                vars: 'all',
+                varsIgnorePattern: '^_',
+                args: 'after-used',
+                argsIgnorePattern: '^_',
+            },
+        ],
+        'sort-imports': [
+            'error',
+            {
+                ignoreDeclarationSort: true,
+            },
+        ],
+        'constructor-super': 2,
     },
 };

@@ -1,9 +1,11 @@
+/** @format */
+
 // Shades
 // ? We updated black value because our template design have `rgb(94, 86, 105)` as black instead of solid black
 $shades: (
-  'black': #5e5669,
-  'white': #fff,
-  'transparent': transparent,
+    'black': #5e5669,
+    'white': #fff,
+    'transparent': transparent,
 );
 
 $primary-shade--light: #5e5669;
@@ -26,13 +28,13 @@ $component-border-color: rgba($primary-shade--light, 0.22);
 $customize-form-icons: true;
 
 $theme-colors: (
-  'primary': var(--v-primary-base),
-  'secondary': var(--v-secondary-base),
-  'accent': var(--v-accent-base),
-  'error': var(--v-error-base),
-  'info': var(--v-info-base),
-  'success': var(--v-success-base),
-  'warning': var(--v-warning-base),
+    'primary': var(--v-primary-base),
+    'secondary': var(--v-secondary-base),
+    'accent': var(--v-accent-base),
+    'error': var(--v-error-base),
+    'info': var(--v-info-base),
+    'success': var(--v-success-base),
+    'warning': var(--v-warning-base),
 );
 
 // ————————————————————————————————————
@@ -52,64 +54,64 @@ $border-radius-root: 5px;
 // #region Override Light Theme's Pure Black to Primary Shade
 
 $material-light: map-deep-merge(
-  $material-light,
-  (
-    'calendar': (
-      'text-color': $primary-shade--light,
-      'past-color': rgba($primary-shade--light, 0.38),
-    ),
-    'code': (
-      'background': rgba($primary-shade--light, 0.05),
-    ),
-    'dividers': rgba($primary-shade--light, 0.12),
-    'text': (
-      'primary': rgba($primary-shade--light, 0.87),
-      'secondary': rgba($primary-shade--light, 0.6),
-      'disabled': rgba($primary-shade--light, 0.38),
-    ),
-    'icons': (
-      'active': rgba($primary-shade--light, 0.54),
-      'inactive': rgba($primary-shade--light, 0.38),
-    ),
-    'inputs': (
-      'box': rgba($primary-shade--light, 0.04),
-      'solo-inverted': rgba($primary-shade--light, 0.06),
-    ),
-    'buttons': (
-      'disabled': rgba($primary-shade--light, 0.26),
-      'focused': rgba($primary-shade--light, 0.12),
-    ),
-    'selection-controls': (
-      'disabled': rgba($primary-shade--light, 0.26),
-      'track': (
-        'inactive': rgba($primary-shade--light, 0.38),
-        'disabled': rgba($primary-shade--light, 0.12),
-      ),
-    ),
-    'slider': (
-      'active': rgba($primary-shade--light, 0.38),
-      'inactive': rgba($primary-shade--light, 0.26),
-      'disabled': rgba($primary-shade--light, 0.26),
-      'discrete': $primary-shade--light,
-    ),
-    'toggle-buttons': (
-      'color': $primary-shade--light,
-    ),
-    'text-fields': (
-      'filled': rgba($primary-shade--light, 0.06),
-      'filled-hover': rgba($primary-shade--light, 0.12),
-      'outlined': rgba($primary-shade--light, 0.38),
-      'outlined-disabled': rgba($primary-shade--light, 0.26),
-      'outlined-hover': rgba($primary-shade--light, 0.86),
-    ),
-    'input-bottom-line': rgba($primary-shade--light, 0.42),
-    'stepper': (
-      'completed': rgba($primary-shade--light, 0.87),
-      'hover': rgba($primary-shade--light, 0.54),
-    ),
-    'fg-color': $primary-shade--light,
-    'text-color': $primary-shade--light,
-  )
+    $material-light,
+    (
+        'calendar': (
+            'text-color': $primary-shade--light,
+            'past-color': rgba($primary-shade--light, 0.38),
+        ),
+        'code': (
+            'background': rgba($primary-shade--light, 0.05),
+        ),
+        'dividers': rgba($primary-shade--light, 0.12),
+        'text': (
+            'primary': rgba($primary-shade--light, 0.87),
+            'secondary': rgba($primary-shade--light, 0.6),
+            'disabled': rgba($primary-shade--light, 0.38),
+        ),
+        'icons': (
+            'active': rgba($primary-shade--light, 0.54),
+            'inactive': rgba($primary-shade--light, 0.38),
+        ),
+        'inputs': (
+            'box': rgba($primary-shade--light, 0.04),
+            'solo-inverted': rgba($primary-shade--light, 0.06),
+        ),
+        'buttons': (
+            'disabled': rgba($primary-shade--light, 0.26),
+            'focused': rgba($primary-shade--light, 0.12),
+        ),
+        'selection-controls': (
+            'disabled': rgba($primary-shade--light, 0.26),
+            'track': (
+                'inactive': rgba($primary-shade--light, 0.38),
+                'disabled': rgba($primary-shade--light, 0.12),
+            ),
+        ),
+        'slider': (
+            'active': rgba($primary-shade--light, 0.38),
+            'inactive': rgba($primary-shade--light, 0.26),
+            'disabled': rgba($primary-shade--light, 0.26),
+            'discrete': $primary-shade--light,
+        ),
+        'toggle-buttons': (
+            'color': $primary-shade--light,
+        ),
+        'text-fields': (
+            'filled': rgba($primary-shade--light, 0.06),
+            'filled-hover': rgba($primary-shade--light, 0.12),
+            'outlined': rgba($primary-shade--light, 0.38),
+            'outlined-disabled': rgba($primary-shade--light, 0.26),
+            'outlined-hover': rgba($primary-shade--light, 0.86),
+        ),
+        'input-bottom-line': rgba($primary-shade--light, 0.42),
+        'stepper': (
+            'completed': rgba($primary-shade--light, 0.87),
+            'hover': rgba($primary-shade--light, 0.54),
+        ),
+        'fg-color': $primary-shade--light,
+        'text-color': $primary-shade--light,
+    )
 );
 // #endregion
 
@@ -119,57 +121,57 @@ $material-light: map-deep-merge(
 
 // #region Override Light Theme
 $material-light: map-deep-merge(
-  $material-light,
-  (
-    'app-bar': map-get($shades, 'white'),
-    'background': #f4f5fa,
-    'calendar': (
-      'line-color': rgba(93, 89, 98, 0.1),
-      // ! Value of `map-deep-get($material-dark, 'cards')`
-        'outside-background-color': transparent,
-    ),
-    'chips': rgba($primary-shade--light, 0.06),
-    'dividers': rgba($primary-shade--light, 0.14),
-    'input-bottom-line': rgba($primary-shade--light, 0.14),
-    'inputs': (
-      // ! Value of `map-deep-get($material-light, 'text-fields', 'filled')`
-        'solo-inverted': rgba($primary-shade--light, 0.03),
-    ),
-    'table': (
-      'active': rgba($primary-shade--light, 0.08),
-      'hover': rgba($primary-shade--light, 0.04),
-      // 'group': map-get($grey, 'lighten-3'),,,,,,,,,,
-    ),
-    'tabs': rgba($primary-shade--light, 0.76),
-    'text': (
-      'secondary': rgba($primary-shade--light, 0.68),
-    ),
-    'text-fields': (
-      'filled': rgba($primary-shade--light, 0.03),
-      'filled-hover': rgba($primary-shade--light, 0.08),
-      'outlined': rgba($primary-shade--light, 0.22),
-      'outlined-hover': rgba($primary-shade--light, 0.28),
-      'outlined-disabled': rgba($primary-shade--light, 0.22),
-    ),
-    'selection-controls': (
-      'thumb': (
-        'inactive': #fafafa,
-      ),
-    ),
-    'status-bar': (
-      'regular': map-get($shades, 'white'),
-    ),
-    'picker': (
-      'clock': #f5f5f5,
-    ),
-    'icons': (
-      // ! Value of `map-deep-get($material-light, 'text', 'secondary')`
-        'active': rgba($primary-shade--light, 0.68),
-    ),
-    // * New
-      'primary-shade': $primary-shade--light,
-    'shadow-color': $shadow-color--light,
-  )
+    $material-light,
+    (
+        'app-bar': map-get($shades, 'white'),
+        'background': #f4f5fa,
+        'calendar': (
+            'line-color': rgba(93, 89, 98, 0.1),
+            // ! Value of `map-deep-get($material-dark, 'cards')`
+            'outside-background-color': transparent,
+        ),
+        'chips': rgba($primary-shade--light, 0.06),
+        'dividers': rgba($primary-shade--light, 0.14),
+        'input-bottom-line': rgba($primary-shade--light, 0.14),
+        'inputs': (
+            // ! Value of `map-deep-get($material-light, 'text-fields', 'filled')`
+            'solo-inverted': rgba($primary-shade--light, 0.03),
+        ),
+        'table': (
+            'active': rgba($primary-shade--light, 0.08),
+            'hover': rgba($primary-shade--light, 0.04),
+            // 'group': map-get($grey, 'lighten-3'),,,,,,,,,,
+        ),
+        'tabs': rgba($primary-shade--light, 0.76),
+        'text': (
+            'secondary': rgba($primary-shade--light, 0.68),
+        ),
+        'text-fields': (
+            'filled': rgba($primary-shade--light, 0.03),
+            'filled-hover': rgba($primary-shade--light, 0.08),
+            'outlined': rgba($primary-shade--light, 0.22),
+            'outlined-hover': rgba($primary-shade--light, 0.28),
+            'outlined-disabled': rgba($primary-shade--light, 0.22),
+        ),
+        'selection-controls': (
+            'thumb': (
+                'inactive': #fafafa,
+            ),
+        ),
+        'status-bar': (
+            'regular': map-get($shades, 'white'),
+        ),
+        'picker': (
+            'clock': #f5f5f5,
+        ),
+        'icons': (
+            // ! Value of `map-deep-get($material-light, 'text', 'secondary')`
+            'active': rgba($primary-shade--light, 0.68),
+        ),
+        // * New
+        'primary-shade': $primary-shade--light,
+        'shadow-color': $shadow-color--light,
+    )
 );
 // #endregion
 
@@ -182,75 +184,75 @@ $material-light: map-deep-merge(
 // #region Override Dark Theme's Pure Black to Primary Shade
 
 $material-dark: map-deep-merge(
-  $material-dark,
-  (
-    'calendar': (
-      'text-color': $primary-shade--dark,
-      'past-color': rgba($primary-shade--dark, 0.5),
-    ),
-    'code': (
-      'background': rgba($primary-shade--dark, 0.1),
-    ),
-    'kbd': (
-      'color': $primary-shade--dark,
-    ),
-    'dividers': rgba($primary-shade--dark, 0.12),
-    'text': (
-      'theme': $primary-shade--dark,
-      'primary': $primary-shade--dark,
-      'secondary': rgba($primary-shade--dark, 0.7),
-      'disabled': rgba($primary-shade--dark, 0.5),
-    ),
-    'icons': (
-      'active': $primary-shade--dark,
-      'inactive': rgba($primary-shade--dark, 0.5),
-    ),
-    'inputs': (
-      'box': $primary-shade--dark,
-      'solo-inverted': rgba($primary-shade--dark, 0.16),
-      'solo-inverted-focused': $primary-shade--dark,
-    ),
-    'buttons': (
-      'disabled': rgba($primary-shade--dark, 0.3),
-      'focused': rgba($primary-shade--dark, 0.12),
-      'focused-alt': rgba($primary-shade--dark, 0.1),
-    ),
-    'selection-controls': (
-      'disabled': rgba($primary-shade--dark, 0.3),
-      'track': (
-        'inactive': rgba($primary-shade--dark, 0.3),
-        'disabled': rgba($primary-shade--dark, 0.1),
-      ),
-    ),
-    'slider': (
-      'active': rgba($primary-shade--dark, 0.3),
-      'inactive': rgba($primary-shade--dark, 0.2),
-      'disabled': rgba($primary-shade--dark, 0.2),
-      'discrete': $primary-shade--dark,
-    ),
-    'tabs': rgba($primary-shade--dark, 0.6),
-    'toggle-buttons': (
-      'color': $primary-shade--dark,
-    ),
-    'text-fields': (
-      'filled': rgba($primary-shade--dark, 0.08),
-      'filled-hover': rgba($primary-shade--dark, 0.16),
-      'outlined': rgba($primary-shade--dark, 0.24),
-      'outlined-disabled': rgba($primary-shade--dark, 0.16),
-      'outlined-hover': $primary-shade--dark,
-    ),
-    'input-bottom-line': rgba($primary-shade--dark, 0.7),
-    'stepper': (
-      'active': rgba($primary-shade--dark, 1),
-      'completed': rgba($primary-shade--dark, 0.87),
-      'hover': rgba($primary-shade--dark, 0.75),
-    ),
-    'color-picker': (
-      'checkerboard': rgba($primary-shade--dark, 0.12),
-    ),
-    'fg-color': $primary-shade--dark,
-    'text-color': $primary-shade--dark,
-  )
+    $material-dark,
+    (
+        'calendar': (
+            'text-color': $primary-shade--dark,
+            'past-color': rgba($primary-shade--dark, 0.5),
+        ),
+        'code': (
+            'background': rgba($primary-shade--dark, 0.1),
+        ),
+        'kbd': (
+            'color': $primary-shade--dark,
+        ),
+        'dividers': rgba($primary-shade--dark, 0.12),
+        'text': (
+            'theme': $primary-shade--dark,
+            'primary': $primary-shade--dark,
+            'secondary': rgba($primary-shade--dark, 0.7),
+            'disabled': rgba($primary-shade--dark, 0.5),
+        ),
+        'icons': (
+            'active': $primary-shade--dark,
+            'inactive': rgba($primary-shade--dark, 0.5),
+        ),
+        'inputs': (
+            'box': $primary-shade--dark,
+            'solo-inverted': rgba($primary-shade--dark, 0.16),
+            'solo-inverted-focused': $primary-shade--dark,
+        ),
+        'buttons': (
+            'disabled': rgba($primary-shade--dark, 0.3),
+            'focused': rgba($primary-shade--dark, 0.12),
+            'focused-alt': rgba($primary-shade--dark, 0.1),
+        ),
+        'selection-controls': (
+            'disabled': rgba($primary-shade--dark, 0.3),
+            'track': (
+                'inactive': rgba($primary-shade--dark, 0.3),
+                'disabled': rgba($primary-shade--dark, 0.1),
+            ),
+        ),
+        'slider': (
+            'active': rgba($primary-shade--dark, 0.3),
+            'inactive': rgba($primary-shade--dark, 0.2),
+            'disabled': rgba($primary-shade--dark, 0.2),
+            'discrete': $primary-shade--dark,
+        ),
+        'tabs': rgba($primary-shade--dark, 0.6),
+        'toggle-buttons': (
+            'color': $primary-shade--dark,
+        ),
+        'text-fields': (
+            'filled': rgba($primary-shade--dark, 0.08),
+            'filled-hover': rgba($primary-shade--dark, 0.16),
+            'outlined': rgba($primary-shade--dark, 0.24),
+            'outlined-disabled': rgba($primary-shade--dark, 0.16),
+            'outlined-hover': $primary-shade--dark,
+        ),
+        'input-bottom-line': rgba($primary-shade--dark, 0.7),
+        'stepper': (
+            'active': rgba($primary-shade--dark, 1),
+            'completed': rgba($primary-shade--dark, 0.87),
+            'hover': rgba($primary-shade--dark, 0.75),
+        ),
+        'color-picker': (
+            'checkerboard': rgba($primary-shade--dark, 0.12),
+        ),
+        'fg-color': $primary-shade--dark,
+        'text-color': $primary-shade--dark,
+    )
 );
 
 // #endregion
@@ -262,74 +264,74 @@ $material-dark: map-deep-merge(
 // #region Override Dark Theme
 
 $material-dark: map-deep-merge(
-  $material-dark,
-  (
-    // ! Value of `map-deep-get($material-dark, 'cards')`
-      'app-bar': #312d4b,
-    'background': #28243d,
-    'cards': #312d4b,
-    'calendar': (
-      // ! Value of `map-deep-get($material-dark, 'cards')`
-        'background-color': #312d4b,
-      'line-color': rgba(247, 244, 254, 0.14),
-      // ! Value of `map-deep-get($material-dark, 'cards')`
-        'outside-background-color': transparent
-    ),
-    'chips': rgba($primary-shade--dark, 0.06),
-    'dividers': rgba($primary-shade--dark, 0.14),
-    'input-bottom-line': rgba($primary-shade--dark, 0.14),
-    'inputs': (
-      // ! Value of `map-deep-get($material-dark, 'text-fields', 'filled')`
-        'solo-inverted': rgba($primary-shade--dark, 0.03)
-    ),
-    // ! Value of `map-deep-get($material-dark, 'cards')`
-      'navigation-drawer': #312d4b,
-    'table': (
-      'active': rgba($primary-shade--dark, 0.08),
-      'hover': rgba($primary-shade--dark, 0.04),
-      // 'group': map-get($grey, 'lighten-3'),,,,,,,,,,
-    ),
-    'tabs': rgba($primary-shade--dark, 0.76),
-    'text': (
-      // ! It is only used in pagination
-        'theme': map-get($shades, 'white'),
-      'primary': rgba($primary-shade--dark, 0.87),
-      'secondary': rgba($primary-shade--dark, 0.68)
-    ),
-    'text-fields': (
-      'filled': rgba($primary-shade--dark, 0.03),
-      'filled-hover': rgba($primary-shade--dark, 0.08),
-      'outlined': rgba($primary-shade--dark, 0.22),
-      'outlined-hover': rgba($primary-shade--dark, 0.28),
-      'outlined-disabled': rgba($primary-shade--dark, 0.22),
-    ),
-    'selection-controls': (
-      'thumb': (
-        'inactive': #e0e0e0,
-      ),
-    ),
-    'status-bar': (
-      // ! Value of `map-deep-get($material-dark, 'cards')`
-        'regular': #312d4b
-    ),
-    'icons': (
-      // ! Value of `map-deep-get($material-light, 'text', 'secondary')`
-        'active': rgba($primary-shade--dark, 0.68)
-    ),
-    'picker': (
-      // ! Value of `map-deep-get($material-dark, 'background')`
-        'body': #28243d,
-      // ! Value of `map-deep-get($material-dark, 'cards')`
-        'clock': #312d4b,
-      // ! Value of `map-deep-get($material-dark, 'background')`
-        'indeterminateTime': #28243d
-    ),
-    // ! Value of `map-deep-get($material-dark, 'cards')`
-      'bg-color': #312d4b,
-    // * New
-      'primary-shade': $primary-shade--dark,
-    'shadow-color': $shadow-color--dark
-  )
+    $material-dark,
+    (
+        // ! Value of `map-deep-get($material-dark, 'cards')`
+        'app-bar': #312d4b,
+        'background': #28243d,
+        'cards': #312d4b,
+        'calendar': (
+            // ! Value of `map-deep-get($material-dark, 'cards')`
+            'background-color': #312d4b,
+            'line-color': rgba(247, 244, 254, 0.14),
+            // ! Value of `map-deep-get($material-dark, 'cards')`
+            'outside-background-color': transparent
+        ),
+        'chips': rgba($primary-shade--dark, 0.06),
+        'dividers': rgba($primary-shade--dark, 0.14),
+        'input-bottom-line': rgba($primary-shade--dark, 0.14),
+        'inputs': (
+            // ! Value of `map-deep-get($material-dark, 'text-fields', 'filled')`
+            'solo-inverted': rgba($primary-shade--dark, 0.03)
+        ),
+        // ! Value of `map-deep-get($material-dark, 'cards')`
+        'navigation-drawer': #312d4b,
+        'table': (
+            'active': rgba($primary-shade--dark, 0.08),
+            'hover': rgba($primary-shade--dark, 0.04),
+            // 'group': map-get($grey, 'lighten-3'),,,,,,,,,,
+        ),
+        'tabs': rgba($primary-shade--dark, 0.76),
+        'text': (
+            // ! It is only used in pagination
+            'theme': map-get($shades, 'white'),
+            'primary': rgba($primary-shade--dark, 0.87),
+            'secondary': rgba($primary-shade--dark, 0.68)
+        ),
+        'text-fields': (
+            'filled': rgba($primary-shade--dark, 0.03),
+            'filled-hover': rgba($primary-shade--dark, 0.08),
+            'outlined': rgba($primary-shade--dark, 0.22),
+            'outlined-hover': rgba($primary-shade--dark, 0.28),
+            'outlined-disabled': rgba($primary-shade--dark, 0.22),
+        ),
+        'selection-controls': (
+            'thumb': (
+                'inactive': #e0e0e0,
+            ),
+        ),
+        'status-bar': (
+            // ! Value of `map-deep-get($material-dark, 'cards')`
+            'regular': #312d4b
+        ),
+        'icons': (
+            // ! Value of `map-deep-get($material-light, 'text', 'secondary')`
+            'active': rgba($primary-shade--dark, 0.68)
+        ),
+        'picker': (
+            // ! Value of `map-deep-get($material-dark, 'background')`
+            'body': #28243d,
+            // ! Value of `map-deep-get($material-dark, 'cards')`
+            'clock': #312d4b,
+            // ! Value of `map-deep-get($material-dark, 'background')`
+            'indeterminateTime': #28243d
+        ),
+        // ! Value of `map-deep-get($material-dark, 'cards')`
+        'bg-color': #312d4b,
+        // * New
+        'primary-shade': $primary-shade--dark,
+        'shadow-color': $shadow-color--dark
+    )
 );
 
 // #endregion
@@ -349,19 +351,19 @@ $alert-padding: 13px 16px;
 //
 
 $btn-sizes: (
-  'x-small': 20,
-  'small': 36,
-  'default': 52,
-  'large': 63,
-  'x-large': 77,
+    'x-small': 20,
+    'small': 36,
+    'default': 52,
+    'large': 63,
+    'x-large': 77,
 );
 // ! Need to update font size for `x-small` and `x-large`
 $btn-font-sizes: (
-  'x-small': 0.625rem,
-  'small': 0.75rem,
-  'default': 0.875rem,
-  'large': 0.938rem,
-  'x-large': 1rem,
+    'x-small': 0.625rem,
+    'small': 0.75rem,
+    'default': 0.875rem,
+    'large': 0.938rem,
+    'x-large': 1rem,
 );
 $btn-letter-spacing: 0.01875rem;
 $btn-focus-opacity: 0.14;

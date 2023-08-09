@@ -29,39 +29,57 @@
                 <!-- login form -->
                 <v-card-text>
                     <v-form>
-                        <v-text-field
-                            v-model="loginData.email"
-                            outlined
-                            label="Email"
-                            placeholder="john@example.com"
-                            hide-details
-                            class="mb-3"
-                        />
+                        <ValidationObserver ref="obs" v-slot="{ invalid, validated, handleSubmit, validate }">
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="email"
+                                :rules="loginRules.email"
+                                mode="passive"
+                            >
+                                <v-text-field
+                                    v-model="loginData.email"
+                                    outlined
+                                    label="Email"
+                                    placeholder="john@example.com"
+                                    hide-details
+                                    class="mb-3"
+                                />
+                                <span class="error">{{ errors[0] }}</span>
+                            </ValidationProvider>
 
-                        <v-text-field
-                            v-model="loginData.password"
-                            outlined
-                            :type="isPasswordVisible ? 'text' : 'password'"
-                            label="Password"
-                            placeholder="············"
-                            :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
-                            hide-details
-                            @click:append="isPasswordVisible = !isPasswordVisible"
-                        />
+                            <ValidationProvider
+                                v-slot="{ errors }"
+                                name="password"
+                                :rules="loginRules.password"
+                                mode="passive"
+                            >
+                                <v-text-field
+                                    v-model="loginData.password"
+                                    outlined
+                                    :type="isPasswordVisible ? 'text' : 'password'"
+                                    label="Password"
+                                    placeholder="············"
+                                    :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
+                                    hide-details
+                                    @click:append="isPasswordVisible = !isPasswordVisible"
+                                />
+                                <span class="error">{{ errors[0] }}</span>
+                            </ValidationProvider>
 
-                        <div class="d-flex align-center justify-space-between flex-wrap">
-                            <v-checkbox
-                                v-model="loginData.remember"
-                                label="Remember Me"
-                                hide-details
-                                class="me-3 mt-1"
-                            />
+                            <div class="d-flex align-center justify-space-between flex-wrap">
+                                <v-checkbox
+                                    v-model="loginData.remember"
+                                    label="Remember Me"
+                                    hide-details
+                                    class="me-3 mt-1"
+                                />
 
-                            <!-- forgot link -->
-                            <a href="javascript:void(0)" class="mt-1"> Forgot Password? </a>
-                        </div>
+                                <!-- forgot link -->
+                                <a href="javascript:void(0)" class="mt-1"> Forgot Password? </a>
+                            </div>
 
-                        <v-btn block color="primary" class="mt-6" @click="login" type="submit"> Login </v-btn>
+                            <v-btn block color="primary" class="mt-6" @click="login"> Login </v-btn>
+                        </ValidationObserver>
                     </v-form>
                 </v-card-text>
 
@@ -69,8 +87,8 @@
                 <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
                     <p>
                         {{ $t('auth.create_acc_info') }}
-                        <router-link :to="{ name: 'register' }" class="underline font-semibold"
-                            >{{ $t('general.create_one') }}</router-link
+                        <router-link :to="{ name: 'register' }" class="underline font-semibold">
+                            {{ $t('general.create_one') }} </router-link
                         >.
                     </p>
                 </v-card-text>

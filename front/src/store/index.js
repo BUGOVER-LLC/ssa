@@ -5,18 +5,13 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-import actions from './actions';
-import getters from './getters';
-import mutations from './mutations';
-
-const state = {
-    displayLoader: false,
-    loggedUser: localStorage.getItem('loggedUser') || null,
-};
+import authModule from '@/store/modules/auth.module';
+import notifyModule from '@/store/modules/notify.module';
 
 export default new Vuex.Store({
-    state,
-    actions,
-    getters,
-    mutations,
+    strict: true,
+    modules: {
+        authModule,
+        notifyModule,
+    },
 });
