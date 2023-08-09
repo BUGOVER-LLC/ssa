@@ -24,19 +24,19 @@ module.exports = {
             });
         config.resolve.alias.set('@', path.resolve(__dirname, 'src/'));
 
-        // const modules = ['vue-modules', 'vue', 'normal-modules', 'normal'];
-        // modules.forEach(match => {
-        //     config.module
-        //         .rule('sass')
-        //         .oneOf(match)
-        //         .use('sass-loader')
-        //         .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss'"));
-        //     config.module
-        //         .rule('scss')
-        //         .oneOf(match)
-        //         .use('sass-loader')
-        //         .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss';"));
-        // });
+        const modules = ['vue-modules', 'vue', 'normal-modules', 'normal'];
+        modules.forEach(match => {
+            config.module
+                .rule('sass')
+                .oneOf(match)
+                .use('sass-loader')
+                .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss'"));
+            config.module
+                .rule('scss')
+                .oneOf(match)
+                .use('sass-loader')
+                .tap(opt => mergeSassVariables(opt, "'@/assets/style/variables.scss';"));
+        });
     },
 
     devServer: {
@@ -50,12 +50,4 @@ module.exports = {
             port: 8080,
         },
     },
-
-    // css: {
-    //     loaderOptions: {
-    //         style: {
-    //             data: '@import "@/assets/style/main.style"',
-    //         },
-    //     },
-    // },
 };

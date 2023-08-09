@@ -1,5 +1,7 @@
 /** @format */
 
+require('./overrides.scss');
+
 export default {
     theme: {
         themes: {

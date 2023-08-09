@@ -57,19 +57,16 @@ export default {
         login() {
             const self = this;
 
-            // Clear Errors
             Object.keys(this.errors).forEach(key => {
                 self.errors[key] = false;
             });
 
-            // Ajax Request
             httpAxios({
                 url: `${this.$backendUrl}login`,
                 method: 'POST',
                 data: self.loginData,
             }).then(response => {
                 self.$store.commit('LOGGED_USER', response.data);
-
                 self.$router.push({ name: 'adminDashboard' });
             });
         },

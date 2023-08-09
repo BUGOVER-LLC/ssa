@@ -18,7 +18,6 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        dd(111);
         // Check
         $credentials = $request->only(['email', 'password']);
         if (!$token = Auth::attempt($credentials)) {

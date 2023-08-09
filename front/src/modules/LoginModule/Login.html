@@ -16,13 +16,13 @@
                             class="me-3"
                         />
 
-                        <h2 class="text-2xl font-weight-semibold"> Materio </h2>
+                        <h2 class="text-2xl font-weight-semibold"> ktav </h2>
                     </router-link>
                 </v-card-title>
 
                 <!-- title -->
                 <v-card-text>
-                    <p class="text-2xl font-weight-semibold text--primary mb-2"> Welcome to Materio! 👋🏻 </p>
+                    <p class="text-2xl font-weight-semibold text--primary text-center mb-2"> Welcome to ktav! 👋🏻 </p>
                     <p class="mb-2"> Please sign-in to your account and start the adventure </p>
                 </v-card-text>
 
@@ -61,7 +61,7 @@
                             <a href="javascript:void(0)" class="mt-1"> Forgot Password? </a>
                         </div>
 
-                        <v-btn block color="primary" class="mt-6"> Login </v-btn>
+                        <v-btn block color="primary" class="mt-6" @click="login" type="submit"> Login </v-btn>
                     </v-form>
                 </v-card-text>
 
@@ -96,12 +96,13 @@
             class="auth-mask-bg"
             height="173"
             :src="require(`@/assets/img/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`)"
+            alt="bottom-picture"
         />
 
         <!-- tree -->
-        <v-img class="auth-tree" width="247" height="185" src="@/assets/img/misc/tree.png"></v-img>
+        <v-img class="auth-tree" width="247" height="185" src="@/assets/img/misc/tree.png" />
 
         <!-- tree  -->
-        <v-img class="auth-tree-3" width="377" height="289" src="@/assets/img/misc/tree-3.png"></v-img>
+        <v-img class="auth-tree-3" width="377" height="289" src="@/assets/img/misc/tree-3.png" />
     </div>
 </authLayout>

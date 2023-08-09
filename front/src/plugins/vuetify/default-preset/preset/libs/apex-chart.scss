@@ -1,6 +1,6 @@
 // Variable Overrides
-@import 'styles';
-@import 'variables';
+@import '~vuetify/src/styles/styles.sass';
+@import '../variables.scss';
 
 @include theme--child('apexcharts-canvas .apexcharts-text') using ($material) {
   fill: map-deep-get($material, 'text', 'white');
