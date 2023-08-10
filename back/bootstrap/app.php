@@ -74,7 +74,7 @@ $app->configure('jwt');
 |
 */
 $app->middleware([
-    App\Http\Middlewares\Cors::class,
+//    App\Http\Middlewares\Cors::class,
     Nord\Lumen\Cors\CorsMiddleware::class,
 ]);
 

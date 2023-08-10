@@ -82,7 +82,7 @@ export default {
                     });
 
                     httpAxios({
-                        url: `${this.$backendUrl}login`,
+                        url: `${this.$fullUrl}/auth/login`,
                         method: 'POST',
                         data: self.loginData,
                     }).then(response => {

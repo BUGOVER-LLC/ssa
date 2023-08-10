@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Requests;
 
 use App\Http\ApiRequest;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterRequest extends ApiRequest
 {
@@ -15,7 +16,7 @@ class RegisterRequest extends ApiRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::guest();
     }
 
     /**
@@ -26,11 +27,12 @@ class RegisterRequest extends ApiRequest
     public function rules(): array
     {
         return [
-            'first_name' => ['required', 'between:1,20'],
-            'last_name' => ['required', 'between:1,20'],
             'email' => ['required', 'unique:users,email', 'email'],
+            'username' => ['required', 'string', 'max:200', 'min:3', 'unique:users,username'],
             'password' => ['required', 'between:6,255'],
-            'gender' => ['in:m,f']
+            'first_name' => ['nullable', 'between:1,20'],
+            'last_name' => ['nullable', 'between:1,20'],
+            'gender' => ['nullable', 'in:m,f']
         ];
     }
 }

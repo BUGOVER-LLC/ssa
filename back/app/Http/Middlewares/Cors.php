@@ -19,7 +19,7 @@ class Cors
      */
     public function handle($request, Closure $next): mixed
     {
-        $allowedDomains = ['*'];
+        $allowedDomains = ['https://192.168.0.105:8080/', 'https://192.168.0.106:8080/'];
         $origin = $request->server('HTTP_ORIGIN');
 
         if (in_array($origin, $allowedDomains, true)) {

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Requests;
 
 use App\Http\ApiRequest;
+use Illuminate\Support\Facades\Auth;
 
 class LoginRequest extends ApiRequest
 {
@@ -15,7 +16,7 @@ class LoginRequest extends ApiRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return Auth::guest();
     }
 
     /**
@@ -28,6 +29,7 @@ class LoginRequest extends ApiRequest
         return [
             'email' => ['required', 'string', 'max:250', 'min:5'],
             'password' => ['required', 'string', 'max:200', 'min:3'],
+            'username' => ['required', 'string', 'max:200', 'min:3', 'exists:users,username'],
         ];
     }
 }

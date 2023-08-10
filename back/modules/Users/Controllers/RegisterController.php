@@ -17,7 +17,7 @@ class RegisterController extends Controller
      * @param RegisterRequest $request
      * @return JsonResponse
      */
-    public function register(RegisterRequest $request): JsonResponse
+    public function __invoke(RegisterRequest $request): JsonResponse
     {
         // Save to DB
         $user = new User($request->all());

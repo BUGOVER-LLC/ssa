@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Controllers;
 
 use App\Http\Controller;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Modules\Users\Requests\LoginRequest;
 
@@ -14,15 +15,14 @@ class LoginController extends Controller
      * Get a JWT via given credentials.
      *
      * @param LoginRequest $request
-     * @return JSON
+     * @return JsonResponse
      */
-    public function login(LoginRequest $request)
+    public function __invoke(LoginRequest $request): JsonResponse
     {
-        dd(111);
         // Check
         $credentials = $request->only(['email', 'password']);
         if (!$token = Auth::attempt($credentials)) {
-            return response()->json(['errors' => ['login' => [__('auth.failed')]]], 422);
+            return $this->response(['errors' => ['login' => [__('auth.failed')]]], 422);
         }
 
         // Data

@@ -86,7 +86,7 @@ export default {
 
                     // Ajax Request
                     httpAxios({
-                        url: `${this.$backendUrl}register`,
+                        url: `${this.$fullUrl}/auth/register`,
                         method: 'POST',
                         data: self.registerData,
                     }).then(() => {
