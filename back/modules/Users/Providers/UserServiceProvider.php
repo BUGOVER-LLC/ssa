@@ -27,11 +27,9 @@ class UserServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::group([
-            'prefix' => 'v1',
+            'prefix' => env('APP_VERSION'),
             'namespace' => 'Modules\Users\Controllers',
             'middleware' => null,
-        ], function () {
-            $this->loadRoutesFrom(__DIR__ . '/../routes.php');
-        });
+        ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes.php'));
     }
 }

@@ -99,9 +99,9 @@ if ($app->isLocal()) {
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\ModuleServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
-$app->register(Modules\Users\Providers\UserServiceProvider::class);
 
 // Run app!
 return $app;

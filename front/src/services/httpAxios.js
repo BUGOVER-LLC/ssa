@@ -8,14 +8,15 @@ import { FETCH_DISPLAY_LOADER, FETCH_LOGOUT, FETCH_NOTIFY } from '@/store/types/
 
 // Create
 const service = axios.create({
-    baseURL: process.env.VUE_APP_BACKEND_URL,
+    baseURL: process.env.VUE_APP_BACKEND_URL + process.env.VUE_APP_BACKEND_VERSION + '/',
 });
-service.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 // Token
 if (store.getters.getLoggedUser) {
     service.defaults.headers.common.Authorization = `Bearer ${store.getters.getLoggedUser.access_token}`;
 }
+//Cors
+service.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 // Request Interceptor
 service.interceptors.request.use(
@@ -51,12 +52,12 @@ service.interceptors.response.use(
             }
 
             // Errors from backend
-            if (422 == error.response.status) {
+            if (422 === error.response.status) {
                 errors = '';
 
                 for (const errorKey in error.response.data.errors) {
-                    for (let i = 0; i < error.response.data.errors[errorKey].length; i++) {
-                        errors += `${String(error.response.data.errors[errorKey][i])}<br>`;
+                    for (const element of error.response.data.errors[errorKey]) {
+                        errors += `${String(element)}<br>`;
                     }
                 }
             }
@@ -67,7 +68,7 @@ service.interceptors.response.use(
             }
 
             // 404
-            if (404 == error.response.status) {
+            if (404 === error.response.status) {
                 errors = 'Page not found';
             }
         }
