@@ -37,7 +37,6 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var array
      */
     protected $fillable = ['first_name', 'last_name', 'email', 'password', 'gender'];
-
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -50,7 +49,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @return mixed
      */
-    public function getJWTIdentifier()
+    public function getJWTIdentifier(): mixed
     {
         return $this->getKey();
     }
@@ -60,7 +59,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @return array
      */
-    public function getJWTCustomClaims()
+    public function getJWTCustomClaims(): array
     {
         return [];
     }
@@ -70,7 +69,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      *
      * @return array
      */
-    public function getName()
+    public function getName(): array|string
     {
         return $this->first_name . ' ' . $this->last_name;
     }
@@ -78,7 +77,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     /**
      * Define setter for the password field.
      */
-    public function setPasswordAttribute($value)
+    public function setPasswordAttribute($value): void
     {
         $this->attributes['password'] = app('hash')->make($value);
     }

@@ -31,7 +31,7 @@
                     <v-form>
                         <ValidationObserver ref="obs" v-slot="{ invalid, validated, handleSubmit, validate }">
                             <ValidationProvider
-                                v-slot="{ errors }"
+                                v-slot="{ errors, valid }"
                                 name="email"
                                 :rules="loginRules.email"
                                 mode="passive"
@@ -43,12 +43,13 @@
                                     placeholder="john@example.com"
                                     hide-details
                                     class="mb-3"
+                                    :success='valid'
                                 />
                                 <span class="error">{{ errors[0] }}</span>
                             </ValidationProvider>
 
                             <ValidationProvider
-                                v-slot="{ errors }"
+                                v-slot="{ errors, valid }"
                                 name="password"
                                 :rules="loginRules.password"
                                 mode="passive"
@@ -60,6 +61,7 @@
                                     label="Password"
                                     placeholder="············"
                                     :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
+                                    :success='valid'
                                     hide-details
                                     @click:append="isPasswordVisible = !isPasswordVisible"
                                 />

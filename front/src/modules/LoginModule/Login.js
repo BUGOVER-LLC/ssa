@@ -72,20 +72,24 @@ export default {
 
     methods: {
         login() {
-            validate();
-            const self = this;
+            validate().then(result => {
+                console.log(result);
+                if (result && result.valid) {
+                    const self = this;
 
-            Object.keys(this.errors).forEach(key => {
-                self.errors[key] = false;
-            });
+                    Object.keys(this.errors).forEach(key => {
+                        self.errors[key] = false;
+                    });
 
-            httpAxios({
-                url: `${this.$backendUrl}login`,
-                method: 'POST',
-                data: self.loginData,
-            }).then(response => {
-                self.$store.commit('LOGGED_USER', response.data);
-                self.$router.push({ name: 'adminDashboard' });
+                    httpAxios({
+                        url: `${this.$backendUrl}login`,
+                        method: 'POST',
+                        data: self.loginData,
+                    }).then(response => {
+                        self.$store.commit('LOGGED_USER', response.data);
+                        self.$router.push({ name: 'adminDashboard' });
+                    });
+                }
             });
         },
     },

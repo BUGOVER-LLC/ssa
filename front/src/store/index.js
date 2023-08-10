@@ -10,6 +10,8 @@ import notifyModule from '@/store/modules/notify.module';
 
 export default new Vuex.Store({
     strict: true,
+    devtools: true,
+    state: {},
     modules: {
         authModule,
         notifyModule,

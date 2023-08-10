@@ -83,6 +83,9 @@ abstract class ApiRequest extends Request
         throw new ValidationException($this->validator, $this->errorResponse());
     }
 
+    /**
+     * @return JsonResponse|null
+     */
     protected function errorResponse(): ?JsonResponse
     {
         return response()->json([
@@ -91,11 +94,17 @@ abstract class ApiRequest extends Request
         ], $this->statusCode());
     }
 
+    /**
+     * @return string
+     */
     protected function errorMessage(): string
     {
         return 'The given data was invalid.';
     }
 
+    /**
+     * @return int
+     */
     protected function statusCode(): int
     {
         return 422;
@@ -106,7 +115,11 @@ abstract class ApiRequest extends Request
         //
     }
 
-    public function setContainer($app)
+    /**
+     * @param $app
+     * @return void
+     */
+    public function setContainer($app): void
     {
         $this->app = $app;
     }

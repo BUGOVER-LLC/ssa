@@ -2,19 +2,21 @@
 import { FETCH_LOGGED_USER, FETCH_LOGOUT } from '@/store/types/actions.type';
 import { LOGGED_USER, REMOVE_LOGGED_USER } from '@/store/types/mutations.type';
 
+const cookieItem = 'loggedUser';
+
 const initialState = {
-    loggedUser: localStorage.getItem('loggedUser') || null,
+    loggedUser: localStorage.getItem(cookieItem) || null,
 };
 
 export const state = { ...initialState };
 
 export const actions = {
     [FETCH_LOGGED_USER](context, user) {
-        context.commit('LOGGED_USER', user);
+        context.commit(LOGGED_USER, user);
     },
 
     [FETCH_LOGOUT](context) {
-        context.commit('REMOVE_LOGGED_USER');
+        context.commit(REMOVE_LOGGED_USER);
     },
 };
 export const mutations = {
@@ -23,13 +25,14 @@ export const mutations = {
         const expiryDate = new Date();
         user.expiryDate = expiryDate.setTime(now.getTime() + user.expires_in * 1000);
 
-        localStorage.setItem('loggedUser', JSON.stringify(user));
-        state.loggedUser = JSON.stringify(user);
+        const userParse = JSON.stringify(user);
+        localStorage.setItem(cookieItem, userParse);
+        state.loggedUser = userParse;
     },
 
     [REMOVE_LOGGED_USER](state) {
         state.loggedUser = null;
-        localStorage.removeItem('loggedUser');
+        localStorage.removeItem(cookieItem);
     },
 };
 export const getters = {
@@ -43,6 +46,7 @@ export const getters = {
 };
 
 export default {
+    namespaced: true,
     state,
     actions,
     mutations,
