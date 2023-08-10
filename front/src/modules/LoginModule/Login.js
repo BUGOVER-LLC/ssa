@@ -26,6 +26,16 @@ export default {
         };
     },
 
+    watch: {
+        isPasswordVisible(val) {
+            if (val) {
+                setTimeout(() => {
+                    this.isPasswordVisible = false;
+                }, 1000);
+            }
+        },
+    },
+
     data() {
         return {
             isPasswordVisible: false,

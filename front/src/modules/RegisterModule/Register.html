@@ -87,7 +87,7 @@
                                 <template #label>
                                     <div class="d-flex align-center flex-wrap">
                                         <span class="me-2">I agree to</span>
-                                        <a v-model="registerData.agree" href="javascript:void(0)"
+                                        <a class='text-decoration-underline' v-model="registerData.agree" href="javascript:void(0)"
                                             >privacy policy &amp; terms</a
                                         >
                                     </div>
@@ -103,7 +103,7 @@
                 <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
                     <p>
                         {{ $t('auth.login_info') }}
-                        <router-link class="underline font-semibold" :to="{ name: 'login' }">
+                        <router-link class="text-decoration-underline font-semibold" :to="{ name: 'login' }">
                             {{ $t('auth.login') }}</router-link
                         >.
                     </p>
