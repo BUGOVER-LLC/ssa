@@ -27,9 +27,9 @@
                 </v-card-text>
 
                 <!-- login form -->
-                <v-card-text>
-                    <v-form>
-                        <ValidationObserver ref="obs" v-slot="{ invalid, validated, handleSubmit, validate }">
+                <ValidationObserver ref="obs" v-slot="{ invalid, validated, handleSubmit, validate }">
+                    <v-card-text>
+                        <v-form>
                             <ValidationProvider
                                 v-slot="{ errors, valid }"
                                 name="email"
@@ -43,7 +43,7 @@
                                     placeholder="john@example.com"
                                     hide-details
                                     class="mb-3"
-                                    :success='valid'
+                                    :success="valid"
                                 />
                                 <span class="error">{{ errors[0] }}</span>
                             </ValidationProvider>
@@ -61,7 +61,7 @@
                                     label="Password"
                                     placeholder="············"
                                     :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
-                                    :success='valid'
+                                    :success="valid"
                                     hide-details
                                     @click:append="isPasswordVisible = !isPasswordVisible"
                                 />
@@ -80,20 +80,20 @@
                                 <a href="javascript:void(0)" class="mt-1"> Forgot Password? </a>
                             </div>
 
-                            <v-btn block color="primary" class="mt-6" @click="login"> Login </v-btn>
-                        </ValidationObserver>
-                    </v-form>
-                </v-card-text>
+                            <v-btn block color="primary" class="mt-6" @click="handleSubmit(login)"> Login </v-btn>
+                        </v-form>
+                    </v-card-text>
 
-                <!-- create new account  -->
-                <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
-                    <p>
-                        {{ $t('auth.create_acc_info') }}
-                        <router-link :to="{ name: 'register' }" class="underline font-semibold">
-                            {{ $t('general.create_one') }} </router-link
-                        >.
-                    </p>
-                </v-card-text>
+                    <!-- create new account  -->
+                    <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
+                        <p>
+                            {{ $t('auth.create_acc_info') }}
+                            <router-link :to="{ name: 'register' }" class="underline font-semibold">
+                                {{ $t('general.create_one') }} </router-link
+                            >.
+                        </p>
+                    </v-card-text>
+                </ValidationObserver>
 
                 <!-- divider -->
                 <v-card-text class="d-flex align-center mt-2">

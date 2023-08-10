@@ -49,5 +49,12 @@ module.exports = {
                 : '',
             port: 8080,
         },
+        proxy: {
+            '': {
+                target: process.env.VUE_APP_BACKEND_URL,
+                ws: true,
+                changeOrigin: false,
+            },
+        },
     },
 };

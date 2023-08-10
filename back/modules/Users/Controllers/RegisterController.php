@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Controllers;
 
 use App\Http\Controller;
+use Illuminate\Http\JsonResponse;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;
 
@@ -14,9 +15,9 @@ class RegisterController extends Controller
      * Store a new user.
      *
      * @param RegisterRequest $request
-     * @return JSON
+     * @return JsonResponse
      */
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request): JsonResponse
     {
         // Save to DB
         $user = new User($request->all());

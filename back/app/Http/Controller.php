@@ -18,9 +18,9 @@ class Controller extends BaseController
      * @param int $statusCode
      * @param array $headers
      *
-     * @return Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
-    protected function response($data, $statusCode = 200, array $headers = [])
+    protected function response($data, $statusCode = 200, array $headers = []): JsonResponse
     {
         if ($data instanceof Arrayable && !$data instanceof JsonSerializable) {
             $data = $data->toArray();

@@ -28,49 +28,75 @@
 
                 <!-- login form -->
                 <v-card-text>
-                    <v-form>
-                        <v-text-field
-                            v-model="registerData.username"
-                            outlined
-                            label="Username"
-                            placeholder="JohnDoe"
-                            hide-details
-                            class="mb-3"
-                        />
+                    <ValidationObserver ref="obs" v-slot="{ invalid, validated, handleSubmit, validate }">
+                        <v-form>
+                            <ValidationProvider
+                                v-slot="{ errors, valid }"
+                                name="username"
+                                :rules="loginRules.username"
+                                mode="passive"
+                            >
+                                <v-text-field
+                                    v-model="registerData.username"
+                                    outlined
+                                    label="Username"
+                                    placeholder="JohnDoe"
+                                    hide-details
+                                    class="mb-3"
+                                />
+                                <span class="error--text">{{ errors[0] }}</span>
+                            </ValidationProvider>
 
-                        <v-text-field
-                            v-model="registerData.email"
-                            outlined
-                            label="Email"
-                            placeholder="john@example.com"
-                            hide-details
-                            class="mb-3"
-                        />
+                            <ValidationProvider
+                                v-slot="{ errors, valid }"
+                                name="email"
+                                :rules="loginRules.email"
+                                mode="passive"
+                            >
+                                <v-text-field
+                                    v-model="registerData.email"
+                                    outlined
+                                    label="Email"
+                                    placeholder="john@example.com"
+                                    hide-details
+                                    class="mb-3"
+                                />
+                                <span class="error--text">{{ errors[0] }}</span>
+                            </ValidationProvider>
 
-                        <v-text-field
-                            v-model="registerData.password"
-                            outlined
-                            :type="isPasswordVisible ? 'text' : 'password'"
-                            label="Password"
-                            placeholder="············"
-                            :append-icon="isPasswordVisible ? icons.mdiEyeOutline : icons.mdiEyeOffOutline"
-                            hide-details
-                            @click:append="isPasswordVisible = !isPasswordVisible"
-                        />
+                            <ValidationProvider
+                                v-slot="{ errors, valid }"
+                                name="password"
+                                :rules="loginRules.password"
+                                mode="passive"
+                            >
+                                <v-text-field
+                                    v-model="registerData.password"
+                                    outlined
+                                    :type="isPasswordVisible ? 'text' : 'password'"
+                                    label="Password"
+                                    placeholder="············"
+                                    :append-icon="isPasswordVisible ? icons.mdiEyeOutline : icons.mdiEyeOffOutline"
+                                    hide-details
+                                    @click:append="isPasswordVisible = !isPasswordVisible"
+                                />
+                                <span class="error--text">{{ errors[0] }}</span>
+                            </ValidationProvider>
 
-                        <v-checkbox hide-details class="mt-1">
-                            <template #label>
-                                <div class="d-flex align-center flex-wrap">
-                                    <span class="me-2">I agree to</span>
-                                    <a v-model="registerData.agree" href="javascript:void(0)"
-                                        >privacy policy &amp; terms</a
-                                    >
-                                </div>
-                            </template>
-                        </v-checkbox>
+                            <v-checkbox hide-details class="mt-1">
+                                <template #label>
+                                    <div class="d-flex align-center flex-wrap">
+                                        <span class="me-2">I agree to</span>
+                                        <a v-model="registerData.agree" href="javascript:void(0)"
+                                            >privacy policy &amp; terms</a
+                                        >
+                                    </div>
+                                </template>
+                            </v-checkbox>
 
-                        <v-btn block color="primary" class="mt-6"> Sign Up </v-btn>
-                    </v-form>
+                            <v-btn block color="primary" class="mt-6" @click="handleSubmit(register)"> Sign Up </v-btn>
+                        </v-form>
+                    </ValidationObserver>
                 </v-card-text>
 
                 <!-- create new account  -->

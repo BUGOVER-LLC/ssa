@@ -5,6 +5,7 @@ import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-va
 import { email, max, min, required } from 'vee-validate/dist/rules';
 
 import httpAxios from '@/services/httpAxios.js';
+import { FETCH_LOGGED_USER } from '@/store/types/actions.type';
 
 extend('email', email);
 extend('min', min);
@@ -73,7 +74,6 @@ export default {
     methods: {
         login() {
             validate().then(result => {
-                console.log(result);
                 if (result && result.valid) {
                     const self = this;
 
@@ -86,8 +86,8 @@ export default {
                         method: 'POST',
                         data: self.loginData,
                     }).then(response => {
-                        self.$store.commit('LOGGED_USER', response.data);
-                        self.$router.push({ name: 'adminDashboard' });
+                        self.$store.dispatch(FETCH_LOGGED_USER, response.data).then();
+                        self.$router.push({ name: 'adminDashboard' }).then();
                     });
                 }
             });
