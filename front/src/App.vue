@@ -1,7 +1,7 @@
 <!-- @format -->
 
 <template>
-    <v-app>
+    <v-app class="app-content">
         <loader-component v-if="displayLoader" />
         <v-main>
             <router-view />
@@ -35,3 +35,9 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.app-content {
+    background-color: #28243d !important;
+}
+</style>
