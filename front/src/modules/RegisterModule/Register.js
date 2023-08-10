@@ -1,6 +1,6 @@
 /** @format */
 
-import { mdiEyeOffOutline, mdiEyeOutline, mdiFacebook, mdiGithub, mdiGoogle, mdiTwitter } from '@mdi/js';
+import { mdiApple, mdiEyeOffOutline, mdiEyeOutline, mdiGithub, mdiGoogle } from '@mdi/js';
 
 import httpAxios from '@/services/httpAxios.js';
 import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-validate';
@@ -41,24 +41,19 @@ export default {
             },
             socialLink: [
                 {
-                    icon: mdiFacebook,
-                    color: '#4267b2',
-                    colorInDark: '#4267b2',
-                },
-                {
-                    icon: mdiTwitter,
-                    color: '#1da1f2',
-                    colorInDark: '#1da1f2',
-                },
-                {
-                    icon: mdiGithub,
-                    color: '#272727',
-                    colorInDark: '#fff',
+                    icon: mdiApple,
+                    color: '#dfe1e3',
+                    colorInDark: '#dfe1e3',
                 },
                 {
                     icon: mdiGoogle,
                     color: '#db4437',
                     colorInDark: '#db4437',
+                },
+                {
+                    icon: mdiGithub,
+                    color: '#272727',
+                    colorInDark: '#fff',
                 },
             ],
             icons: {

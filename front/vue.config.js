@@ -41,11 +41,11 @@ module.exports = {
 
     devServer: {
         https: {
-            key: fs.existsSync(__dirname + '/.certs/ca.homestead.homestead.key')
-                ? fs.readFileSync(__dirname + '/.certs/ca.homestead.homestead.key')
+            key: fs.existsSync(__dirname + process.env.CERT_KEY)
+                ? fs.readFileSync(__dirname + process.env.CERT_KEY)
                 : '',
-            cert: fs.existsSync(__dirname + '/.certs/ca.homestead.homestead.crt')
-                ? fs.readFileSync(__dirname + '/.certs/ca.homestead.homestead.crt')
+            cert: fs.existsSync(__dirname + process.env.CERT_CRT)
+                ? fs.readFileSync(__dirname + process.env.CERT_CRT)
                 : '',
             port: 8080,
         },
