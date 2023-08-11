@@ -14,7 +14,8 @@
     "nordsoftware/lumen-cors": "^3.1",
     "pda/pheanstalk": "^5.0.0-rc.1",
     "swooletw/laravel-swoole": "^2.13.0",
-    "tymon/jwt-auth": "^2.0.0"
+    "tymon/jwt-auth": "^2.0.0",
+    "illuminate/mail": "^10.0.0"
   },
   "require-dev": {
     "flipbox/lumen-generator": "^9.2.0",

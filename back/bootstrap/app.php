@@ -62,8 +62,11 @@ $app->configure('app');
 $app->configure('jwt');
 $app->configure('auth');
 $app->configure('cors');
+$app->configure('mail');
+$app->configure('view');
 $app->configure('queue');
 $app->configure('database');
+$app->configure('filesystem');
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +106,7 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
 
 // Run app!
 return $app;

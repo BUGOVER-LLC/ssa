@@ -6,8 +6,10 @@ namespace Modules\Users\Controllers;
 
 use App\Http\Controller;
 use Exception;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;
 use RuntimeException;
@@ -52,7 +54,15 @@ class RegisterController extends Controller
             throw new RuntimeException($exception->getMessage(), 500);
         }
 
+        $user = $this->user->latest()->first();
+
         // Final Response
+        Mail::send(
+            'accept-code',
+            ['code' => Str::random(6)],
+            static fn(Message $message) => $message->to('test@mail.com')->from($user->email)->subject('Accept code')
+        );
+
         return $this->response(['message' => __('general_words.process_success')], 201);
     }
 }
