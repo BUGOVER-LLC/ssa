@@ -59,6 +59,8 @@ $app->singleton(
 |
 */
 $app->configure('app');
+$app->configure('queue');
+$app->configure('database');
 $app->configure('auth');
 $app->configure('cors');
 $app->configure('jwt');
