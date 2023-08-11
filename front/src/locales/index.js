@@ -15,6 +15,7 @@ const messages = {
         auth: require('./en/auth.json'),
         notFound: require('./en/404-not-found.json'),
     },
+    ru: {},
 
     // Other languages...
 };

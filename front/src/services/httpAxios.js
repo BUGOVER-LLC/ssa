@@ -15,18 +15,19 @@ const service = axios.create({
 if (store.getters.getLoggedUser) {
     service.defaults.headers.common.Authorization = `Bearer ${store.getters.getLoggedUser.access_token}`;
 }
+
 //Cors
 service.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 // Request Interceptor
 service.interceptors.request.use(
     config => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, true);
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, true).then();
 
         return config;
     },
     error => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false);
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
 
         return Promise.reject(error);
     },
@@ -35,12 +36,12 @@ service.interceptors.request.use(
 // Response Interceptor
 service.interceptors.response.use(
     response => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false);
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
 
         return response;
     },
     error => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false);
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
 
         let errors = error;
 
@@ -48,7 +49,7 @@ service.interceptors.response.use(
             // Session Expired
             if (401 === error.response.status) {
                 errors = error.response.data.message;
-                store.dispatch(`authModule/${FETCH_LOGOUT}`);
+                store.dispatch(`authModule/${FETCH_LOGOUT}`).then();
             }
 
             // Errors from backend
@@ -73,12 +74,14 @@ service.interceptors.response.use(
             }
         }
 
-        store.dispatch(`notifyModule/${FETCH_NOTIFY}`, {
-            group: 'notify',
-            type: 'error',
-            title: 'Error',
-            text: String(errors),
-        });
+        store
+            .dispatch(`notifyModule/${FETCH_NOTIFY}`, {
+                group: 'notify',
+                type: 'error',
+                title: 'Error',
+                text: String(errors),
+            })
+            .then();
         return Promise.reject(error);
     },
 );
