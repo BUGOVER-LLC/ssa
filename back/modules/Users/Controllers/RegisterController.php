@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Users\Controllers;
 
 use App\Http\Controller;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;
@@ -38,7 +39,11 @@ class RegisterController extends Controller
         }
 
         // Save to DB
-        $this->user->insert($request_data);
+        try {
+            $this->user->insert($request_data);
+        } catch (Exception $exception) {
+            throw new RuntimeException('Server Error', 423);
+        }
 
         // Final Response
         return $this->response(['message' => __('general_words.process_success')], 201);
