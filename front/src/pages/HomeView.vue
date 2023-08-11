@@ -2,7 +2,7 @@
 
 <template> </template>
 
-<script>
+<script lang="js">
 export default {
     name: 'Home',
 
