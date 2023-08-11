@@ -7,7 +7,7 @@ declare(strict_types=1);
 $router = $this->app['router'];
 
 // Auth
-$router->group(['namespace' => '\Modules\Users\Controllers', 'prefix' => 'auth'], fn() => [
+$router->group(['namespace' => '\Modules\Users\Controllers', 'middleware' => 'guest', 'prefix' => 'auth'], fn() => [
     $router->post('login', 'LoginController'),
     $router->post('register', 'RegisterController'),
 ]);

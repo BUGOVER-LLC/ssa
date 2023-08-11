@@ -3,7 +3,7 @@
 <authLayout>
     <div class="auth-wrapper auth-v1">
         <div class="auth-inner">
-            <v-card class="auth-card rounded-lg" elevation='8'>
+            <v-card class="auth-card rounded-lg" elevation="8">
                 <!-- logo -->
                 <v-card-title class="d-flex align-center justify-center py-7">
                     <router-link to="/" class="d-flex align-center">
@@ -63,7 +63,23 @@
                                     :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
                                     :success="valid"
                                     hide-details
+                                    class="mb-3"
                                     @click:append="isPasswordVisible = !isPasswordVisible"
+                                />
+                                <span class="error">{{ errors[0] }}</span>
+                            </ValidationProvider>
+
+                            <ValidationProvider
+                                v-slot="{ errors, valid }"
+                                name="password"
+                                :rules="loginRules.password"
+                                mode="passive"
+                            >
+                                <v-select
+                                    outlined
+                                    hide-details
+                                    label="Select farm"
+                                    :menu-props="{ bottom: true, offsetY: true }"
                                 />
                                 <span class="error">{{ errors[0] }}</span>
                             </ValidationProvider>
@@ -77,7 +93,9 @@
                                 />
 
                                 <!-- forgot link -->
-                                <a href="javascript:void(0)" class="mt-1 text-decoration-underline"> Forgot Password? </a>
+                                <a href="javascript:void(0)" class="mt-1 text-decoration-underline">
+                                    Forgot Password?
+                                </a>
                             </div>
 
                             <v-btn block color="primary" class="mt-6" @click="handleSubmit(login)"> Login </v-btn>
