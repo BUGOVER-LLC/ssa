@@ -18,5 +18,5 @@ $router->group(['middleware' => 'auth'], fn() => [
     $router->get('users/{id:[0-9]+}', 'UserController@get'),
     $router->post('users', 'UserController@create'),
     $router->put('users', 'UserController@update'),
-    $router->delete('users', 'UserController@delete'),``
+    $router->delete('users', 'UserController@delete'),
 ]);
