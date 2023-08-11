@@ -29,7 +29,15 @@ abstract class ApiRequest extends Request
      */
     public function validated(): array
     {
+        $this->handler();
         return $this->validator->validated();
+    }
+
+    private function handler()
+    {
+        if (!$this->validator) {
+            $this->validate();
+        }
     }
 
     /**

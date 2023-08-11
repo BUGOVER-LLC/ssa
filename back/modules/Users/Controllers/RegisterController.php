@@ -6,6 +6,7 @@ namespace Modules\Users\Controllers;
 
 use App\Http\Controller;
 use Exception;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;
