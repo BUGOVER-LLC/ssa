@@ -22,7 +22,7 @@ class LoginController extends Controller
         // Check
         $credentials = $request->only(['email', 'password']);
         if (!$token = Auth::attempt($credentials)) {
-            return $this->response(['errors' => ['login' => [__('auth.failed')]]], 422);
+            return $this->response(['errors' => ['login' => [__('auth.failed')]]], 423);
         }
 
         // Data

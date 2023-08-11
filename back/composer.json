@@ -11,8 +11,9 @@
   "require": {
     "php": ">=8.2.3",
     "laravel/lumen-framework": "^10.0.0",
-    "pda/pheanstalk": "^5.0.0-rc.1",
     "nordsoftware/lumen-cors": "^3.1",
+    "pda/pheanstalk": "^5.0.0-rc.1",
+    "swooletw/laravel-swoole": "^2.13.0",
     "tymon/jwt-auth": "^2.0.0"
   },
   "require-dev": {
@@ -31,6 +32,9 @@
     "classmap": [
       "database/seeds",
       "database/factories"
+    ],
+    "files": [
+      "app/__helpers.php"
     ],
     "psr-4": {
       "Modules\\": "modules/",

@@ -31,18 +31,24 @@ class RegisterController extends Controller
     public function __invoke(RegisterRequest $request): JsonResponse
     {
         $request_data = $request->validated();
+        $insert_data = [];
 
-        foreach ($request_data as $item) {
-            if (!in_array($item, $this->user->getFillable(), true)) {
-                throw new RuntimeException("Invalid Data '$item'", 423);
+        foreach ($request_data as $item => $value) {
+            if (in_array($item, $this->user->getFillable(), true)) {
+                $insert_data[$item] = $value;
             }
+        }
+
+        if (empty($insert_data)) {
+            throw new RuntimeException(__('auth.failed_reg_data'), 502);
         }
 
         // Save to DB
         try {
-            $this->user->insert($request_data);
+            $this->user->create($insert_data);
         } catch (Exception $exception) {
-            throw new RuntimeException('Server Error', 423);
+            logging($exception, 'error');
+            throw new RuntimeException($exception->getMessage(), 500);
         }
 
         // Final Response

@@ -59,11 +59,11 @@ $app->singleton(
 |
 */
 $app->configure('app');
-$app->configure('queue');
-$app->configure('database');
+$app->configure('jwt');
 $app->configure('auth');
 $app->configure('cors');
-$app->configure('jwt');
+$app->configure('queue');
+$app->configure('database');
 
 /*
 |--------------------------------------------------------------------------
@@ -76,7 +76,6 @@ $app->configure('jwt');
 |
 */
 $app->middleware([
-//    App\Http\Middlewares\Cors::class,
     Nord\Lumen\Cors\CorsMiddleware::class,
 ]);
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http;
 
 use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\JsonResponse;
@@ -14,20 +15,27 @@ use Laravel\Lumen\Http\Request;
 abstract class ApiRequest extends Request
 {
     /**
-     * @var Container
+     * @var Container|null
      */
-    protected $app;
+    protected ?Container $app = null;
 
     /**
-     * @var Validator
+     * @var Validator|null
      */
-    protected $validator;
+    protected ?Validator $validator = null;
 
+    /**
+     * @return array
+     */
     public function validated(): array
     {
         return $this->validator->validated();
     }
 
+    /**
+     * @return void
+     * @throws BindingResolutionException
+     */
     public function validate(): void
     {
         if (false === $this->authorize()) {
@@ -46,11 +54,17 @@ abstract class ApiRequest extends Request
         $this->validationPassed();
     }
 
+    /**
+     * @return bool
+     */
     protected function authorize(): bool
     {
         return true;
     }
 
+    /**
+     * @return void
+     */
     protected function failedAuthorization(): void
     {
         throw new AuthorizationException();
@@ -66,6 +80,9 @@ abstract class ApiRequest extends Request
         // no default action
     }
 
+    /**
+     * @return array
+     */
     abstract protected function rules(): array;
 
     protected function messages(): array
@@ -73,11 +90,17 @@ abstract class ApiRequest extends Request
         return [];
     }
 
+    /**
+     * @return array
+     */
     protected function attributes(): array
     {
         return [];
     }
 
+    /**
+     * @return void
+     */
     protected function validationFailed(): void
     {
         throw new ValidationException($this->validator, $this->errorResponse());
@@ -110,6 +133,9 @@ abstract class ApiRequest extends Request
         return 422;
     }
 
+    /**
+     * @return void
+     */
     protected function validationPassed()
     {
         //
