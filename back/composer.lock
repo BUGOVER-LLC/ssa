@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e3ea400a4046591fb074a4be4cf8fa89",
+    "content-hash": "6262dc024267eec8ea6280e3353d04cd",
     "packages": [
         {
             "name": "brick/math",
@@ -2821,6 +2821,72 @@
                 }
             ],
             "time": "2023-02-08T01:06:31+00:00"
+        },
+        {
+            "name": "pda/pheanstalk",
+            "version": "v5.0.0-rc.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pheanstalk/pheanstalk.git",
+                "reference": "80fce7eeb774e1a1ce7c5276181b47fbf08fc838"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pheanstalk/pheanstalk/zipball/80fce7eeb774e1a1ce7c5276181b47fbf08fc838",
+                "reference": "80fce7eeb774e1a1ce7c5276181b47fbf08fc838",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=8.1.0"
+            },
+            "require-dev": {
+                "captainhook/plugin-composer": "^5.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpstan/phpstan-strict-rules": "^1.1",
+                "phpunit/phpunit": "^10",
+                "ramsey/conventional-commits": "^1.2",
+                "symplify/easy-coding-standard": "^11",
+                "vimeo/psalm": "^5"
+            },
+            "suggest": {
+                "ext-sockets": "Socket implementation works best for long running processes"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Pheanstalk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Annesley",
+                    "email": "paul@annesley.cc",
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Sam Mousa",
+                    "email": "sam@mousa.nl",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "PHP client for beanstalkd queue",
+            "homepage": "https://github.com/pheanstalk/pheanstalk",
+            "keywords": [
+                "beanstalkd"
+            ],
+            "support": {
+                "issues": "https://github.com/pheanstalk/pheanstalk/issues",
+                "source": "https://github.com/pheanstalk/pheanstalk/tree/v5.0.0-rc.1"
+            },
+            "time": "2023-08-07T14:05:42+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7727,67 +7793,6 @@
                 }
             ],
             "time": "2023-08-04T06:48:08+00:00"
-        },
-        {
-            "name": "predis/predis",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/predis/predis.git",
-                "reference": "33b70b971a32b0d28b4f748b0547593dce316e0d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/predis/predis/zipball/33b70b971a32b0d28b4f748b0547593dce316e0d",
-                "reference": "33b70b971a32b0d28b4f748b0547593dce316e0d",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2 || ^8.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.3",
-                "phpstan/phpstan": "^1.9",
-                "phpunit/phpunit": "^8.0 || ~9.4.4"
-            },
-            "suggest": {
-                "ext-relay": "Faster connection with in-memory caching (>=0.6.2)"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Predis\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Till Krüss",
-                    "homepage": "https://till.im",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "A flexible and feature-complete Redis client for PHP.",
-            "homepage": "http://github.com/predis/predis",
-            "keywords": [
-                "nosql",
-                "predis",
-                "redis"
-            ],
-            "support": {
-                "issues": "https://github.com/predis/predis/issues",
-                "source": "https://github.com/predis/predis/tree/v2.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/tillkruss",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-06-14T10:37:31+00:00"
         },
         {
             "name": "psr/cache",
