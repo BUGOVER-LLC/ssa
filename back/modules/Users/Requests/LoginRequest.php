@@ -14,7 +14,7 @@ class LoginRequest extends ApiRequest
      *
      * @return bool
      */
-    public function authorize(): bool
+    protected function authorize(): bool
     {
         return Auth::guest();
     }
@@ -24,7 +24,7 @@ class LoginRequest extends ApiRequest
      *
      * @return array
      */
-    public function rules(): array
+    protected function rules(): array
     {
         return [
             'email' => ['required_if:username', 'string', 'max:250', 'min:5', 'exists:users,email'],

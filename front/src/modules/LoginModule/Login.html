@@ -69,21 +69,6 @@
                                 <span class="error">{{ errors[0] }}</span>
                             </ValidationProvider>
 
-                            <ValidationProvider
-                                v-slot="{ errors, valid }"
-                                name="password"
-                                :rules="loginRules.password"
-                                mode="passive"
-                            >
-                                <v-select
-                                    outlined
-                                    hide-details
-                                    label="Select farm"
-                                    :menu-props="{ bottom: true, offsetY: true }"
-                                />
-                                <span class="error">{{ errors[0] }}</span>
-                            </ValidationProvider>
-
                             <div class="d-flex align-center justify-space-between flex-wrap">
                                 <v-checkbox
                                     v-model="loginData.remember"
