@@ -28,7 +28,6 @@ class LoginRequest extends ApiRequest
     {
         return [
             'email' => ['required', 'string', 'max:250', 'min:5', 'exists:users,email'],
-            'username' => ['required', 'string', 'max:200', 'min:3', 'exists:users,username'],
             'password' => ['required', 'string', 'max:200', 'min:3'],
         ];
     }

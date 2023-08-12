@@ -11,6 +11,8 @@ use Modules\Users\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
+    private const CREDENTIALS = ['email', 'password'];
+
     /**
      * Get a JWT via given credentials.
      *
@@ -20,12 +22,10 @@ class LoginController extends Controller
     public function __invoke(LoginRequest $request): JsonResponse
     {
         // Check
-        $credentials = $request->only(['email', 'password']);
-        if (!$token = Auth::attempt($credentials)) {
+        if (!$token = Auth::attempt(self::CREDENTIALS)) {
             return $this->response(['errors' => ['login' => [__('auth.failed')]]], 423);
         }
 
-        // Data
         $data = [
             'token' => $token,
             'token_type' => 'bearer',
@@ -34,7 +34,6 @@ class LoginController extends Controller
         $user = Auth::user()->toArray();
         $data = array_merge($data, $user);
 
-        // Final Response
         return $this->response($data);
     }
 }
