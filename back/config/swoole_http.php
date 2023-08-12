@@ -16,8 +16,8 @@ return [
         'port' => env('SWOOLE_HTTP_PORT', '1215'),
         'public_path' => base_path('public'),
         // Determine if to use swoole to respond request for static files
-        'handle_static_files' => env('SWOOLE_HANDLE_STATIC', true),
-        'access_log' => env('SWOOLE_HTTP_ACCESS_LOG', false),
+        'handle_static_files' => (bool)env('SWOOLE_HANDLE_STATIC', true),
+        'access_log' => (bool)env('SWOOLE_HTTP_ACCESS_LOG', false),
         // You must add --enable-openssl while compiling Swoole
         // Put `SWOOLE_SOCK_TCP | SWOOLE_SSL` if you want to enable SSL
         'socket_type' => SWOOLE_SOCK_TCP,
@@ -25,7 +25,7 @@ return [
         'options' => [
             'pid_file' => env('SWOOLE_HTTP_PID_FILE', base_path('storage/logs/swoole_http.pid')),
             'log_file' => env('SWOOLE_HTTP_LOG_FILE', base_path('storage/logs/swoole_http.log')),
-            'daemonize' => env('SWOOLE_HTTP_DAEMONIZE', false),
+            'daemonize' => (bool)env('SWOOLE_HTTP_DAEMONIZE', false),
             // Normally this value should be 1~4 times larger according to your cpu cores.
             'reactor_num' => env('SWOOLE_HTTP_REACTOR_NUM', swoole_cpu_num()),
             'worker_num' => env('SWOOLE_HTTP_WORKER_NUM', swoole_cpu_num()),
@@ -52,7 +52,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'websocket' => [
-        'enabled' => env('SWOOLE_HTTP_WEBSOCKET', false),
+        'enabled' => (bool)env('SWOOLE_HTTP_WEBSOCKET', false),
     ],
 
     /*
@@ -61,10 +61,10 @@ return [
     |--------------------------------------------------------------------------
     */
     'hot_reload' => [
-        'enabled' => env('SWOOLE_HOT_RELOAD_ENABLE', true),
-        'recursively' => env('SWOOLE_HOT_RELOAD_RECURSIVELY', true),
+        'enabled' => (bool)env('SWOOLE_HOT_RELOAD_ENABLE', true),
+        'recursively' => (bool)env('SWOOLE_HOT_RELOAD_RECURSIVELY', true),
         'directory' => env('SWOOLE_HOT_RELOAD_DIRECTORY', base_path()),
-        'log' => env('SWOOLE_HOT_RELOAD_LOG', true),
+        'log' => (bool)env('SWOOLE_HOT_RELOAD_LOG', true),
         'filter' => env('SWOOLE_HOT_RELOAD_FILTER', '.php'),
     ],
 

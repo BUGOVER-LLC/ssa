@@ -101,13 +101,13 @@ if ($app->isLocal()) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 }
 
-$app->register(SwooleTW\Http\LumenServiceProvider::class);
 $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
+$app->register(SwooleTW\Http\LumenServiceProvider::class);
 
 // Run app!
 return $app;

@@ -11,8 +11,6 @@ use Symfony\Component\Mime\Email;
 
 class SendEmail extends Email
 {
-    private Mailer $mailer;
-
     /**
      * @return void
      * @throws TransportExceptionInterface
@@ -20,8 +18,8 @@ class SendEmail extends Email
     public function send(): void
     {
         $transport = Transport::fromDsn(env('MAILER_DSN'));
-        $this->mailer = new Mailer($transport);
+        $mailer = new Mailer($transport);
 
-        $this->mailer->send($this);
+        $mailer->send($this);
     }
 }
