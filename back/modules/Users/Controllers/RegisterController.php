@@ -4,24 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\Users\Controllers;
 
+use App\Core\SendEmail;
 use App\Http\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;
 use RuntimeException;
-
-use function in_array;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class RegisterController extends Controller
 {
     /**
      * @param User $user
+     * @param SendEmail $sendEmail
      */
-    public function __construct(private readonly User $user)
+    public function __construct(private readonly User $user, private readonly SendEmail $sendEmail)
     {
     }
 
@@ -30,6 +29,7 @@ class RegisterController extends Controller
      *
      * @param RegisterRequest $request
      * @return JsonResponse
+     * @throws TransportExceptionInterface
      */
     public function __invoke(RegisterRequest $request): JsonResponse
     {
@@ -37,7 +37,7 @@ class RegisterController extends Controller
         $insert_data = [];
 
         foreach ($request_data as $item => $value) {
-            if (in_array($item, $this->user->getFillable(), true)) {
+            if (\in_array($item, $this->user->getFillable(), true)) {
                 $insert_data[$item] = $value;
             }
         }
@@ -55,13 +55,14 @@ class RegisterController extends Controller
         }
 
         $user = $this->user->latest()->first();
+        $code = Str::random(6);
 
-        // Final Response
-        Mail::send(
-            'accept-code',
-            ['code' => Str::random(6)],
-            static fn(Message $message) => $message->to('test@mail.com')->from($user->email)->subject('Accept code')
-        );
+        $this->sendEmail
+            ->from('cewfewf@mail.com')
+            ->to($user->email)
+            ->html("<p>$code</p>")
+            ->subject('accept code')
+            ->send();
 
         return $this->response(['message' => __('general_words.process_success')], 201);
     }
