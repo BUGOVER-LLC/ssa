@@ -7,7 +7,6 @@ namespace App\Core;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;
-use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 class SendEmail extends Email

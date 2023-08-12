@@ -8,6 +8,7 @@ use App\Core\SendEmail;
 use App\Http\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Bus;
 use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Requests\RegisterRequest;

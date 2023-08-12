@@ -41,8 +41,8 @@ return [
             // Enable coroutine send
             'send_yield' => true,
             // You must add --enable-openssl while compiling Swoole
-            'ssl_cert_file' => null,
-            'ssl_key_file' => null,
+            'ssl_cert_file' => '/etc/ssl/certs/maining.api.loc.crt',
+            'ssl_key_file' => '/etc/ssl/certs/maining.api.loc.key',
         ],
     ],
 
