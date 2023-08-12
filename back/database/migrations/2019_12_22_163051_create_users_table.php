@@ -13,10 +13,11 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('setting_id');
             $table->string('first_name')->default('');
             $table->string('last_name')->default('');
             $table->string('username');
@@ -28,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->string('role')->nullable();
             $table->timestamp('banned_until')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -36,7 +38,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down(): void
     {
     }
 }

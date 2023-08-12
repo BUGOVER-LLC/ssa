@@ -67,6 +67,8 @@ $app->configure('view');
 $app->configure('queue');
 $app->configure('database');
 $app->configure('filesystem');
+$app->configure('swoole_http');
+$app->configure('swoole_websocket');
 
 /*
 |--------------------------------------------------------------------------
