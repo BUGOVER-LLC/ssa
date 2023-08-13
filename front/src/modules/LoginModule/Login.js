@@ -88,10 +88,10 @@ export default {
                     httpAxios({
                         url: `${this.$fullUrl}/auth/login`,
                         method: 'POST',
-                        data: self.loginData,
+                        data: this.loginData,
                     }).then(response => {
                         store
-                            .dispatch(FETCH_LOGGED_USER, response.data)
+                            .dispatch(`authModule/${FETCH_LOGGED_USER}`, response.data)
                             .then(() => this.$router.push({ name: 'adminDashboard' }).then());
                     });
                 }

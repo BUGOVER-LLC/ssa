@@ -1,4 +1,5 @@
 /** @format */
+import { FETCH_LOGOUT } from '@/store/types/actions.type';
 
 export default {
     name: 'NavbarComponent',
@@ -13,8 +14,8 @@ export default {
 
     methods: {
         logout() {
-            this.$store.dispatch('logOut');
-            this.$router.push({ name: 'login' });
+            this.$store.dispatch(`authModule/${FETCH_LOGOUT}`).then();
+            this.$router.push({ name: 'login' }).then();
         },
     },
 };

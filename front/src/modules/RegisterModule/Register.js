@@ -102,7 +102,7 @@ export default {
                         });
 
                         store
-                            .dispatch('notifyModule' + FETCH_NOTIFY, {
+                            .dispatch(`notifyModule/${FETCH_NOTIFY}`, {
                                 displayLoader: false,
                                 group: 'notify',
                                 type: 'success',

@@ -9,9 +9,6 @@ export default [
     // Home Page
     { path: '/', redirect: '/login' },
 
-    // Errors
-    { path: '*', component: error404Module },
-
     // Auth
     { path: '/login', name: 'login', component: loginModule, meta: { guest: true } },
     { path: '/register', name: 'register', component: registerModule, meta: { guest: true } },
@@ -21,4 +18,7 @@ export default [
 
     // Admin
     { path: '/admin/dashboard', name: 'adminDashboard', component: dashboardModule, meta: { auth: true } },
+
+    // Errors
+    { path: '*', component: error404Module },
 ];

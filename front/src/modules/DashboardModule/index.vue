@@ -1,4 +1,4 @@
 <!-- @format -->
 
-<template src="./Dashboard.html"></template>
-<script src="./Dashboard.js"></script>
+<template lang="html" src="./Dashboard.html" />
+<script lang="js" src="./Dashboard.js" />

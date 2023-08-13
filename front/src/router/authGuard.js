@@ -2,6 +2,7 @@
 
 import store from '@/store';
 import router from '@/router/index';
+import { FETCH_LOGOUT } from '@/store/types/actions.type';
 
 // Middlewares
 router.beforeEach((to, from, next) => {
@@ -22,7 +23,7 @@ router.beforeEach((to, from, next) => {
     if (loggedUser) {
         const currentDateTime = new Date().getTime();
         if (currentDateTime > loggedUser.expiryDate) {
-            store.dispatch('logOut');
+            store.dispatch(`authModule/${FETCH_LOGOUT}`).then();
             return redirectToRoute('login');
         }
     }
