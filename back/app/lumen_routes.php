@@ -12,5 +12,9 @@ declare(strict_types=1);
 | and give it the Closure to call when that URI is requested.
 |
 */
+
+/** @var Laravel\Lumen\Routing\Router $router */
+$router = $this->app['router'];
+
 $router->get('socket.io', ['uses' => 'SocketIOController@upgrade']);
 $router->post('socket.io', ['uses' => 'SocketIOController@reject']);

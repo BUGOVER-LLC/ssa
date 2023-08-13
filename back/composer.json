@@ -16,7 +16,7 @@
     "pda/pheanstalk": "^5.0.0-rc.1",
     "swooletw/laravel-swoole": "^2.13.0",
     "symfony/mailer": "^6.3.0",
-    "tymon/jwt-auth": "^2.0.0",
+    "tymon/jwt-auth": "^2.0.0"
   },
   "require-dev": {
     "flipbox/lumen-generator": "^9.2.0",
