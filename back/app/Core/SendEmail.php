@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Core;
 
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\Transport;

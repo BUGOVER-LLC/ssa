@@ -66,6 +66,7 @@ $app->configure('app');
 $app->configure('jwt');
 $app->configure('auth');
 $app->configure('cors');
+$app->configure('cache');
 $app->configure('view');
 $app->configure('queue');
 $app->configure('database');
