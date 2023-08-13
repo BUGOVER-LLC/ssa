@@ -48,7 +48,7 @@ class RegisterController extends Controller
 
         // Save to DB
         try {
-            $this->user->insert($insert_data);
+            $this->user->create($insert_data);
         } catch (Exception $exception) {
             logging($exception, 'error');
             throw new RuntimeException($exception->getMessage(), 500);

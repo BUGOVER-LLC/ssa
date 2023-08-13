@@ -22,7 +22,8 @@ class LoginController extends Controller
     public function __invoke(LoginRequest $request): JsonResponse
     {
         // Check
-        if (!$token = Auth::attempt(self::CREDENTIALS)) {
+        $credentials = $request->only(self::CREDENTIALS);
+        if (!$token = Auth::attempt($credentials)) {
             return $this->response(['errors' => ['login' => [__('auth.failed')]]], 423);
         }
 

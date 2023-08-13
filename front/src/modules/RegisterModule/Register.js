@@ -5,6 +5,8 @@ import { mdiApple, mdiEyeOffOutline, mdiEyeOutline, mdiGithub, mdiGoogle } from 
 import httpAxios from '@/services/httpAxios.js';
 import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-validate';
 import { email, max, min, required } from 'vee-validate/dist/rules';
+import { FETCH_NOTIFY } from '@/store/types/actions.type';
+import store from '@/store';
 
 extend('email', email);
 extend('min', min);
@@ -99,14 +101,15 @@ export default {
                             self.registerData[key] = '';
                         });
 
-                        self.$notify({
-                            group: 'notify',
-                            type: 'success',
-                            title: self.$t('general.success'),
-                            text: 'The process was successfully completed',
-                        });
-
-                        setTimeout(() => self.$router.push({ name: 'login' }), 3000);
+                        store
+                            .dispatch('notifyModule' + FETCH_NOTIFY, {
+                                displayLoader: false,
+                                group: 'notify',
+                                type: 'success',
+                                title: self.$t('general.success'),
+                                text: 'The process was successfully completed',
+                            })
+                            .then(() => setTimeout(() => self.$router.push({ name: 'login' }), 3000));
                     });
                 }
             });
