@@ -41,8 +41,8 @@ return [
             // Enable coroutine send
             'send_yield' => true,
             // You must add --enable-openssl while compiling Swoole
-            'ssl_cert_file' => '/etc/ssl/certs/maining.api.loc.crt',
-            'ssl_key_file' => '/etc/ssl/certs/maining.api.loc.key',
+            'ssl_cert_file' => '',
+            'ssl_key_file' => '',
         ],
     ],
 
@@ -52,7 +52,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'websocket' => [
-        'enabled' => (bool)env('SWOOLE_HTTP_WEBSOCKET', false),
+        'enabled' => (bool)env('SWOOLE_HTTP_WEBSOCKET', true),
     ],
 
     /*
@@ -73,7 +73,7 @@ return [
     | Console output will be transferred to response content if enabled.
     |--------------------------------------------------------------------------
     */
-    'ob_output' => env('SWOOLE_OB_OUTPUT', true),
+    'ob_output' => (bool)env('SWOOLE_OB_OUTPUT', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -143,11 +143,11 @@ return [
     |--------------------------------------------------------------------------
     */
     'tables' => [
-        // 'table_name' => [
-        //     'size' => 1024,
-        //     'columns' => [
-        //         ['name' => 'column_name', 'type' => Table::TYPE_STRING, 'size' => 1024],
-        //     ]
-        // ],
+        'table_name' => [
+            'size' => 1024,
+            'columns' => [
+                ['name' => 'column_name', 'type' => \Swoole\Table::TYPE_STRING, 'size' => 1024],
+            ]
+        ],
     ],
 ];

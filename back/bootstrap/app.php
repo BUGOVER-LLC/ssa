@@ -58,6 +58,10 @@ $app->singleton(
 | the default version. You may register other files below as needed.
 |
 */
+//foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
+//    $app->configure($filename);
+//}
+
 $app->configure('app');
 $app->configure('jwt');
 $app->configure('auth');

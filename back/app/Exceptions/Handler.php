@@ -9,7 +9,6 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 use Laravel\Lumen\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -40,7 +39,7 @@ class Handler extends ExceptionHandler
      *
      * @throws Exception
      */
-    public function report(Throwable $exception)
+    public function report(Throwable $exception): void
     {
         parent::report($exception);
     }
@@ -50,11 +49,11 @@ class Handler extends ExceptionHandler
      *
      * @param Request $request
      * @param Throwable $exception
-     * @return Response|JsonResponse
+     * @return JsonResponse
      *
      * @throws Throwable
      */
-    public function render($request, Throwable $exception)
+    public function render($request, Throwable $exception): JsonResponse
     {
         return $this->renderException($request, $exception);
     }
@@ -62,7 +61,7 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      */
-    public function renderException($request, $e)
+    public function renderException($request, $e): JsonResponse
     {
         $status = 500;
 
@@ -70,31 +69,17 @@ class Handler extends ExceptionHandler
             $status = $e->getStatusCode();
         }
 
-        switch ($status) {
-            case 401:
-                $message = strlen($e->getMessage()) ? $e->getMessage() : 'Unauthorized.';
-                break;
-            case 403:
-                $message = strlen($e->getMessage()) ? $e->getMessage() : 'Forbidden.';
-                break;
-            case 404:
-                $message = strlen($e->getMessage()) ? $e->getMessage() : 'Not Found.';
-                break;
-            case 405:
-                $message = strlen($e->getMessage()) ? $e->getMessage() : 'Method Not Allowed.';
-                break;
-            case 500:
-                $message = (app()->environment(
-                    'production'
-                )) ? 'Whoops, looks like something went wrong.' : $e->getMessage();
-                break;
-            case 503:
-                $message = 'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.';
-                break;
-            default:
-                $message = $e->getMessage();
-                break;
-        }
+        $message = match ($status) {
+            401 => '' !== $e->getMessage() ? $e->getMessage() : 'Unauthorized.',
+            403 => '' !== $e->getMessage() ? $e->getMessage() : 'Forbidden.',
+            404 => '' !== $e->getMessage() ? $e->getMessage() : 'Not Found.',
+            405 => '' !== $e->getMessage() ? $e->getMessage() : 'Method Not Allowed.',
+            500 => (app()->environment(
+                'production'
+            )) ? 'Whoops, looks like something went wrong.' : $e->getMessage(),
+            503 => 'The server is currently unable to handle the request due to a temporary overloading or maintenance of the server.',
+            default => $e->getMessage(),
+        };
 
         $data = [
             'success' => false,

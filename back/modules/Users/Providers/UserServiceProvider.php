@@ -28,8 +28,7 @@ class UserServiceProvider extends ServiceProvider
     {
         Route::group([
             'prefix' => env('APP_VERSION'),
-            'namespace' => 'Modules\Users\Controllers',
-            'middleware' => null,
+            'namespace' => '\Modules\Users\Controllers',
         ], fn() => $this->loadRoutesFrom(__DIR__ . '/../routes.php'));
     }
 }
