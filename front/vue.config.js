@@ -47,12 +47,11 @@ module.exports = {
             cert: fs.existsSync(__dirname + process.env.CERT_CRT)
                 ? fs.readFileSync(__dirname + process.env.CERT_CRT)
                 : '',
-            host: 'localhost',
             public: 'localhost:8080',
             port: 8080,
         },
         proxy: {
-            '/': {
+            '': {
                 target: process.env.VUE_APP_BACKEND_URL,
                 ws: true,
                 changeOrigin: false,
