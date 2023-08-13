@@ -9,7 +9,7 @@ use Modules\Users\Controllers\RegisterController;
 $router = $this->app['router'];
 
 // Auth
-$router->group(['middleware' => 'guest', 'prefix' => 'auth'], fn() => [
+$router->group(['prefix' => 'auth'], fn() => [
     $router->post('login', LoginController::class),
     $router->post('register', RegisterController::class),
 ]);
