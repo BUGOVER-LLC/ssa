@@ -58,21 +58,9 @@ $app->singleton(
 | the default version. You may register other files below as needed.
 |
 */
-//foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
-//    $app->configure($filename);
-//}
-
-$app->configure('app');
-$app->configure('jwt');
-$app->configure('auth');
-$app->configure('cors');
-$app->configure('cache');
-$app->configure('view');
-$app->configure('queue');
-$app->configure('database');
-$app->configure('filesystem');
-$app->configure('swoole_http');
-$app->configure('swoole_websocket');
+foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
+    $app->configure($filename);
+}
 
 /*
 |--------------------------------------------------------------------------
