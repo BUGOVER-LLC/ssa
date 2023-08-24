@@ -1,24 +1,32 @@
 ip: 192.168.56.56
 memory: 2048
-cpus: 2
+cpus: 1
 provider: virtualbox
 authorize: ~/.ssh/id_rsa.pub
 keys:
   - ~/.ssh/id_rsa
 folders:
-  - map: /home/artak/work/projects/ssa
-    to: /home/vagrant/ssa
+  - map: /home/artak/work/projects/ssa/src
+    to: /home/vagrant/ssa/src
+
+  - map: /home/artak/work/projects/ssa/app
+    to: /home/vagrant/ssa/app
 sites:
+  - map: ssa.api.loc
+    to: /home/vagrant/ssa/src/public
+    php: "8.2"
+
   - map: ssa.loc
-    to: /home/vagrant/ssa/public
+    to: /home/vagrant/ssa/app/dist
 databases:
   - ssa
 features:
   - mysql: true
+  - postgresql: true
   - mariadb: false
-  - postgresql: false
   - ohmyzsh: false
   - webdriver: false
+  - node: false
 services:
   - enabled: [ mysql ]
 name: ssa

@@ -12,7 +12,6 @@
     "php": ">=8.1.0",
     "ext-swoole": "*",
     "laravel/lumen-framework": "^10.0.0",
-    "nordsoftware/lumen-cors": "^3.0.0",
     "pda/pheanstalk": "^5.0.0-rc.1",
     "swooletw/laravel-swoole": "^2.13.0",
     "symfony/mailer": "^6.0.0",
@@ -21,7 +20,6 @@
   "require-dev": {
     "flipbox/lumen-generator": "^9.2.0",
     "friendsofphp/php-cs-fixer": "^3.0.0",
-    "fzaninotto/faker": "^1.0.0",
     "laravel/homestead": "^14.0.0",
     "mockery/mockery": "^1.6.5",
     "phpmd/phpmd": "^2.10.0",
@@ -33,25 +31,25 @@
   },
   "autoload": {
     "classmap": [
-      "database/seeds",
-      "database/factories"
+      "src/database/seeds",
+      "src/database/factories"
     ],
     "files": [
-      "app/__helpers.php"
+      "src/app/__helpers.php"
     ],
     "psr-4": {
-      "Modules\\": "modules/",
-      "App\\": "app/"
+      "Modules\\": "src/modules/",
+      "App\\": "src/app/"
     }
   },
   "autoload-dev": {
     "classmap": [
-      "tests/"
+      "src/tests/"
     ]
   },
   "scripts": {
     "post-root-package-install": [
-      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+      "@php -r \"file_exists('src/.env') || copy('src/.env.example', 'src/.env');\""
     ]
   },
   "config": {

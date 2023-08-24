@@ -73,7 +73,6 @@ foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
 |
 */
 $app->middleware([
-    Nord\Lumen\Cors\CorsMiddleware::class,
 ]);
 
 $app->routeMiddleware([
@@ -99,7 +98,6 @@ $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-$app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
 $app->register(SwooleTW\Http\LumenServiceProvider::class);
 
 // Run app!

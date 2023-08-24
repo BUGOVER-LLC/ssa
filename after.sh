@@ -8,7 +8,6 @@
 # to apply, you may also create user-customizations.sh,
 # which will be run after this script.
 
-
 # If you're not quite ready for the latest Node.js version,
 # uncomment these lines to roll src to a previous version
 
