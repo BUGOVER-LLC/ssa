@@ -47,7 +47,7 @@ module.exports = {
             cert: fs.existsSync(__dirname + process.env.CERT_CRT)
                 ? fs.readFileSync(__dirname + process.env.CERT_CRT)
                 : '',
-            public: 'localhost:8080',
+            host: 'ktav.loc',
             port: 8080,
         },
         proxy: {

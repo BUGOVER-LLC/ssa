@@ -4,6 +4,7 @@ const error404Module = () => import('@/modules/Error404Module');
 const loginModule = () => import('@/modules/LoginModule');
 const registerModule = () => import('@/modules/RegisterModule');
 const selectFarm = () => import('@/modules/SelectFarmModule');
+const message = () => import('@/modules/DashboardModule/Messages/Message');
 
 export default [
     // Home Page
@@ -17,7 +18,19 @@ export default [
     { path: '/farms', name: 'selectFarm', component: selectFarm, meta: { guest: false } },
 
     // Admin
-    { path: '/admin/dashboard', name: 'adminDashboard', component: dashboardModule, meta: { auth: true } },
+    {
+        path: '/admin',
+        name: 'admin',
+        component: dashboardModule,
+        meta: { auth: true },
+        children: [
+            {
+                path: '/dashboard',
+                name: 'adminDashboard',
+                component: message,
+            },
+        ],
+    },
 
     // Errors
     { path: '*', component: error404Module },

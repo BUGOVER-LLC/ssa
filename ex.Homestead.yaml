@@ -1,0 +1,25 @@
+ip: 192.168.56.56
+memory: 2048
+cpus: 2
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+  - ~/.ssh/id_rsa
+folders:
+  - map: /home/artak/work/projects/ssa
+    to: /home/vagrant/ssa
+sites:
+  - map: ssa.loc
+    to: /home/vagrant/ssa/public
+databases:
+  - ssa
+features:
+  - mysql: true
+  - mariadb: false
+  - postgresql: false
+  - ohmyzsh: false
+  - webdriver: false
+services:
+  - enabled: [ mysql ]
+name: ssa
+hostname: ssa
