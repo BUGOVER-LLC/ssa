@@ -10,3 +10,4 @@ This project is a starter with a set of packages/components that helps you work 
 - php vendor/bin/homestead make
 - configure Homestead.yaml file (copy ex.Homestead.yaml as Homestead.yaml)
 - vagrant up
+- :smirk: Have a good working day
