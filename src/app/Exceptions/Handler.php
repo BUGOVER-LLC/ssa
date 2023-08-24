@@ -32,7 +32,7 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+     * This is a great spot to send exceptions to Sentry, Bugsnag, .etc.
      *
      * @param Throwable $exception
      * @return void
