@@ -11,7 +11,7 @@ This project is a starter with a set of packages/components that helps you work 
 - vagrant up
 - :smirk: Have a good working day
 
-For HTTPS on Chrome && Firefox
+HTTPS on Chrome && Firefox
 - 
 
 . Chrome
