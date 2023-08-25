@@ -22,4 +22,15 @@ For HTTPS on Chrome && Firefox
 - Security
 - Manage device certificates
 - Authorities
-- Import ssl certificate on path project/.etc/ssl/ca.homestead.ssa.crt
+- Import ssl certificate on path your project, ssa/.etc/ssl/ca.homestead.ssa.crt
+
+
+
+. Firefox
+- 
+- Settings
+- Privacy & Security
+- Certificates
+- View Certificates
+- Authorities
+- Import ssl certificate on path your project, ssa/.etc/ssl/ca.homestead.ssa.crt
