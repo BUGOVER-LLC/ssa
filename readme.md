@@ -1,9 +1,10 @@
 # Introduction
 
-This project is a starter with a set of packages/components that helps you work with Lumen 10 and VueJS 2.
+This project is a starter with a set of packages/components that helps you work with Lumen 10 and VueJS 2 (Vuetify).
 
-. For starting
+. Starting
 - 
+---
 
 - Install VirtualBox in your system
 - composer install
@@ -13,9 +14,10 @@ This project is a starter with a set of packages/components that helps you work 
 
 HTTPS on Chrome && Firefox
 - 
-
+---
 . Chrome
 - 
+
 - Settings
 - Privacy and Security
 - Security
@@ -23,10 +25,9 @@ HTTPS on Chrome && Firefox
 - Authorities
 - Import ssl certificate on path your project, ssa/.etc/ssl/ca.homestead.ssa.crt
 
-
-
 . Firefox
 - 
+
 - Settings
 - Privacy & Security
 - Certificates
