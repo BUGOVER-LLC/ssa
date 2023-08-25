@@ -9,8 +9,21 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": ">=8.2.3",
+    "php": "<=8.2",
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-zlib": "*",
+    "ext-redis": "*",
+    "ext-pcntl": "*",
     "ext-swoole": "*",
+    "ext-bcmath": "*",
+    "ext-imagick": "*",
+    "ext-openssl": "*",
+    "ext-sockets": "*",
+    "ext-igbinary": "*",
+    "ext-mbstring": "*",
+    "ext-calendar": "*",
     "laravel/lumen-framework": "^10.0.0",
     "pda/pheanstalk": "^5.0.0-rc.1",
     "swooletw/laravel-swoole": "^2.13.0",
@@ -56,7 +69,27 @@
   "config": {
     "preferred-install": "dist",
     "sort-packages": true,
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "platform-check": false,
+    "platform": {
+      "php": "8.2"
+    }
+  },
+  "provide": {
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "ext-zlib": "*",
+    "ext-redis": "*",
+    "ext-pcntl": "*",
+    "ext-swoole": "*",
+    "ext-bcmath": "*",
+    "ext-imagick": "*",
+    "ext-openssl": "*",
+    "ext-sockets": "*",
+    "ext-igbinary": "*",
+    "ext-mbstring": "*",
+    "ext-calendar": "*"
   },
   "minimum-stability": "dev",
   "prefer-stable": true
