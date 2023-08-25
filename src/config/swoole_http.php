@@ -143,11 +143,11 @@ return [
     |--------------------------------------------------------------------------
     */
     'tables' => [
-        'table_name' => [
-            'size' => 1024,
-            'columns' => [
-                ['name' => 'column_name', 'type' => \Swoole\Table::TYPE_STRING, 'size' => 1024],
-            ]
-        ],
+//        'table_name' => [
+//            'size' => 1024,
+//            'columns' => [
+//                ['name' => 'column_name', 'type' => \Swoole\Table::TYPE_STRING, 'size' => 1024],
+//            ]
+//        ],
     ],
 ];

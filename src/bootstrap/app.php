@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -73,6 +73,7 @@ foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
 |
 */
 $app->middleware([
+    App\Http\Middlewares\Cors::class
 ]);
 
 $app->routeMiddleware([
