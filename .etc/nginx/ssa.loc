@@ -3,10 +3,17 @@ server {
     listen 443 ssl http2;
     server_name ssa.loc;
     root "/home/vagrant/ssa/app/dist";
-
     index index.html index.htm index.htm;
 
     charset utf-8;
+
+    #SECURE
+    more_clear_headers Server;
+    more_set_headers '';
+    server_tokens off;
+
+    # CLIENT SETTINGS BODY && HEADERS
+    client_max_body_size 32M;
 
     location / {
         try_files $uri /index.html;
