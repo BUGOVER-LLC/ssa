@@ -31,6 +31,3 @@ sudo cp -r /home/vagrant/ssa/.etc/nginx/ssa.api.loc /etc/nginx/sites-available/
 
 sudo cp -r /home/vagrant/ssa/.etc/supervisor/queue-base.conf /etc/supervisor/conf.d/
 sudo cp -r /home/vagrant/ssa/.etc/supervisor/swoole-http.conf /etc/supervisor/conf.d/
-
-sudo supervisorctl reread
-sudo supervisorctl restart all

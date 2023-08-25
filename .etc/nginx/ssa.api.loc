@@ -23,8 +23,8 @@ server {
     # CLIENT SETTINGS BODY && HEADERS
     client_max_body_size 128M;
 
-    ssl_certificate /etc/ssl/certs/ca.homestead.ssa.crt;
-    ssl_certificate_key /etc/ssl/certs/ca.homestead.ssa.key;
+    ssl_certificate /etc/ssl/certs/ssa.api.loc.crt;
+    ssl_certificate_key /etc/ssl/certs/ssa.api.loc.key;
 
     # any php files must not be accessed
     #location ~* \.php$ {
