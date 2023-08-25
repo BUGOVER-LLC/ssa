@@ -6,9 +6,9 @@ This project is a starter with a set of packages/components that helps you work 
 <img src=".github/ssa-logo.png" alt="drawing" width="400"/>
 </p>
 
-<div style="text-align: center; font-size: 1.5rem;color: darkslategrey">
+<p align="center" style="font-size: 1.5rem;color: darkslategrey">
 Introduction
-</div>
+</p>
 
 . Starting
 - 
