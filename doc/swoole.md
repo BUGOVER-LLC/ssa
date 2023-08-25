@@ -14,10 +14,17 @@
     - ;priority=20
     - extension=swoole.so
 4. create symbolick link for all php versions,
-    - sudo ln -s /etc/php/7.4/mods-available/swoole.ini /etc/php/7.3/mods-available/
-5. sudo apt install php7.4-swoole
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/8.1/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/8.0/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/7.4/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/7.3/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/7.2/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/7.1/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/7.0/mods-available/
+    - sudo ln -s /etc/php/8.2/mods-available/swoole.ini /etc/php/5.6/mods-available/
+5. sudo apt install php8.2-swoole
 6. sudo phpenmod swoole
-7. uncomment swoole.so in php/cli/php.ini file ?
+7. uncomment swoole.so in php/cli/php.ini file ? (not required)
 
 help link
 
