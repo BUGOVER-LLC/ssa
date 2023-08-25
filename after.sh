@@ -26,3 +26,5 @@ sudo apt upgrade
 
 sudo cp /etc/ssl/certs/ca.homestead.ssa.crt /home/vagrant/ssa/.etc/ssl
 sudo cp /etc/ssl/certs/ca.homestead.ssa.key /home/vagrant/ssa/.etc/ssl
+
+sudo cp -r /home/vagrant/ssa/.etc/nginx/ssa.api.loc /etc/nginx/sites-available/
