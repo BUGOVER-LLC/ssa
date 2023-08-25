@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build",
+    "watch": "vue-cli-service build --watch",
+    "dev": "vue-cli-service build",
     "prod": "vue-cli-service build --mode production",
     "code:format": "prettier --write \"src/**/*.{ts,css,vue,js,html}\"",
     "ui": "vue ui"
