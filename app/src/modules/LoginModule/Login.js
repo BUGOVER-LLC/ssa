@@ -43,7 +43,7 @@ export default {
             socialLink: [
                 {
                     icon: mdiApple,
-                    color: '#dfe1e3',
+                    color: '#818385',
                     colorInDark: '#dfe1e3',
                 },
                 {
