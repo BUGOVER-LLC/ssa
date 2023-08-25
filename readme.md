@@ -1,9 +1,12 @@
-<p align="center">
-<img src=".github/ssa-logo.png" alt="drawing" width="500"/>
-</p>
-# Introduction
-
+<h3 style="font-style: italic">
 This project is a starter with a set of packages/components that helps you work with Lumen 10 and VueJS 2 (Vuetify).
+</h3>
+
+<p align="center">
+<img src=".github/ssa-logo.png" alt="drawing" width="400"/>
+</p>
+
+# Introduction
 
 . Starting
 - 
