@@ -1,6 +1,6 @@
 parameters:
     paths:
-        - app
+        - core
         - src
         - routes
         - config

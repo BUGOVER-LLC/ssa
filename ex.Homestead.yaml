@@ -9,15 +9,15 @@ folders:
   - map: /home/artak/work/projects/ssa/src
     to: /home/vagrant/ssa/src
 
-  - map: /home/artak/work/projects/ssa/app
-    to: /home/vagrant/ssa/app
+  - map: /home/artak/work/projects/ssa/core
+    to: /home/vagrant/ssa/core
 sites:
   - map: ssa.api.loc
     to: /home/vagrant/ssa/src/public
     php: "8.2"
 
   - map: ssa.loc
-    to: /home/vagrant/ssa/app/dist
+    to: /home/vagrant/ssa/core/dist
 databases:
   - ssa
 features:

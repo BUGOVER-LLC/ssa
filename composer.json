@@ -10,22 +10,25 @@
   "type": "project",
   "require": {
     "php": "<=8.2",
-    "ext-pdo": "*",
-    "ext-json": "*",
-    "ext-curl": "*",
-    "ext-zlib": "*",
-    "ext-redis": "*",
-    "ext-pcntl": "*",
-    "ext-swoole": "*",
     "ext-bcmath": "*",
-    "ext-imagick": "*",
-    "ext-openssl": "*",
-    "ext-sockets": "*",
-    "ext-igbinary": "*",
-    "ext-mbstring": "*",
     "ext-calendar": "*",
+    "ext-curl": "*",
+    "ext-igbinary": "*",
+    "ext-imagick": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-openssl": "*",
+    "ext-pcntl": "*",
+    "ext-pdo": "*",
+    "ext-redis": "*",
+    "ext-sockets": "*",
+    "ext-swoole": "*",
+    "ext-zlib": "*",
     "laravel/lumen-framework": "^10.0.0",
+    "laravel/socialite": "^5.8",
     "pda/pheanstalk": "^5.0.0-rc.1",
+    "socialiteproviders/apple": "^5.5.0",
+    "socialiteproviders/google": "^4.1.0",
     "swooletw/laravel-swoole": "^2.13.0",
     "symfony/mailer": "^6.0.0",
     "tymon/jwt-auth": "^2.0.0"
@@ -48,11 +51,11 @@
       "src/database/factories"
     ],
     "files": [
-      "src/app/__helpers.php"
+      "src/core/__helpers.php"
     ],
     "psr-4": {
       "Modules\\": "src/modules/",
-      "App\\": "src/app/"
+      "App\\": "src/core/"
     }
   },
   "autoload-dev": {

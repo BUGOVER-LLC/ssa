@@ -53,7 +53,7 @@ $app->singleton(
 | Register Config Files
 |--------------------------------------------------------------------------
 |
-| Now we will register the "app" configuration file. If the file exists in
+| Now we will register the "core" configuration file. If the file exists in
 | your configuration directory it will be loaded; otherwise, we'll load
 | the default version. You may register other files below as needed.
 |
@@ -100,6 +100,7 @@ $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(SwooleTW\Http\LumenServiceProvider::class);
+$app->register(Laravel\Socialite\SocialiteServiceProvider::class);
 
-// Run app!
+// Run core!
 return $app;

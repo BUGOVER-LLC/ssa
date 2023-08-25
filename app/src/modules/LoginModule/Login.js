@@ -1,6 +1,6 @@
 /** @format */
 
-import { mdiApple, mdiEyeOffOutline, mdiEyeOutline, mdiGithub, mdiGoogle } from '@mdi/js';
+import { mdiApple, mdiEyeOffOutline, mdiEyeOutline, mdiGoogle } from '@mdi/js';
 import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-validate';
 import { email, max, min, required } from 'vee-validate/dist/rules';
 
@@ -50,11 +50,6 @@ export default {
                     icon: mdiGoogle,
                     color: '#db4437',
                     colorInDark: '#db4437',
-                },
-                {
-                    icon: mdiGithub,
-                    color: '#272727',
-                    colorInDark: '#fff',
                 },
             ],
             icons: {

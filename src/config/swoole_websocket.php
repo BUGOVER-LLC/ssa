@@ -24,7 +24,7 @@ return [
     | Websocket route file path
     |--------------------------------------------------------------------------
     */
-    'route_file' => base_path('app/websocket.php'),
+    'route_file' => base_path('core/websocket.php'),
 
     /*
     |--------------------------------------------------------------------------
