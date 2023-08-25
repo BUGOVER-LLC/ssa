@@ -11,3 +11,15 @@ This project is a starter with a set of packages/components that helps you work 
 - configure Homestead.yaml file (copy ex.Homestead.yaml as Homestead.yaml)
 - vagrant up
 - :smirk: Have a good working day
+
+For HTTPS on Chrome && Firefox
+- 
+
+. Chrome
+- 
+- Settings
+- Privacy and Security
+- Security
+- Manage device certificates
+- Authorities
+- Import ssl certificate on path project/.etc/ssl/ca.homestead.ssa.crt
