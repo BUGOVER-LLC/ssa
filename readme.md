@@ -1,5 +1,5 @@
 <p align="center">
-<img src=".github/ssa-logo.png" alt="drawing" width="700"/>
+<img src=".github/ssa-logo.png" alt="drawing" width="500"/>
 </p>
 # Introduction
 
