@@ -8,8 +8,6 @@ use Closure;
 use Illuminate\Http\Response;
 use Laravel\Lumen\Http\ResponseFactory;
 
-use function in_array;
-
 class Cors
 {
     /**

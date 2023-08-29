@@ -6,18 +6,18 @@ authorize: ~/.ssh/id_rsa.pub
 keys:
   - ~/.ssh/id_rsa
 folders:
-  - map: /home/artak/work/projects/ssa/src
+  - map: /local/projects/ssa/src
     to: /home/vagrant/ssa/src
 
-  - map: /home/artak/work/projects/ssa/core
-    to: /home/vagrant/ssa/core
+  - map: /local/projects/ssa/app
+    to: /home/vagrant/ssa/app
 sites:
   - map: ssa.api.loc
     to: /home/vagrant/ssa/src/public
     php: "8.2"
 
   - map: ssa.loc
-    to: /home/vagrant/ssa/core/dist
+    to: /home/vagrant/ssa/app/dist
 databases:
   - ssa
 features:

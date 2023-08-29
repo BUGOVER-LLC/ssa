@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
     'apple' => [
         'client_id' => env('APPLE_CLIENT_ID'),

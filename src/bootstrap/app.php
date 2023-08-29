@@ -58,8 +58,8 @@ $app->singleton(
 | the default version. You may register other files below as needed.
 |
 */
-foreach (glob(__DIR__ . '/../config/*.php') as $filename) {
-    $app->configure($filename);
+foreach (glob(__DIR__ . '/../config/*.php') as $config) {
+    $app->configure($config);
 }
 
 /*

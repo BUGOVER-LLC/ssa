@@ -1,8 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
+declare(strict_types=1);
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +14,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 |
 */
 
-$app = require __DIR__.'/bootstrap/app.php';
+$app = require __DIR__ . '/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +28,12 @@ $app = require __DIR__.'/bootstrap/app.php';
 */
 
 $kernel = $app->make(
-    'Illuminate\Contracts\Console\Kernel'
+    Illuminate\Contracts\Console\Kernel::class
 );
 
-exit($kernel->handle(new ArgvInput, new ConsoleOutput));
+exit(
+$kernel->handle(
+    new Symfony\Component\Console\Input\ArgvInput(),
+    new Symfony\Component\Console\Output\ConsoleOutput()
+)
+);
