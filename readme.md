@@ -20,6 +20,11 @@ Introduction
 - vagrant up
 - :smirk: Have a good working day
 
+### App part
+
+- yarn watch (for real worked ass https with domain)
+- yarn server (for localhost run your app)
+
 HTTPS on Chrome && Firefox
 - 
 ---
