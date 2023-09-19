@@ -51,4 +51,10 @@ return [
     |
     */
     'faker_locale' => 'en_US',
+
+    /**
+     * In development state STRICT_MODE enable please, and level 3,2,1
+     */
+    'strict' => env('STRICT_MODE', false),
+    'strict_level' => env('STRICT_LEVEL', 3),
 ];
