@@ -98,9 +98,9 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
-$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(SwooleTW\Http\LumenServiceProvider::class);
+$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Laravel\Socialite\SocialiteServiceProvider::class);
-
+$app->register(GeneaLabs\LaravelModelCaching\Providers\Service::class);
 // Run core!
 return $app;
