@@ -4,23 +4,13 @@ declare(strict_types=1);
 
 namespace Modules\Users\Models;
 
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Database\Eloquent\Model;
-use Laravel\Lumen\Auth\Authorizable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Model\AuthModel;
 
 /**
  * @method static where(string $string, $input)
  */
-class User extends Model implements AuthenticatableContract, AuthorizableContract, JWTSubject
+abstract class User extends AuthModel
 {
-    use Authenticatable;
-    use Authorizable;
-    use Cachable;
-
     /**
      * The table associated with the model.
      *
@@ -63,15 +53,17 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     /**
      * Get User full name.
      *
-     * @return array
+     * @return string
      */
-    public function getName(): array|string
+    public function getName(): string
     {
         return $this->first_name . ' ' . $this->last_name;
     }
 
     /**
-     * Define setter for the password field.
+     * Define a setter for the password field.
+     *
+     * @noinspection PhpUnused
      */
     public function setPasswordAttribute($value): void
     {

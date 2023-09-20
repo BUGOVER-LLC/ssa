@@ -15,17 +15,17 @@ class Controller extends BaseController
      * Create a json response.
      *
      * @param mixed $data
-     * @param int $statusCode
+     * @param int $status_code
      * @param array $headers
      *
      * @return JsonResponse
      */
-    protected function response($data, $statusCode = 200, array $headers = []): JsonResponse
+    protected function response(mixed $data, int $status_code = 200, array $headers = []): JsonResponse
     {
         if ($data instanceof Arrayable && !$data instanceof JsonSerializable) {
             $data = $data->toArray();
         }
 
-        return new JsonResponse($data, $statusCode, $headers);
+        return new JsonResponse($data, $status_code, $headers);
     }
 }

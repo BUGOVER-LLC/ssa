@@ -30,7 +30,7 @@ class LoginController extends Controller
         $data = [
             'token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => Auth::factory()->getTTL() * 60
+            'expires_in' => Auth::factory()->getTTL() * 60,
         ];
         $user = Auth::user()->toArray();
         $data = array_merge($data, $user);

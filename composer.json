@@ -38,6 +38,7 @@
     "flipbox/lumen-generator": "^9.2.0",
     "friendsofphp/php-cs-fixer": "^3.0.0",
     "laravel/homestead": "^14.0.0",
+    "laravel/pint": "^1.0.0",
     "mockery/mockery": "^1.6.5",
     "phpmd/phpmd": "^2.10.0",
     "phpstan/phpstan": "^1.0.0",

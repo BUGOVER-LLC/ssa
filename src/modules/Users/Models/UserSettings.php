@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Users\Models;
 
+use App\Model\BaseModel;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
-use Illuminate\Database\Eloquent\Model;
 
-class UserSettings extends Model
+class UserSettings extends BaseModel
 {
     use Cachable;
 

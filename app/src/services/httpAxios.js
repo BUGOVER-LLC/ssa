@@ -22,12 +22,12 @@ service.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 // Request Interceptor
 service.interceptors.request.use(
     config => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, true).then();
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, { displayLoader: true }).then();
 
         return config;
     },
     error => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, { displayLoader: false }).then();
 
         return Promise.reject(error);
     },
@@ -36,12 +36,12 @@ service.interceptors.request.use(
 // Response Interceptor
 service.interceptors.response.use(
     response => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, { displayLoader: false }).then();
 
         return response;
     },
     error => {
-        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, false).then();
+        store.dispatch(`notifyModule/${FETCH_DISPLAY_LOADER}`, { displayLoader: false }).then();
 
         let errors = error;
 
