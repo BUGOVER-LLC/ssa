@@ -83,7 +83,7 @@ abstract class ApiRequest extends Request
      *
      * @return void
      */
-    protected function prepareForValidation()
+    protected function prepareForValidation(): void
     {
         // no default action
     }

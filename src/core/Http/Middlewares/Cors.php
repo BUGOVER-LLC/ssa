@@ -26,7 +26,7 @@ class Cors
         ];
 
         if ($request->isMethod('OPTIONS')) {
-            return response()->json('{"method":"OPTIONS"}', 200, $headers);
+            return jsponse('{"method":"OPTIONS"}', 200, $headers);
         }
 
         $response = $next($request);

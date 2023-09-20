@@ -16,6 +16,9 @@ class EventServiceProvider extends ServiceProvider
     protected $listen = [
         \Illuminate\Database\Events\MigrationsStarted::class => [
             \App\Listener\FetchMigrationsStarted::class
-        ]
+        ],
+        \Illuminate\Database\Events\MigrationsEnded::class => [
+            \App\Listener\FetchMigrationsEnded::class
+        ],
     ];
 }
