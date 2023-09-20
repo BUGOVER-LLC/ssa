@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Core;
+namespace App\Utils;
 
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;

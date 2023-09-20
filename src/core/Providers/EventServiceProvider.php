@@ -13,5 +13,9 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $listen = [];
+    protected $listen = [
+        \Illuminate\Database\Events\MigrationsStarted::class => [
+            \App\Listener\FetchMigrationsStarted::class
+        ]
+    ];
 }

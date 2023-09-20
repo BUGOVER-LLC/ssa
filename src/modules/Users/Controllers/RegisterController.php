@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Users\Controllers;
 
-use App\Core\SendEmail;
+use App\Utils\SendEmail;
 use App\Http\Controller;
 use Exception;
 use Illuminate\Http\JsonResponse;
