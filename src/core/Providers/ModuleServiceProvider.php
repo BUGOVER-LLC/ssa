@@ -25,5 +25,6 @@ class ModuleServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->register(\Modules\Users\Providers\UserServiceProvider::class);
+        $this->app->register(\Modules\Scrape\Providers\ScrapeServiceProvider::class);
     }
 }

@@ -20,8 +20,10 @@ return new class extends Migration {
 
             $table->unsignedBigInteger('user_id')->index('user_device_index_user_id');
             $table->unsignedBigInteger('device_id')->index('user_device_index_device_id');
+            $table->unsignedBigInteger('current_device_id')->index('user_current_device_index_device_id');
 
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

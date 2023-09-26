@@ -8,10 +8,16 @@ use App\Http\Controller;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Modules\Users\Requests\LoginRequest;
+use Src\Core\Additional\MainDevicer;
 
 class LoginController extends Controller
 {
     private const CREDENTIALS = ['email', 'password'];
+
+    public function __construct(private readonly MainDevicer $devicer)
+    {
+
+    }
 
     /**
      * Get a JWT via given credentials.
@@ -23,7 +29,7 @@ class LoginController extends Controller
     {
         // Check
         $credentials = $request->only(self::CREDENTIALS);
-        if (!$token = Auth::attempt($credentials)) {
+        if (!$token = Auth::attempt($credentials, $request->remember)) {
             return $this->response(['errors' => ['login' => [__('auth.failed')]]], 423);
         }
 
@@ -34,6 +40,8 @@ class LoginController extends Controller
         ];
         $user = Auth::user()->toArray();
         $data = array_merge($data, $user);
+
+        $this->devicer->device();
 
         return $this->response($data);
     }

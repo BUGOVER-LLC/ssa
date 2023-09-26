@@ -28,6 +28,13 @@ return new class extends Migration {
                 ->on('devices')
                 ->onUpdate('NO ACTION')
                 ->onDelete('CASCADE');
+
+            $table
+                ->foreign('current_device_id', 'users_current_device_foreign_current_device_id')
+                ->references('device_id')
+                ->on('devices')
+                ->onUpdate('NO ACTION')
+                ->onDelete('CASCADE');
         });
     }
 
@@ -41,6 +48,7 @@ return new class extends Migration {
         Schema::connection('pgsql_app')->table('user_device', function (Blueprint $table) {
             $table->dropForeign('users_device_foreign_user_id');
             $table->dropForeign('users_device_foreign_current_device_id');
+            $table->dropForeign('users_current_device_foreign_current_device_id');
         });
     }
 };

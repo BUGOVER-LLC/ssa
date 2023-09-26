@@ -68,6 +68,7 @@ export default {
             loginRules: {
                 email: 'min:6|email|required|max:150',
                 password: 'min:3|max:64|required',
+                remember: 'required',
             },
         };
     },

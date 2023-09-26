@@ -7,6 +7,11 @@ namespace Modules\Users\Requests;
 use App\Http\ApiRequest;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * @property bool $remember
+ * @property string $email
+ * @property string $password
+ */
 class LoginRequest extends ApiRequest
 {
     /**
@@ -29,6 +34,7 @@ class LoginRequest extends ApiRequest
         return [
             'email' => ['required', 'string', 'max:250', 'min:5', 'exists:users,email'],
             'password' => ['required', 'string', 'max:200', 'min:3'],
+            'remember' => ['required', 'bool'],
         ];
     }
 }
