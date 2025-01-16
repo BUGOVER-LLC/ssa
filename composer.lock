@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5681dd8c1f2f4917b3feb3ea4cd657d4",
+    "content-hash": "3a7d452a7a1c1a69de806140ff2bbada",
     "packages": [
         {
             "name": "brick/math",
@@ -3656,21 +3656,21 @@
         },
         {
             "name": "pda/pheanstalk",
-            "version": "v5.0.9",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pheanstalk/pheanstalk.git",
-                "reference": "5deb29e4fc9b738bed0ae7b60dfeab4fd49abb16"
+                "reference": "d073283f9d276e16f965415944df018dfbb833c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pheanstalk/pheanstalk/zipball/5deb29e4fc9b738bed0ae7b60dfeab4fd49abb16",
-                "reference": "5deb29e4fc9b738bed0ae7b60dfeab4fd49abb16",
+                "url": "https://api.github.com/repos/pheanstalk/pheanstalk/zipball/d073283f9d276e16f965415944df018dfbb833c3",
+                "reference": "d073283f9d276e16f965415944df018dfbb833c3",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=8.1.0"
+                "php": ">=8.3.0"
             },
             "require-dev": {
                 "captainhook/plugin-composer": "^5.3",
@@ -3678,10 +3678,9 @@
                 "phpstan/phpstan": "^1",
                 "phpstan/phpstan-phpunit": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.1",
-                "phpunit/phpunit": "^10",
+                "phpunit/phpunit": "^11",
                 "ramsey/conventional-commits": "^1.2",
-                "symplify/easy-coding-standard": "^12",
-                "vimeo/psalm": "^5"
+                "symplify/easy-coding-standard": "^12"
             },
             "suggest": {
                 "ext-sockets": "Socket implementation works best for long running processes"
@@ -3716,9 +3715,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pheanstalk/pheanstalk/issues",
-                "source": "https://github.com/pheanstalk/pheanstalk/tree/v5.0.9"
+                "source": "https://github.com/pheanstalk/pheanstalk/tree/v6.0.0"
             },
-            "time": "2025-01-02T16:22:04+00:00"
+            "time": "2025-01-02T16:25:08+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7689,72 +7688,6 @@
             "time": "2024-04-29T20:29:31+00:00"
         },
         {
-            "name": "laravel/pint",
-            "version": "v1.20.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/pint.git",
-                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
-                "reference": "53072e8ea22213a7ed168a8a15b96fbb8b82d44b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-tokenizer": "*",
-                "ext-xml": "*",
-                "php": "^8.1.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.66.0",
-                "illuminate/view": "^10.48.25",
-                "larastan/larastan": "^2.9.12",
-                "laravel-zero/framework": "^10.48.25",
-                "mockery/mockery": "^1.6.12",
-                "nunomaduro/termwind": "^1.17.0",
-                "pestphp/pest": "^2.36.0"
-            },
-            "bin": [
-                "builds/pint"
-            ],
-            "type": "project",
-            "autoload": {
-                "psr-4": {
-                    "App\\": "app/",
-                    "Database\\Seeders\\": "database/seeders/",
-                    "Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nuno Maduro",
-                    "email": "enunomaduro@gmail.com"
-                }
-            ],
-            "description": "An opinionated code formatter for PHP.",
-            "homepage": "https://laravel.com",
-            "keywords": [
-                "format",
-                "formatter",
-                "lint",
-                "linter",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/pint/issues",
-                "source": "https://github.com/laravel/pint"
-            },
-            "time": "2025-01-14T16:20:53+00:00"
-        },
-        {
             "name": "mockery/mockery",
             "version": "1.6.12",
             "source": {
@@ -11425,7 +11358,7 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "<=8.2",
+        "php": "<=8.3",
         "ext-bcmath": "*",
         "ext-calendar": "*",
         "ext-curl": "*",
@@ -11442,7 +11375,7 @@
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "8.2"
+        "php": "8.3"
     },
     "plugin-api-version": "2.3.0"
 }
