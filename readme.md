@@ -1,5 +1,5 @@
 <h4 style="font-style: revert">
-This project is a starter with a set of packages/components that helps you work with Lumen 10 and Vue JS 2 (Vuetify), and easy to start a new project gradually expanding
+This project is a starter with a set of packages/components that helps you work with Lumen 11 and VueJs (Vuetify), and easy to start a new project gradually expanding
 </h4>
 
 <p align="center">
