@@ -1,0 +1,4 @@
+.vale-styles
+phpmyadmin
+ssl/
+!ssl/.gitkeep

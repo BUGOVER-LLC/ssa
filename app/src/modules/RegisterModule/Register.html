@@ -6,14 +6,14 @@
             <v-card class="auth-card rounded-lg" elevation="8">
                 <!-- logo -->
                 <v-card-title class="d-flex align-center justify-center py-7">
-                    <router-link to="/" class="d-flex align-center">
+                    <router-link class="d-flex align-center" to="/">
                         <v-img
                             :src="require('@/assets/img/logo.svg')"
+                            alt="logo"
+                            class="me-3"
+                            contain
                             max-height="30px"
                             max-width="30px"
-                            alt="logo"
-                            contain
-                            class="me-3"
                         />
 
                         <h2 class="text-2xl font-weight-semibold"> SSA </h2>
@@ -32,64 +32,64 @@
                         <v-form>
                             <ValidationProvider
                                 v-slot="{ errors, valid }"
-                                name="username"
                                 :rules="loginRules.username"
                                 mode="passive"
+                                name="username"
                             >
                                 <v-text-field
                                     v-model="registerData.username"
-                                    outlined
-                                    label="Username"
-                                    placeholder="JohnDoe"
-                                    hide-details
                                     class="mb-3"
+                                    hide-details
+                                    label="Username"
+                                    outlined
+                                    placeholder="JohnDoe"
                                 />
                                 <span class="error--text">{{ errors[0] }}</span>
                             </ValidationProvider>
 
                             <ValidationProvider
                                 v-slot="{ errors, valid }"
-                                name="email"
                                 :rules="loginRules.email"
                                 mode="passive"
+                                name="email"
                             >
                                 <v-text-field
                                     v-model="registerData.email"
-                                    outlined
-                                    label="Email"
-                                    placeholder="john@example.com"
-                                    hide-details
                                     class="mb-3"
+                                    hide-details
+                                    label="Email"
+                                    outlined
+                                    placeholder="john@example.com"
                                 />
                                 <span class="error--text">{{ errors[0] }}</span>
                             </ValidationProvider>
 
                             <ValidationProvider
                                 v-slot="{ errors, valid }"
-                                name="password"
                                 :rules="loginRules.password"
                                 mode="passive"
+                                name="password"
                             >
                                 <v-text-field
                                     v-model="registerData.password"
-                                    outlined
-                                    :type="isPasswordVisible ? 'text' : 'password'"
-                                    label="Password"
-                                    placeholder="············"
                                     :append-icon="isPasswordVisible ? icons.mdiEyeOutline : icons.mdiEyeOffOutline"
+                                    :type="isPasswordVisible ? 'text' : 'password'"
                                     hide-details
+                                    label="Password"
+                                    outlined
+                                    placeholder="············"
                                     @click:append="isPasswordVisible = !isPasswordVisible"
                                 />
                                 <span class="error--text">{{ errors[0] }}</span>
                             </ValidationProvider>
 
-                            <v-checkbox hide-details class="mt-1">
+                            <v-checkbox class="mt-1" hide-details>
                                 <template #label>
                                     <div class="d-flex align-center flex-wrap">
                                         <span class="me-2">I agree to</span>
                                         <a
-                                            class="text-decoration-underline"
                                             v-model="registerData.agree"
+                                            class="text-decoration-underline"
                                             href="javascript:void(0)"
                                             >privacy policy &amp; terms</a
                                         >
@@ -97,7 +97,7 @@
                                 </template>
                             </v-checkbox>
 
-                            <v-btn block color="primary" class="mt-6" @click="handleSubmit(register)"> Sign Up </v-btn>
+                            <v-btn block class="mt-6" color="primary" @click="handleSubmit(register)"> Sign Up</v-btn>
                         </v-form>
                     </ValidationObserver>
                 </v-card-text>
@@ -106,9 +106,10 @@
                 <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
                     <p>
                         {{ $t('auth.login_info') }}
-                        <router-link class="text-decoration-underline font-semibold" :to="{ name: 'login' }">
-                            {{ $t('auth.login') }}</router-link
-                        >.
+                        <router-link :to="{ name: 'login' }" class="text-decoration-underline font-semibold">
+                            {{ $t('auth.login') }}
+                        </router-link>
+                        .
                     </p>
                 </v-card-text>
 
@@ -121,8 +122,8 @@
 
                 <!-- social link -->
                 <v-card-actions class="d-flex justify-center">
-                    <v-btn v-for="link in socialLink" :key="link.icon" icon class="ms-1">
-                        <v-icon :color="$vuetify.theme.dark ? link.colorInDark:link.color"> {{ link.icon }} </v-icon>
+                    <v-btn v-for="link in socialLink" :key="link.icon" class="ms-1" icon>
+                        <v-icon :color="$vuetify.theme.dark ? link.colorInDark:link.color"> {{ link.icon }}</v-icon>
                     </v-btn>
                 </v-card-actions>
             </v-card>
@@ -130,15 +131,15 @@
 
         <!-- background triangle shape  -->
         <img
+            :src="require(`@/assets/img/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`)"
             class="auth-mask-bg"
             height="190"
-            :src="require(`@/assets/img/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`)"
         />
 
         <!-- tree -->
-        <v-img class="auth-tree" width="247" height="185" src="@/assets/img/misc/tree.png" />
+        <v-img class="auth-tree" height="185" src="@/assets/img/misc/tree.png" width="247" />
 
         <!-- tree  -->
-        <v-img class="auth-tree-3" width="377" height="289" src="@/assets/img/misc/tree-3.png" />
+        <v-img class="auth-tree-3" height="289" src="@/assets/img/misc/tree-3.png" width="377" />
     </div>
 </authLayout>

@@ -1,12 +1,25 @@
 parameters:
     paths:
         - core
-        - src
-        - routes
+        - modules
         - config
-        - tests
-    level: 5
-    phpVersion: 80100
+        - database
+        - resources
+    level: 6
+    phpVersion: 80300
     inferPrivatePropertyTypeFromConstructor: true
     checkMissingIterableValueType: true
     customRulesetUsed: true
+    checkDynamicProperties: true
+    checkExplicitMixedMissingReturn: true
+    checkFunctionNameCase: true
+    checkInternalClassCaseSensitivity: true
+    reportMaybesInMethodSignatures: true
+    reportStaticMethodSignatures: true
+    reportMaybesInPropertyPhpDocTypes: true
+    reportWrongPhpDocTypeInVarTag: true
+    parallel:
+        jobSize: 20
+        maximumNumberOfProcesses: 8
+        minimumNumberOfJobsPerProcess: 2
+        processTimeout: 300.0

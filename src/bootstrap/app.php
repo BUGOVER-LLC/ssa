@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__.'/../../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -58,7 +58,7 @@ $app->singleton(
 | the default version. You may register other files below as needed.
 |
 */
-foreach (glob(__DIR__ . '/../config/*.php') as $config) {
+foreach (glob(__DIR__.'/../config/*.php') as $config) {
     $app->configure($config);
 }
 
@@ -73,7 +73,7 @@ foreach (glob(__DIR__ . '/../config/*.php') as $config) {
 |
 */
 $app->middleware([
-    App\Http\Middlewares\Cors::class
+    App\Http\Middlewares\Cors::class,
 ]);
 
 $app->routeMiddleware([
@@ -98,9 +98,9 @@ $app->register(App\Providers\AppServiceProvider::class);
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(App\Providers\EventServiceProvider::class);
 $app->register(App\Providers\ModuleServiceProvider::class);
-$app->register(SwooleTW\Http\LumenServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Laravel\Socialite\SocialiteServiceProvider::class);
 $app->register(GeneaLabs\LaravelModelCaching\Providers\Service::class);
-// Run core!
+
+// Run app!
 return $app;

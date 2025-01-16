@@ -9,7 +9,7 @@ use App\Model\AuthModel;
 /**
  * @method static where(string $string, $input)
  */
-abstract class User extends AuthModel
+final class User extends AuthModel
 {
     /**
      * The table associated with the model.
@@ -57,7 +57,7 @@ abstract class User extends AuthModel
      */
     public function getName(): string
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return $this->first_name.' '.$this->last_name;
     }
 
     /**

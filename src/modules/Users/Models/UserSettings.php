@@ -7,7 +7,7 @@ namespace Modules\Users\Models;
 use App\Model\BaseModel;
 use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
-class UserSettings extends BaseModel
+final class UserSettings extends BaseModel
 {
     use Cachable;
 
