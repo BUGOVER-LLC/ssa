@@ -1,12 +1,10 @@
-/** @format */
-
 import { mdiApple, mdiEyeOffOutline, mdiEyeOutline, mdiGoogle } from '@mdi/js';
-import { ValidationObserver, ValidationProvider, extend, validate } from 'vee-validate';
+import { extend, validate, ValidationObserver, ValidationProvider } from 'vee-validate';
 import { email, max, min, required } from 'vee-validate/dist/rules';
 
 import httpAxios from '@/services/httpAxios.js';
-import { FETCH_LOGGED_USER } from '@/store/types/actions.type';
 import store from '@/store';
+import { FETCH_LOGGED_USER } from '@/store/types/actions.type';
 
 extend('email', email);
 extend('min', min);

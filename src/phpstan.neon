@@ -1,10 +1,9 @@
 parameters:
     paths:
-        - core
-        - modules
-        - config
-        - database
-        - resources
+        - Core
+        - Infrastructure
+        - Modules
+        - Tests
     level: 6
     phpVersion: 80300
     inferPrivatePropertyTypeFromConstructor: true

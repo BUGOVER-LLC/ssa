@@ -1,5 +1,3 @@
-<!-- @format -->
-
 <template>
     <v-app class="app-content">
         <loader-component v-if="displayLoader" />

@@ -1,5 +1,3 @@
-/** @format */
-
 export default {
     name: 'DashboardModule',
 
@@ -7,5 +5,9 @@ export default {
         return {
             title: this.$t('navbar.dashboard'),
         };
+    },
+
+    beforeCreate() {
+        this.$router.push({ name: 'login' }).then(result => {});
     },
 };

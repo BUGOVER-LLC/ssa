@@ -1,5 +1,3 @@
-/** @format */
-
 // Import
 import Vue from 'vue';
 import VueMeta from 'vue-meta';

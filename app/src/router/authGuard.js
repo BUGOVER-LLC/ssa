@@ -1,7 +1,5 @@
-/** @format */
-
-import store from '@/store';
 import router from '@/router/index';
+import store from '@/store';
 import { FETCH_LOGOUT } from '@/store/types/actions.type';
 
 // Middlewares
@@ -30,14 +28,20 @@ router.beforeEach((to, from, next) => {
 
     // Auth
     if (to.meta.auth) {
-        if (loggedUser) return next();
-        else return redirectToRoute('login');
+        if (loggedUser) {
+            return next();
+        } else {
+            return redirectToRoute('login');
+        }
     }
 
     // Guest
     if (to.meta.guest) {
-        if (loggedUser) return redirectToRoute('adminDashboard');
-        else return next();
+        if (loggedUser) {
+            return redirectToRoute('adminDashboard');
+        } else {
+            return next();
+        }
     }
 
     next();

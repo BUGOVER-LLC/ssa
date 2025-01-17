@@ -1,4 +1,3 @@
-/** @format */
 import { FETCH_DISPLAY_LOADER, FETCH_NOTIFY } from '@/store/types/actions.type';
 import { DISPLAY_LOADER, NOTIFY } from '@/store/types/mutations.type';
 

@@ -1,6 +1,5 @@
-/** @format */
-
 import Echo from 'laravel-echo';
+
 import store from '@/store';
 
 window.socket = require('socket.io-client');

@@ -1,4 +1,3 @@
-/** @format */
 const dashboardModule = () => import('@/modules/DashboardModule');
 const error404Module = () => import('@/modules/Error404Module');
 const loginModule = () => import('@/modules/LoginModule');
@@ -25,7 +24,7 @@ export default [
         meta: { auth: true },
         children: [
             {
-                path: '/dashboard',
+                path: 'dashboard',
                 name: 'adminDashboard',
                 component: message,
             },

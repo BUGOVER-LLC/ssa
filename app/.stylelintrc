@@ -1,5 +1,25 @@
 {
-    "extends": ["stylelint-config-standard", "stylelint-config-recommended-vue", "stylelint-config-recommended-scss"],
-    "overrides": [{ "files": ["assets/**/*.vue"], "customSyntax": "postcss-scss" }],
-    "rules": { "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["v-deep"] }] }
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-vue",
+    "stylelint-config-recommended-scss"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "assets/**/*.vue"
+      ],
+      "customSyntax": "postcss-scss"
+    }
+  ],
+  "rules": {
+    "selector-pseudo-element-no-unknown": [
+      true,
+      {
+        "ignorePseudoElements": [
+          "v-deep"
+        ]
+      }
+    ]
+  }
 }

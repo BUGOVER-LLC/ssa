@@ -23,14 +23,18 @@
     "ext-redis": "*",
     "ext-sockets": "*",
     "ext-zlib": "*",
-    "genealabs/laravel-model-caching": "^11.0.1",
+    "ext-zip": "*",
+    "aws/aws-sdk-php": "^3.337.0",
+    "darkaonline/swagger-lume": "11.0",
+    "illuminate/redis": "^11.0.0",
     "laravel/lumen-framework": "^11.0.0",
     "laravel/socialite": "^5.0.0",
+    "league/flysystem": "^3.29",
     "pda/pheanstalk": "^6.0.0",
     "socialiteproviders/apple": "^5.5.0",
     "socialiteproviders/google": "^4.1.0",
     "symfony/mailer": "^7.0.0",
-    "tymon/jwt-auth": "^2.1.0"
+    "tymon/jwt-auth": "^2.1.0",
   },
   "require-dev": {
     "flipbox/lumen-generator": "^9.3.0",
@@ -44,21 +48,20 @@
   },
   "autoload": {
     "classmap": [
-      "src/database/seeds",
-      "src/database/factories"
+      "database/seeds",
+      "database/factories"
     ],
     "files": [
-      "src/core/_helpers.php"
+      "src/Core/_helpers.php"
     ],
     "psr-4": {
-      "Modules\\": "src/modules/",
-      "App\\": "src/core/"
+      "App\\": "src/Core/",
+      "Infrastructure\\": "src/Infrastructure/",
+      "Module\\": "src/Modules/"
     }
   },
   "autoload-dev": {
-    "classmap": [
-      "src/tests/"
-    ]
+    "Tests\\": "src/Tests/"
   },
   "scripts": {
     "post-root-package-install": [
@@ -75,7 +78,6 @@
       "php": "8.3"
     },
     "github-oauth": {
-
     }
   },
   "provide": {

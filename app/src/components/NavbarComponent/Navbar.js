@@ -1,4 +1,3 @@
-/** @format */
 import { FETCH_LOGOUT } from '@/store/types/actions.type';
 
 export default {

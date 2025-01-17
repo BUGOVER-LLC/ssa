@@ -1,5 +1,3 @@
-/** @format */
-
 // Import
 import axios from 'axios';
 

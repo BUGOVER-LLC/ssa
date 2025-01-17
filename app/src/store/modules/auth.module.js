@@ -1,4 +1,3 @@
-/** @format */
 import { FETCH_LOGGED_USER, FETCH_LOGOUT } from '@/store/types/actions.type';
 import { LOGGED_USER, REMOVE_LOGGED_USER } from '@/store/types/mutations.type';
 
