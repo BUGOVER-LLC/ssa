@@ -1,5 +1,3 @@
-/** @format */
-
 const path = require('path');
 const fs = require('fs');
 const { mergeSassVariables } = require('@vuetify/cli-plugin-utils');
@@ -40,21 +38,26 @@ module.exports = {
     },
 
     devServer: {
-        https: {
-            key: fs.existsSync(__dirname + process.env.CERT_KEY)
-                ? fs.readFileSync(__dirname + process.env.CERT_KEY)
-                : '',
-            cert: fs.existsSync(__dirname + process.env.CERT_CRT)
-                ? fs.readFileSync(__dirname + process.env.CERT_CRT)
-                : '',
-            host: 'ktav.loc',
-            port: 8080,
+        liveReload: true,
+        server: {
+            type: 'https',
+            options: {
+                key: fs.existsSync(__dirname + process.env.CERT_KEY)
+                    ? fs.readFileSync(__dirname + process.env.CERT_KEY)
+                    : '',
+                cert: fs.existsSync(__dirname + process.env.CERT_CRT)
+                    ? fs.readFileSync(__dirname + process.env.CERT_CRT)
+                    : '',
+                host: 'ssa.loc',
+                port: 8081,
+            },
         },
         proxy: {
             '': {
                 target: process.env.VUE_APP_BACKEND_URL,
                 ws: true,
-                changeOrigin: false,
+                changeOrigin: true,
+                secure: true,
             },
         },
     },

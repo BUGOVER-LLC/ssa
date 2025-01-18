@@ -122,10 +122,7 @@
     <rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
     <rule ref="Zend.Files.ClosingTag"/>
 
-    <file>Core</file>
-    <file>Infrastructure</file>
-    <file>Modules</file>
-    <file->Tests</file->
+    <file>src/</file>
 
     <exclude-pattern>*/.phpstorm.meta.php</exclude-pattern>
     <exclude-pattern>*/_ide_helper.php</exclude-pattern>

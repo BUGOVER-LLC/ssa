@@ -13,7 +13,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->create('countries', function (Blueprint $table) {
+        Schema::create('countries', function (Blueprint $table) {
             $table->id('country_id');
 
             $table->char('iso', 2);
@@ -34,6 +34,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->dropIfExists('countries');
+        Schema::dropIfExists('countries');
     }
 };

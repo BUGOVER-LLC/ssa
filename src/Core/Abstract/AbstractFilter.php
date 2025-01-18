@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
 /**
  * Class BaseFilter
  *
- * @package App\Filters
+ * @package Core\Filters
  */
 abstract class AbstractFilter
 {

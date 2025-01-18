@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract\Provider;
+namespace Core\Abstract\Provider;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -57,4 +57,5 @@ return [
      */
     'strict' => env('STRICT_MODE', false),
     'strict_level' => env('STRICT_LEVEL', 3),
+    'version' => env('APP_VERSION', 3),
 ];

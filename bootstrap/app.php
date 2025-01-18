@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -23,10 +23,8 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
-
 $app->withFacades();
 $app->withEloquent();
-$app->withAliases();
 
 /*
 |--------------------------------------------------------------------------
@@ -40,12 +38,12 @@ $app->withAliases();
 */
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    App\Exceptions\Handler::class
+    Infrastructure\Kernel\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    App\Console\Kernel::class
+    Infrastructure\Kernel\Cli::class
 );
 
 /*
@@ -58,7 +56,7 @@ $app->singleton(
 | the default version. You may register other files below as needed.
 |
 */
-foreach (glob(__DIR__ . '/../config/*.php') as $config) {
+foreach (glob(__DIR__.'/../config/*.php') as $config) {
     $app->configure($config);
 }
 
@@ -73,11 +71,11 @@ foreach (glob(__DIR__ . '/../config/*.php') as $config) {
 |
 */
 $app->middleware([
-    Infrastructure\Http\Middlewares\Cors::class,
+    Infrastructure\Http\Middleware\Cors::class,
 ]);
 
 $app->routeMiddleware([
-    'auth' => Infrastructure\Http\Middlewares\Authenticate::class,
+    'auth' => Infrastructure\Http\Middleware\Authenticate::class,
 ]);
 
 /*
@@ -94,13 +92,18 @@ if ($app->isLocal()) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 }
 
+// System Providers
+$app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Laravel\Socialite\SocialiteServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(SwaggerLume\ServiceProvider::class);
-$app->register(App\Providers\AppServiceProvider::class);
-$app->register(App\Providers\AuthServiceProvider::class);
-$app->register(App\Providers\EventServiceProvider::class);
-$app->register(App\Providers\ModuleServiceProvider::class);
+$app->register(Hhxsv5\LaravelS\Illuminate\LaravelSServiceProvider::class);
+
+// App Providers
+$app->register(Core\Providers\AppServiceProvider::class);
+$app->register(Core\Providers\AuthServiceProvider::class);
+$app->register(Core\Providers\EventServiceProvider::class);
+$app->register(Core\Providers\ModuleServiceProvider::class);
 
 // Run app!
 return $app;

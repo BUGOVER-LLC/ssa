@@ -2,15 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
-use Illuminate\Notifications\Notification;
-use NotificationChannels\Fcm\FcmMessage;
+use Illuminate\Support\Facades\Notification;
 
 /**
  * Interface NotifyContract
  *
- * @package App\Contracts
+ * @package Core\Contracts
  */
 abstract class AbstractNotify extends Notification
 {
@@ -18,7 +17,7 @@ abstract class AbstractNotify extends Notification
      * @param $notifiable
      * @return mixed
      */
-    public function toFcm($notifiable): FcmMessage
+    public function toFcm($notifiable)
     {
     }
 

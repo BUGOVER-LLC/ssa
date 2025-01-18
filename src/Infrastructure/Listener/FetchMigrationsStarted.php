@@ -13,7 +13,7 @@ class FetchMigrationsStarted
     /**
      * @return void
      */
-    public function hundle(): void
+    public function __invoke(): void
     {
     }
 }

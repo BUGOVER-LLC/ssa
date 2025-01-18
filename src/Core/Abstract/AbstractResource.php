@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
-use App\Trait\ConvertsSchemaToArray;
+use Core\Trait\ConvertsSchemaToArray;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
@@ -14,7 +14,7 @@ use stdClass;
 /**
  * Class BaseResource
  *
- * @package App\Http\Resources
+ * @package Core\Http\Resources
  * @property JsonResource $collection_data
  * @method Collection get(string $string, $default = null)
  * @method Collection gets(string $string, $default = null)

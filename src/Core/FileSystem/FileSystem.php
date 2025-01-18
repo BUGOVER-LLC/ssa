@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem;
+namespace Core\FileSystem;
 
-use App\FileSystem\Contracts\FileSystemContract;
+use Core\FileSystem\Contracts\FileSystemContract;
 use Aws\S3\S3Client;
 use DateTimeInterface;
 use Illuminate\Http\File;

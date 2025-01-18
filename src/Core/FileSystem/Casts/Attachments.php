@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem\Casts;
+namespace Core\FileSystem\Casts;
 
-use App\FileSystem\Contracts\FileSystemContract;
-use App\FileSystem\FileSystem;
+use Core\FileSystem\Contracts\FileSystemContract;
+use Core\FileSystem\FileSystem;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 

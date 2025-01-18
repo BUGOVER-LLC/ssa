@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
+use Core\Model\AuthModel;
 use Illuminate\Database\Eloquent\Model;
-use Infrastructure\Illuminate\Model\Entity\AuthModel;
 
 /**
  * Observer action

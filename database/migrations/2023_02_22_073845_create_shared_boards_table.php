@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->create('shared_boards', function (Blueprint $table) {
+        Schema::create('shared_boards', function (Blueprint $table) {
             $table->id('shared_board_id')->index('shared_boards_index_shared_board_id');
 
             $table->unsignedBigInteger('board_id')->index('shared_boards_index_board_id');
@@ -33,6 +33,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->dropIfExists('shared_boards');
+        Schema::dropIfExists('shared_boards');
     }
 };

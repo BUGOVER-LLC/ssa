@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Enum\Schema;
+namespace Core\Core\Enum\Schema;
 
-use App\Core\Abstract\AbstractSchema;
+use Core\Core\Abstract\AbstractSchema;
 use OpenApi\Attributes\Property;
 use OpenApi\Attributes\Schema;
 

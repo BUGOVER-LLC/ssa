@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->create('channels', function (Blueprint $table) {
+        Schema::create('channels', function (Blueprint $table) {
             $table->id('channel_id')->index('channels_index_channel_id');
             $table->bigInteger('workspace_id')->index('channels_index_workspace_id');
             $table->bigInteger('creator_id')->index('channels_index_creator_id');
@@ -29,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->dropIfExists('channels');
+        Schema::dropIfExists('channels');
     }
 };

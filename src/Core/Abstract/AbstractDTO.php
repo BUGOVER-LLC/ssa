@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
-use App\Domain\Micro\Model\User;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Facades\Auth;
+use Infrastructure\Eloquent\Models\User;
 
 abstract class AbstractDTO implements Arrayable, Jsonable
 {

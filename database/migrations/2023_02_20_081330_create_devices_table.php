@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->create('devices', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->id('device_id')->index('device_index_device_id');
 
             $table->string('name')->unique();
@@ -32,6 +32,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->dropIfExists('devices');
+        Schema::dropIfExists('devices');
     }
 };

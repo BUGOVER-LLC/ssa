@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Http\Middlewares;
+namespace Infrastructure\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Response;
@@ -19,14 +19,14 @@ class Cors
     {
         $headers = [
             'Access-Control-Allow-Origin' => '*',
-            'Access-Control-Allow-Methods' => 'POST, GET, PUT, DELETE',
+            'Access-Control-Allow-Methods' => 'POST, GET, PUT, DELETE, PATCH',
             'Access-Control-Allow-Credentials' => 'true',
             'Access-Control-Max-Age' => '86400',
-            'Access-Control-Allow-Headers' => 'Content-Type, Authorization, X-Requested-With'
+            'Access-Control-Allow-Headers' => 'Content-Type, Authorization, X-Requested-With',
         ];
 
         if ($request->isMethod('OPTIONS')) {
-            return jsponse('{"method":"OPTIONS"}', 200, $headers);
+            return jsponse('{"method":"OPTIONS"}', \Symfony\Component\HttpFoundation\Response::HTTP_OK, $headers);
         }
 
         $response = $next($request);

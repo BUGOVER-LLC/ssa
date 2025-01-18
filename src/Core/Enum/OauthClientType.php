@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Enum;
+namespace Core\Core\Enum;
 
-use App\Core\Enum\Concerns\EnumConcern;
+use Core\Core\Enum\Concerns\EnumConcern;
 
 enum OauthClientType: string
 {

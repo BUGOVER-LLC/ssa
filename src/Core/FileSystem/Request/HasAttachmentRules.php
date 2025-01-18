@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem\Request;
+namespace Core\FileSystem\Request;
 
-use App\FileSystem\Enum\FileCategoryEnum;
+use Core\FileSystem\Enum\FileCategoryEnum;
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 

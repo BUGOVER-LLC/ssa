@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Eloquent\Models;
 
-use App\Model\AuthModel;
+use Core\Model\AuthModel;
 
 /**
  * @method static where(string $string, $input)
@@ -22,7 +22,15 @@ final class User extends AuthModel
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'username', 'email', 'password', 'gender', 'setting_id'];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'username',
+        'email',
+        'password',
+        'gender',
+        'setting_id',
+    ];
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -57,7 +65,7 @@ final class User extends AuthModel
      */
     public function getName(): string
     {
-        return $this->first_name.' '.$this->last_name;
+        return $this->first_name . ' ' . $this->last_name;
     }
 
     /**

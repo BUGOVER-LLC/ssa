@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
 use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Facades\DB;
-use Infrastructure\Exceptions\ServerErrorException;
+use Pheanstalk\Exception\ServerInternalErrorException;
 use Throwable;
 
 /**
@@ -17,7 +17,7 @@ abstract class AbstractAction
     /**
      * @param ...$arguments
      * @return mixed
-     * @throws ServerErrorException
+     * @throws ServerInternalErrorException
      */
     public function transactionalRun(...$arguments): mixed
     {
@@ -25,7 +25,7 @@ abstract class AbstractAction
             try {
                 return $this->run(...$arguments);
             } catch (Throwable $exception) {
-                throw new ServerErrorException(
+                throw new ServerInternalErrorException(
                     message: $exception->getMessage(),
                     previous: $exception->getPrevious(),
                     file: $exception->getFile(),
@@ -38,7 +38,7 @@ abstract class AbstractAction
             try {
                 return static::run(...$arguments);
             } catch (Throwable $exception) {
-                throw new ServerErrorException(
+                throw new ServerInternalErrorException(
                     message: $exception->getMessage(),
                     previous: $exception->getPrevious(),
                     file: $exception->getFile(),

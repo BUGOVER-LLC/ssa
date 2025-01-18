@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 use JsonSerializable;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
-class Controller extends BaseController
+abstract class Controller extends BaseController
 {
     /**
      * Create a json response.

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Http\ApiRequest;
+use Infrastructure\Http\Request\ApiRequest;
 
 /**
  * @property bool $remember
@@ -32,9 +32,23 @@ class LoginRequest extends ApiRequest
     protected function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'max:250', 'min:5', 'exists:users,email'],
-            'password' => ['required', 'string', 'max:200', 'min:3'],
-            'remember' => ['required', 'bool'],
+            'email' => [
+                'required',
+                'string',
+                'max:250',
+                'min:5',
+                'exists:users,email',
+            ],
+            'password' => [
+                'required',
+                'string',
+                'max:200',
+                'min:3',
+            ],
+            'remember' => [
+                'required',
+                'bool',
+            ],
         ];
     }
 }

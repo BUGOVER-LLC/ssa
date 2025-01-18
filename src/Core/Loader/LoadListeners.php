@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Loader;
+namespace Core\Loader;
 
 use Illuminate\Support\Facades\Event;
 

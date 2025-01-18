@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Core\Enum\Roles;
+namespace Core\Core\Enum\Roles;
 
-use App\Core\Enum\Concerns\EnumConcern;
-use App\Core\Enum\Contracts\HasLabel;
+use Core\Core\Enum\Concerns\EnumConcern;
+use Core\Core\Enum\Contracts\HasLabel;
 use Override;
 
 enum Permission: string implements HasLabel

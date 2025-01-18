@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->table('shared_tasks', static function (Blueprint $table) {
+        Schema::table('shared_tasks', static function (Blueprint $table) {
             $table
                 ->foreign('task_id', 'shared_tasks_foreign_task_id')
                 ->references('board_task_id')
@@ -45,7 +45,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->table('shared_tasks', static function (Blueprint $table) {
+        Schema::table('shared_tasks', static function (Blueprint $table) {
             $table->dropForeign('shared_tasks_foreign_task_id');
             $table->dropForeign('shared_tasks_foreign_board_id');
             $table->dropForeign('shared_tasks_foreign_target_id');

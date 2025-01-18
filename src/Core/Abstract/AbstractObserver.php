@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
-use App\Domain\Micro\Model\User;
 use Illuminate\Contracts\Events\ShouldHandleEventsAfterCommit;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Infrastructure\Eloquent\Models\User;
 
 abstract class AbstractObserver implements ShouldQueue, ShouldHandleEventsAfterCommit
 {

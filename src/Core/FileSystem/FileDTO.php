@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem;
+namespace Core\FileSystem;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JetBrains\PhpStorm\ArrayShape;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem\Contracts;
+namespace Core\FileSystem\Contracts;
 
-use App\FileSystem\FileSystem;
+use Core\FileSystem\FileSystem;
 use DateTimeInterface;
 use Illuminate\Contracts\Filesystem\Filesystem as LaravelFilesystem;
 use Illuminate\Http\UploadedFile;

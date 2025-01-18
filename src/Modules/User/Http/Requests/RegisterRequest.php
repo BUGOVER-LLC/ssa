@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Http\ApiRequest;
+use Infrastructure\Http\Request\ApiRequest;
 
 class RegisterRequest extends ApiRequest
 {

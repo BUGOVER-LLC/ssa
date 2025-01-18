@@ -12,7 +12,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->create('personal_access_tokens', function (Blueprint $table) {
+        Schema::create('personal_access_tokens', function (Blueprint $table) {
             $table->id('personal_access_token_id')->index('personal_access_tokens_index_personal_access_token_id');
             $table->unsignedBigInteger('user_id')->index('personal_access_tokens_index_user_id');
             $table->string('name');
@@ -29,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->dropIfExists('personal_access_tokens');
+        Schema::dropIfExists('personal_access_tokens');
     }
 };

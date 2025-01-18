@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Module\User\Jobs;
 
-class ExampleJob extends Job
+use Illuminate\Queue\Jobs\Job;
+
+class ExampleJob
 {
     /**
      * Create a new job instance.

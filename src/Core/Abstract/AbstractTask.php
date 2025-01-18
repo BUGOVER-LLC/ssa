@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
-use App\Contract\AbstractTaskContract;
+use Core\Contract\AbstractTaskContract;
 
 abstract class AbstractTask implements AbstractTaskContract
 {

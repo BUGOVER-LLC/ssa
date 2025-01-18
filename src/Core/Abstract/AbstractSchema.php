@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
 use Illuminate\Contracts\Support\Arrayable;
 

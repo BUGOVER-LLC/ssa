@@ -14,7 +14,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::connection('pgsql_app')->table('board_stapes', static function (Blueprint $table) {
+        Schema::table('board_stapes', static function (Blueprint $table) {
             $table
                 ->foreign('board_id', 'board_steps_foreign_board_id')
                 ->references('board_id')
@@ -31,7 +31,7 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::connection('pgsql_app')->table('board_stapes', function (Blueprint $table) {
+        Schema::table('board_stapes', function (Blueprint $table) {
             $table->dropForeign('board_steps_foreign_board_id');
         });
     }

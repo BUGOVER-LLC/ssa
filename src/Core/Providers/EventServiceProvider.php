@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace Core\Providers;
 
 use Laravel\Lumen\Providers\EventServiceProvider as ServiceProvider;
 

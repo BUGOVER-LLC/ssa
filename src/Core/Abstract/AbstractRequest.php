@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Abstract;
+namespace Core\Abstract;
 
 use Exception;
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
@@ -16,11 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class BookkeepingCompanyPaginateRequest
  *
- * @package App\Http\Requests\SystemWorker
+ * @package Core\Http\Requests\SystemWorker
  * @method void moreValidation(\Illuminate\Validation\Validator $validator)
  * @method bool authorize()
  */
-abstract class AbstractRequest extends FormRequest
+abstract class AbstractRequest extends Request
 {
     /**
      * @return \Illuminate\Validation\Validator

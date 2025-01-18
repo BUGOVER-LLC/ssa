@@ -10,7 +10,7 @@ class FetchMigrationsEnded
     {
     }
 
-    public function handle()
+    public function __invoke()
     {
     }
 }

@@ -8,13 +8,14 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Infrastructure\Http\Controller;
 use Module\User\Http\Requests\LoginRequest;
-use Src\Core\Additional\MainDevicer;
+
+//use Src\Core\Additional\MainDevicer;
 
 class LoginController extends Controller
 {
     private const CREDENTIALS = ['email', 'password'];
 
-    public function __construct(private readonly MainDevicer $devicer)
+    public function __construct(/*private readonly MainDevicer $devicer*/)
     {
     }
 
@@ -40,7 +41,7 @@ class LoginController extends Controller
         $user = Auth::user()->toArray();
         $data = array_merge($data, $user);
 
-        $this->devicer->device();
+//        $this->devicer->device();
 
         return $this->response($data);
     }

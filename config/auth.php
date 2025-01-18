@@ -18,7 +18,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => \Modules\Users\Models\User::class
+            'model' => \Infrastructure\Eloquent\Models\User::class
         ]
     ]
 ];

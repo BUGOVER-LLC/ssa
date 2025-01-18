@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\FileSystem\Enum;
+namespace Core\FileSystem\Enum;
 
-use App\FileSystem\Enum\Concerns\EnumConcern;
+use Core\FileSystem\Enum\Concerns\EnumConcern;
 
 enum FileCategoryEnum: string
 {

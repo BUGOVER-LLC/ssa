@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Trait;
+namespace Core\Trait;
 
-use App\Abstract\AbstractSchema;
+use Core\Abstract\AbstractSchema;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 

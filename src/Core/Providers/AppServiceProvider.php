@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\Providers;
+namespace Core\Providers;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
-use Infrastructure\Http\ApiRequest;
+use Infrastructure\Http\Request\ApiRequest;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->strictModeAdoption();
+
         $this->app->resolving(ApiRequest::class, function ($form, $app) {
             $form = ApiRequest::createFrom($app['request'], $form);
             $form->setContainer($app);
@@ -43,8 +44,8 @@ class AppServiceProvider extends ServiceProvider
      */
     protected function strictModeAdoption(): void
     {
-        $strict = (bool)config('app.strict');
-        $level = (int)config('app.strict_level');
+        $strict = (bool) config('app.strict');
+        $level = (int) config('app.strict_level');
 
         if ($strict) {
             if (1 === $level) {
