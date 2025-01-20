@@ -34,12 +34,12 @@ final class RegisterController extends Controller
         $user = $this->query->createUser($request->toDto());
         $code = Str::random(6);
 
-        $this->sendEmail
-            ->from('cewfewf@mail.com')
-            ->to($user->getEmail())
-            ->html("<p>$code</p>")
-            ->subject('Accept Code')
-            ->send();
+//        $this->sendEmail
+//            ->from('cewfewf@mail.com')
+//            ->to($user->getEmail())
+//            ->html("<p>$code</p>")
+//            ->subject('Accept Code')
+//            ->send();
 
         return new UserRegisterResource($user);
     }

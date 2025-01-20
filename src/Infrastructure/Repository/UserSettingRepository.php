@@ -9,12 +9,13 @@ use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Exception\ORMException;
 use Doctrine\ORM\OptimisticLockException;
 use Infrastructure\Entity\User;
+use Infrastructure\Entity\UserSetting;
 
-class UserRepository extends EntityRepository
+class UserSettingRepository extends EntityRepository
 {
     public function __construct(private readonly EntityManagerInterface $em)
     {
-        parent::__construct($this->em, $this->em->getClassMetadata(User::class));
+        parent::__construct($this->em, $this->em->getClassMetadata(UserSetting::class));
     }
 
     /**
@@ -26,16 +27,5 @@ class UserRepository extends EntityRepository
     public function findById(int $id): ?User
     {
         return $this->em->find($this->getEntityName(), $id);
-    }
-
-    public function findAllWithSettings()
-    {
-        return $this
-            ->createQueryBuilder('users')
-            ->join('users.userSettings', 'us')
-            ->where('us.id = :user_setting')
-            ->setParameter('user_setting', 2)
-            ->getQuery()
-            ->getResult();
     }
 }

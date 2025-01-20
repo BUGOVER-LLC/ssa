@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Infrastructure\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -28,7 +30,7 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     #[
         ORM\Id,
         ORM\GeneratedValue,
-        ORM\Column(name: 'user_id', type: 'integer')
+        ORM\Column(name: 'id', type: 'integer')
     ]
     private int $id;
 
@@ -65,8 +67,13 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     ]
     private string $lastName = '';
 
+    // MANUFACTURE
+    #[ORM\OneToMany(targetEntity: UserSetting::class, mappedBy: 'user')]
+    private Collection $userSettings;
+
     public function __construct()
     {
+        $this->userSettings = new ArrayCollection();
         $this->uuid = Uuid::uuid4()->toString();
     }
 
@@ -151,16 +158,28 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         return $this->lastName;
     }
 
-    public function setFirstName(string $firstName)
+    public function setFirstName(string $firstName): User
     {
         $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function setLastName(string $lastName)
+    public function setLastName(string $lastName): User
     {
         $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getUserSettings(): Collection
+    {
+        return $this->userSettings;
+    }
+
+    public function setUserSettings(UserSetting $userSettings): User
+    {
+        $this->userSettings[] = $userSettings;
 
         return $this;
     }
