@@ -7,6 +7,7 @@ namespace Module\User\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Infrastructure\Entity\User;
 use Infrastructure\Http\Request\ApiRequest;
+use Module\User\DTO\LoginUserDto;
 
 /**
  * @property bool $remember
@@ -51,5 +52,17 @@ class LoginRequest extends ApiRequest
                 'bool',
             ],
         ];
+    }
+
+    /**
+     * @return LoginUserDto
+     */
+    public function toDto(): LoginUserDto
+    {
+        return new LoginUserDto(
+            email: $this->email,
+            password: $this->password,
+            remember: $this->remember
+        );
     }
 }

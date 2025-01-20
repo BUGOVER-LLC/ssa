@@ -31,7 +31,7 @@ class RegisterController extends Controller
      */
     public function __invoke(RegisterRequest $request): JsonResponse
     {
-        $user = $this->query->registerUser($request->all());
+        $user = $this->query->createUser($request->toDto());
         $code = Str::random(6);
 
         $this->sendEmail

@@ -4,22 +4,21 @@ declare(strict_types=1);
 
 namespace Module\User\Service;
 
-use Doctrine\Persistence\ObjectManager;
-use Illuminate\Support\Facades\Hash;
+use Doctrine\ORM\EntityManagerInterface;
 use Infrastructure\Entity\User;
 use Module\User\DTO\RegisterUserDto;
 
 class QueryService
 {
-    public function __construct(private readonly ObjectManager $manager)
+    public function __construct(private readonly EntityManagerInterface $manager)
     {
     }
 
-    public function registerUser(RegisterUserDto $dto)
+    public function createUser(RegisterUserDto $dto)
     {
         $user = (new User())
             ->setEmail($dto->email)
-            ->setPassword(Hash::make($dto->password));
+            ->setPassword($dto->password);
 
         $this->manager->persist($user);
         $this->manager->flush();

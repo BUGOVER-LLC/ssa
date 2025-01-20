@@ -6,14 +6,12 @@ namespace Module\User\DTO;
 
 use Core\Abstract\AbstractDTO;
 
-readonly final class RegisterUserDto extends AbstractDTO
+readonly final class LoginUserDto extends AbstractDTO
 {
     public function __construct(
-        public string $username,
         public string $email,
         public string $password,
-        public string $firstName,
-        public string $lastName,
+        public bool $remember = false,
     )
     {
     }

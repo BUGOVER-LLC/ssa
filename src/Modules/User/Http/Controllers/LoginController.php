@@ -13,7 +13,10 @@ use Module\User\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
-    private const CREDENTIALS = ['email', 'password'];
+    private const CREDENTIALS = [
+        'email',
+        'password',
+    ];
 
     public function __construct(/*private readonly MainDevicer $devicer*/)
     {

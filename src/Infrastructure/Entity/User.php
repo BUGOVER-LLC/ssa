@@ -9,6 +9,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Support\Facades\Hash;
 use Infrastructure\Repository\UserRepository;
 use Ramsey\Uuid\Uuid;
 
@@ -27,7 +28,7 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     #[
         ORM\Id,
         ORM\GeneratedValue,
-        ORM\Column(name: 'user_id')
+        ORM\Column(name: 'user_id', type: 'integer')
     ]
     private int $id;
 
@@ -35,22 +36,22 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
      * @var string
      */
     #[
-        ORM\Column(name: 'email', type: 'string')
+        ORM\Column(name: 'email', type: 'string', length: 250)
     ]
     private string $email;
 
     #[
-        ORM\Column(name: 'phone', type: 'string')
+        ORM\Column(name: 'phone', type: 'string', length: 32)
     ]
     private string $phone;
 
     #[
-        ORM\Column(name: 'password', type: 'string')
+        ORM\Column(name: 'password', type: 'string', length: 255)
     ]
-    private string $password;
+    private string $password = '';
 
     #[
-        ORM\Column(name: 'uid', type: 'string', length: '36', unique: true)
+        ORM\Column(name: 'uid', type: 'string', length: 36, unique: true)
     ]
     private string $uuid;
 
@@ -64,9 +65,11 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         return $this->phone;
     }
 
-    public function setPhone(string $phone): void
+    public function setPhone(string $phone): User
     {
         $this->phone = $phone;
+
+        return $this;
     }
 
     public function getId(): int
@@ -74,19 +77,16 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         return $this->id;
     }
 
-    public function setId(int $id): void
-    {
-        $this->id = $id;
-    }
-
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    public function setEmail(string $email): void
+    public function setEmail(string $email): User
     {
         $this->email = $email;
+
+        return $this;
     }
 
     public function getPassword(): string
@@ -94,9 +94,11 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         return $this->password;
     }
 
-    public function setPassword(string $password): void
+    public function setPassword(string $password): User
     {
-        $this->password = $password;
+        $this->password = Hash::make($password);
+
+        return $this;
     }
 
     public function getUuid(): string
@@ -104,12 +106,14 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         return $this->uuid;
     }
 
-    public function setUuid(string $uuid): void
+    public function setUuid(string $uuid): User
     {
         $this->uuid = $uuid;
+
+        return $this;
     }
 
-    public function getAuthIdentifierName()
+    public function getAuthIdentifierName(): string
     {
         return 'id';
     }
