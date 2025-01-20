@@ -151,8 +151,8 @@ return [
     */
 
     'websocket' => [
-        'enable' => false,
-        // 'handler' => XxxWebSocketHandler::class,
+        'enable' => true,
+         'handler' => Infrastructure\WebSocket\WebsocketService::class,
     ],
 
     /*
@@ -286,7 +286,7 @@ return [
     */
     'swoole' => [
         Constant::OPTION_DAEMONIZE => env('LARAVELS_DAEMONIZE', false),
-        Constant::OPTION_DISPATCH_MODE => env('LARAVELS_DISPATCH_MODE', 3),
+        Constant::OPTION_DISPATCH_MODE => env('LARAVELS_DISPATCH_MODE', 2),
         Constant::OPTION_WORKER_NUM => env('LARAVELS_WORKER_NUM', 2),
         Constant::OPTION_TASK_WORKER_NUM => env('LARAVELS_TASK_WORKER_NUM', 4),
         Constant::OPTION_MAX_THREAD_NUM => env('LARAVELS_MAX_THREAD_NUM', 4),

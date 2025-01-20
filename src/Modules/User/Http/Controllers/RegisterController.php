@@ -4,14 +4,12 @@ declare(strict_types=1);
 
 namespace Module\User\Http\Controllers;
 
-use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Str;
 use Infrastructure\Http\Controller;
 use Infrastructure\Utils\SendEmail;
 use Module\User\Http\Requests\RegisterRequest;
 use Module\User\Http\Resource\UserRegisterResource;
 use Module\User\Service\QueryService;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 final class RegisterController extends Controller
@@ -36,12 +34,12 @@ final class RegisterController extends Controller
         $user = $this->query->createUser($request->toDto());
         $code = Str::random(6);
 
-//        $this->sendEmail
-//            ->from('cewfewf@mail.com')
-//            ->to($user->getEmail())
-//            ->html("<p>$code</p>")
-//            ->subject('Accept Code')
-//            ->send();
+        $this->sendEmail
+            ->from('cewfewf@mail.com')
+            ->to($user->getEmail())
+            ->html("<p>$code</p>")
+            ->subject('Accept Code')
+            ->send();
 
         return new UserRegisterResource($user);
     }
