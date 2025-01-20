@@ -3,3 +3,4 @@ vendor
 .vagrant
 Homestead.yaml
 .etc/ssl
+.env
