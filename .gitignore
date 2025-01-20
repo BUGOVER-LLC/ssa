@@ -4,3 +4,4 @@ vendor
 Homestead.yaml
 .etc/ssl
 .env
+storage/laravels.conf

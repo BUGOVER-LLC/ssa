@@ -109,7 +109,7 @@ return [
 
     'inotify_reload' => [
         // Whether enable the Inotify Reload to reload all worker processes when your code is modified.
-        'enable' => env('LARAVELS_INOTIFY_RELOAD', false),
+        'enable' => env('LARAVELS_INOTIFY_RELOAD', true),
 
         // The file path that Inotify watches
         'watch_path' => base_path(),
@@ -299,7 +299,7 @@ return [
         Constant::OPTION_HEARTBEAT_CHECK_INTERVAL => env('LARAVELS_HEARTBEAT_CHECK_INTERVAL', 60),
         'max_request' => env('LARAVELS_MAX_REQUEST', 100000),
         'open_tcp_nodelay' => true,
-        'pid_file' => storage_path('laravels.pid'),
+        'pid_file' => storage_path('swoole/laravels.pid'),
         'log_level' => env('LARAVELS_LOG_LEVEL', 4),
         'log_file' => storage_path(sprintf('logs/swoole-%s.log', date('Y-m'))),
         'document_root' => base_path('public'),
