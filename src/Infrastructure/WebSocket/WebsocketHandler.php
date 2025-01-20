@@ -9,17 +9,19 @@ use Swoole\Http\Request;
 use Swoole\WebSocket\Frame;
 use Swoole\WebSocket\Server;
 
-class WebsocketService implements WebSocketHandlerInterface
+class WebsocketHandler implements WebSocketHandlerInterface
 {
 // Declare constructor without parameters
     public function __construct()
     {
     }
+
     // public function onHandShake(Request $request, Response $response)
     // {
     // Custom handshake: https://www.swoole.co.uk/docs/modules/swoole-websocket-server-on-handshake
     // The onOpen event will be triggered automatically after a successful handshake
     // }
+
     public function onOpen(Server $server, Request $request)
     {
         // Before the onOpen event is triggered, the HTTP request to establish the WebSocket has passed the Laravel route,

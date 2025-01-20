@@ -44,16 +44,27 @@ return [
     */
 
     'disks' => [
+        // DISK
+        'tmp' => [
+            'driver' => 'local',
+            'root' => storage_path('src/tmp'),
+            'throw' => false,
+            'visibility' => 'private',
+        ],
+
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('core'),
+            'root' => storage_path('src/local'),
+            'visibility' => 'private',
+            'throw' => false,
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('core/public'),
-            'url' => env('APP_URL').'/storage',
+            'root' => storage_path('src/public'),
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
+            'throw' => false,
         ],
 
         's3' => [
@@ -64,6 +75,8 @@ return [
             'bucket' => env('AWS_BUCKET'),
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+            'throw' => false,
         ],
     ],
 ];

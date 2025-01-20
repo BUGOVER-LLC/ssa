@@ -1,13 +1,18 @@
 server {
+    listen 80;
+    listen [::]:80;
+    listen 443 quic reuseport;
     listen 443 ssl;
-    listen [::]:443 ssl;
-    http2 on;
-    server_name ssa.phpmyadmin.loc;
     root "/home/vagrant/ssa/.etc/phpmyadmin";
-
-    index index.html index.htm index.php;
+    index index.html;
 
     charset utf-8;
+
+    http2 on;
+    http3 on;
+    quic_gso on;
+    quic_retry on;
+    ssl_protocols TLSv1.2 TLSv1.3;
 
     #SECURE
     more_clear_headers Server;

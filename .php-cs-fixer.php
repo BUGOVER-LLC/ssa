@@ -158,6 +158,7 @@ $finder = Finder::create()
         __DIR__ . '/config',
         __DIR__ . '/bootstrap',
         __DIR__ . '/database',
+        __DIR__ . '/resources',
     ])
     ->name('*.php')
     ->notName('*.blade.php')

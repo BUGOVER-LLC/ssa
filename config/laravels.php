@@ -24,7 +24,6 @@ return [
     | IPv6: use "::1" to listen local address, and "::"(equivalent to 0:0:0:0:0:0:0:0) to listen all addresses.
     |
     */
-
     'listen_ip' => env('LARAVELS_LISTEN_IP', '127.0.0.1'),
 
     /*
@@ -35,7 +34,6 @@ return [
     | Require root privilege if port is less than 1024.
     |
     */
-
     'listen_port' => env('LARAVELS_LISTEN_PORT', 5200),
 
     /*
@@ -58,7 +56,6 @@ return [
     | https://www.swoole.co.uk/docs/modules/swoole-server/configuration
     |
     */
-
     'socket_type' => defined('SWOOLE_SOCK_TCP') ? SWOOLE_SOCK_TCP : 1,
 
     /*
@@ -70,7 +67,6 @@ return [
     | displayed in the header of each request.
     |
     */
-
     'server' => env('LARAVELS_SERVER', ''),
 
     /*
@@ -83,7 +79,6 @@ return [
     | The default path of static resource is base_path('public'), you can modify swoole.document_root to change it.
     |
     */
-
     'handle_static' => env('LARAVELS_HANDLE_STATIC', false),
 
     /*
@@ -94,7 +89,6 @@ return [
     | The basic path of Laravel, default base_path(), be used for symbolic link.
     |
     */
-
     'laravel_base_path' => env('LARAVEL_BASE_PATH', base_path()),
 
     /*
@@ -106,7 +100,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#automatically-reload-after-modifying-code
     |
     */
-
     'inotify_reload' => [
         // Whether enable the Inotify Reload to reload all worker processes when your code is modified.
         'enable' => env('LARAVELS_INOTIFY_RELOAD', true),
@@ -136,7 +129,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#configuring-the-event-callback-function-of-swoole
     |
     */
-
     'event_handlers' => [],
 
     /*
@@ -149,10 +141,9 @@ return [
     | https://github.com/hhxsv5/laravel-s#enable-websocket-server
     |
     */
-
     'websocket' => [
         'enable' => true,
-         'handler' => Infrastructure\WebSocket\WebsocketService::class,
+        'handler' => Infrastructure\WebSocket\WebsocketHandler::class,
     ],
 
     /*
@@ -165,7 +156,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#multi-port-mixed-protocol
     |
     */
-
     'sockets' => [],
 
     /*
@@ -179,7 +169,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#custom-process
     |
     */
-
     'processes' => [],
 
     /*
@@ -192,7 +181,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#millisecond-cron-job
     |
     */
-
     'timer' => [
         'enable' => env('LARAVELS_TIMER', false),
 
@@ -222,7 +210,6 @@ return [
     | https://github.com/hhxsv5/laravel-s#use-swooletable
     |
     */
-
     'swoole_tables' => [],
 
     /*
@@ -237,7 +224,6 @@ return [
     | https://github.com/hhxsv5/laravel-s/blob/master/Settings.md#register_providers
     |
     */
-
     'register_providers' => [],
 
     /*
@@ -252,7 +238,6 @@ return [
     | https://github.com/hhxsv5/laravel-s/blob/master/Settings.md#cleaners
     |
     */
-
     'cleaners' => [],
 
     /*
@@ -266,7 +251,6 @@ return [
     | https://github.com/hhxsv5/laravel-s/blob/master/KnownIssues.md#singleton-controller
     |
     */
-
     'destroy_controllers' => [
         'enable' => false,
         'excluded_list' => [],
@@ -284,32 +268,33 @@ return [
     | English https://www.swoole.co.uk/docs/modules/swoole-server/configuration
     |
     */
-//    'swoole' => [
-//        Constant::OPTION_DAEMONIZE => env('LARAVELS_DAEMONIZE', false),
-//        Constant::OPTION_DISPATCH_MODE => env('LARAVELS_DISPATCH_MODE', 2),
-//        Constant::OPTION_WORKER_NUM => env('LARAVELS_WORKER_NUM', 2),
-//        Constant::OPTION_TASK_WORKER_NUM => env('LARAVELS_TASK_WORKER_NUM', 4),
-//        Constant::OPTION_MAX_THREAD_NUM => env('LARAVELS_MAX_THREAD_NUM', 4),
-//        Constant::OPTION_MIN_THREAD_NUM => env('LARAVELS_MIN_THREAD_NUM', 2),
-//        Constant::OPTION_TASK_IPC_MODE => '4',
-//        Constant::OPTION_HTTP_COMPRESSION => env('LARAVELS_HTTP_COMPRESSION', false),
-//        Constant::OPTION_TASK_MAX_REQUEST => env('LARAVELS_TASK_MAX_REQUEST', 10000),
-//        Constant::OPTION_TASK_TMPDIR => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
-//        Constant::OPTION_HEARTBEAT_IDLE_TIME => env('LARAVELS_HEARTBEAT_IDLE_TIME', 600),
-//        Constant::OPTION_HEARTBEAT_CHECK_INTERVAL => env('LARAVELS_HEARTBEAT_CHECK_INTERVAL', 60),
-//        'max_request' => env('LARAVELS_MAX_REQUEST', 100000),
-//        'open_tcp_nodelay' => true,
-//        'pid_file' => storage_path('swoole/laravels.pid'),
-//        'log_level' => env('LARAVELS_LOG_LEVEL', 4),
-//        'log_file' => storage_path(sprintf('logs/swoole-%s.log', date('Y-m'))),
-//        'document_root' => base_path('public'),
-//        'buffer_output_size' => 2 * 1024 * 1024,
-//        'socket_buffer_size' => 8 * 1024 * 1024,
-//        'package_max_length' => 4 * 1024 * 1024,
-//        'reload_async' => true,
-//        'max_wait_time' => 60,
-//        'enable_reuse_port' => true,
-//        'enable_coroutine' => true,
-//        'upload_tmp_dir' => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
-//    ],
+    'swoole' => -1 !== Swoole\Coroutine::getCid() ?
+        [
+            Constant::OPTION_DAEMONIZE => env('LARAVELS_DAEMONIZE', false),
+            Constant::OPTION_DISPATCH_MODE => env('LARAVELS_DISPATCH_MODE', 2),
+            Constant::OPTION_WORKER_NUM => env('LARAVELS_WORKER_NUM', 2),
+            Constant::OPTION_TASK_WORKER_NUM => env('LARAVELS_TASK_WORKER_NUM', 4),
+            Constant::OPTION_MAX_THREAD_NUM => env('LARAVELS_MAX_THREAD_NUM', 4),
+            Constant::OPTION_MIN_THREAD_NUM => env('LARAVELS_MIN_THREAD_NUM', 2),
+            Constant::OPTION_TASK_IPC_MODE => '4',
+            Constant::OPTION_HTTP_COMPRESSION => env('LARAVELS_HTTP_COMPRESSION', false),
+            Constant::OPTION_TASK_MAX_REQUEST => env('LARAVELS_TASK_MAX_REQUEST', 10000),
+            Constant::OPTION_TASK_TMPDIR => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
+            Constant::OPTION_HEARTBEAT_IDLE_TIME => env('LARAVELS_HEARTBEAT_IDLE_TIME', 600),
+            Constant::OPTION_HEARTBEAT_CHECK_INTERVAL => env('LARAVELS_HEARTBEAT_CHECK_INTERVAL', 60),
+            Constant::OPTION_MAX_REQUEST => env('LARAVELS_MAX_REQUEST', 100000),
+            Constant::OPTION_OPEN_TCP_NODELAY => true,
+            Constant::OPTION_PID_FILE => storage_path('swoole/laravels.pid'),
+            Constant::OPTION_LOG_LEVEL => env('LARAVELS_LOG_LEVEL', 4),
+            Constant::OPTION_LOG_FILE => storage_path(sprintf('logs/swoole-%s.log', date('Y-m-d'))),
+            Constant::OPTION_DOCUMENT_ROOT => base_path('public'),
+            Constant::OPTION_BUFFER_OUTPUT_SIZE => 2 * 1024 * 1024,
+            Constant::OPTION_SOCKET_BUFFER_SIZE => 8 * 1024 * 1024,
+            Constant::OPTION_PACKAGE_MAX_LENGTH => 4 * 1024 * 1024,
+            Constant::OPTION_RELOAD_ASYNC => true,
+            Constant::OPTION_MAX_WAIT_TIME => 60,
+            Constant::OPTION_ENABLE_REUSE_PORT => true,
+            Constant::OPTION_ENABLE_COROUTINE => true,
+            Constant::OPTION_UPLOAD_TMP_DIR => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
+        ] : [],
 ];

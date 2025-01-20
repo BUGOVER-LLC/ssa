@@ -1,13 +1,12 @@
 {
-  "name": "laravel/lumens",
-  "description": "The Laravel Lumen Framework.",
+  "name": "rocket/start",
+  "description": "The Lightweight skeleton for easy start app",
   "keywords": [
-    "framework",
-    "laravel",
-    "lumen"
+    "framework"
   ],
   "license": "MIT",
   "type": "project",
+  "version": "1.0.0",
   "require": {
     "php": "^8.3",
     "ext-bcmath": "*",

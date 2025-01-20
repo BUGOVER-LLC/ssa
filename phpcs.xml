@@ -126,6 +126,7 @@
     <file>config/</file>
     <file>database/</file>
     <file>bootstrap/</file>
+    <file>resources/</file>
 
     <exclude-pattern>*/.phpstorm.meta.php</exclude-pattern>
     <exclude-pattern>*/_ide_helper.php</exclude-pattern>

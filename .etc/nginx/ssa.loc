@@ -8,6 +8,12 @@ server {
 
     charset utf-8;
 
+    http2 on;
+    http3 on;
+    quic_gso on;
+    quic_retry on;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
     #SECURE
     more_clear_headers Server;
     more_set_headers '';
