@@ -51,12 +51,12 @@ foreach (glob(dirname(__DIR__) . '/config/*.php') as $config) {
 */
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Core\Kernel\Handler::class
+    Core\Kernel\Handler::class,
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Core\Kernel\Cli::class
+    Core\Kernel\Cli::class,
 );
 
 /*

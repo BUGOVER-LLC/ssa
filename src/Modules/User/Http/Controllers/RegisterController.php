@@ -9,10 +9,12 @@ use Illuminate\Support\Str;
 use Infrastructure\Http\Controller;
 use Infrastructure\Utils\SendEmail;
 use Module\User\Http\Requests\RegisterRequest;
+use Module\User\Http\Resource\UserRegisterResource;
 use Module\User\Service\QueryService;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
-class RegisterController extends Controller
+final class RegisterController extends Controller
 {
     /**
      * @param QueryService $query
@@ -26,21 +28,21 @@ class RegisterController extends Controller
      * Store a new user.
      *
      * @param RegisterRequest $request
-     * @return JsonResponse
+     * @return UserRegisterResource
      * @throws TransportExceptionInterface
      */
-    public function __invoke(RegisterRequest $request): JsonResponse
+    public function __invoke(RegisterRequest $request): UserRegisterResource
     {
         $user = $this->query->createUser($request->toDto());
         $code = Str::random(6);
 
-        $this->sendEmail
-            ->from('cewfewf@mail.com')
-            ->to($user->getEmail())
-            ->html("<p>$code</p>")
-            ->subject('Accept Code')
-            ->send();
+//        $this->sendEmail
+//            ->from('cewfewf@mail.com')
+//            ->to($user->getEmail())
+//            ->html("<p>$code</p>")
+//            ->subject('Accept Code')
+//            ->send();
 
-        return $this->response(['message' => __('general_words.process_success')], 201);
+        return new UserRegisterResource($user);
     }
 }

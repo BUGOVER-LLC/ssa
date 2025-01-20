@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Swoole\Constant;
+
 return [
     /*
     |--------------------------------------------------------------------------
@@ -149,7 +151,7 @@ return [
     */
 
     'websocket' => [
-        'enable' => true,
+        'enable' => false,
         // 'handler' => XxxWebSocketHandler::class,
     ],
 
@@ -282,15 +284,19 @@ return [
     | English https://www.swoole.co.uk/docs/modules/swoole-server/configuration
     |
     */
-
     'swoole' => [
-        'daemonize' => env('LARAVELS_DAEMONIZE', false),
-        'dispatch_mode' => env('LARAVELS_DISPATCH_MODE', 3),
-        'worker_num' => env('LARAVELS_WORKER_NUM', 30),
-        //'task_worker_num'    => env('LARAVELS_TASK_WORKER_NUM', 10),
-        'task_ipc_mode' => 1,
-        'task_max_request' => env('LARAVELS_TASK_MAX_REQUEST', 100000),
-        'task_tmpdir' => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
+        Constant::OPTION_DAEMONIZE => env('LARAVELS_DAEMONIZE', false),
+        Constant::OPTION_DISPATCH_MODE => env('LARAVELS_DISPATCH_MODE', 3),
+        Constant::OPTION_WORKER_NUM => env('LARAVELS_WORKER_NUM', 2),
+        Constant::OPTION_TASK_WORKER_NUM => env('LARAVELS_TASK_WORKER_NUM', 4),
+        Constant::OPTION_MAX_THREAD_NUM => env('LARAVELS_MAX_THREAD_NUM', 4),
+        Constant::OPTION_MIN_THREAD_NUM => env('LARAVELS_MIN_THREAD_NUM', 2),
+        Constant::OPTION_TASK_IPC_MODE => '4',
+        Constant::OPTION_HTTP_COMPRESSION => env('LARAVELS_HTTP_COMPRESSION', false),
+        Constant::OPTION_TASK_MAX_REQUEST => env('LARAVELS_TASK_MAX_REQUEST', 10000),
+        Constant::OPTION_TASK_TMPDIR => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
+        Constant::OPTION_HEARTBEAT_IDLE_TIME => env('LARAVELS_HEARTBEAT_IDLE_TIME', 600),
+        Constant::OPTION_HEARTBEAT_CHECK_INTERVAL => env('LARAVELS_HEARTBEAT_CHECK_INTERVAL', 60),
         'max_request' => env('LARAVELS_MAX_REQUEST', 100000),
         'open_tcp_nodelay' => true,
         'pid_file' => storage_path('laravels.pid'),
@@ -303,8 +309,7 @@ return [
         'reload_async' => true,
         'max_wait_time' => 60,
         'enable_reuse_port' => true,
-        'enable_coroutine' => false,
+        'enable_coroutine' => true,
         'upload_tmp_dir' => @is_writable('/dev/shm/') ? '/dev/shm' : '/tmp',
-        'http_compression' => env('LARAVELS_HTTP_COMPRESSION', false),
     ],
 ];

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Infrastructure\Http\Controller;
 use RuntimeException;
 
-class LogoutController extends Controller
+final class LogoutController extends Controller
 {
     /**
      * @return JsonResponse

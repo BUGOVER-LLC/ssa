@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Core\Abstract;
 
 use Core\Trait\ConvertsSchemaToArray;
+use Doctrine\ORM\Mapping\Entity;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Collection;
@@ -16,6 +17,7 @@ use stdClass;
  *
  * @package Core\Http\Resources
  * @property JsonResource $collection_data
+ * @property-read Entity $resource
  * @method Collection get(string $string, $default = null)
  * @method Collection gets(string $string, $default = null)
  * @method Collection stringSerialize(string $name)

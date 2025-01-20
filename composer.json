@@ -9,7 +9,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": "^8.3.2",
+    "php": "^8.3",
     "ext-bcmath": "*",
     "ext-calendar": "*",
     "ext-curl": "*",

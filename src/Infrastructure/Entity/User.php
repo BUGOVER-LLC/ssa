@@ -46,7 +46,7 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     private string $phone;
 
     #[
-        ORM\Column(name: 'password', type: 'string', length: 255)
+        ORM\Column(name: 'password', type: 'string', length: 255, nullable: false)
     ]
     private string $password = '';
 
@@ -54,6 +54,16 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         ORM\Column(name: 'uid', type: 'string', length: 36, unique: true)
     ]
     private string $uuid;
+
+    #[
+        ORM\Column(name: 'first_name', type: 'string', length: 120)
+    ]
+    private string $firstName = '';
+
+    #[
+        ORM\Column(name: 'last_name', type: 'string', length: 120)
+    ]
+    private string $lastName = '';
 
     public function __construct()
     {
@@ -121,5 +131,37 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     public function getAuthIdentifier()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
+    }
+
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function setLastName(string $lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
     }
 }

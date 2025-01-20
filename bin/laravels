@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+declare(strict_types=1);
+
 /**
  * This autoloader is only used to pull laravel-s.
  * Class Psr4Autoloader
@@ -39,10 +41,10 @@ class Psr4Autoloader
     public function addNamespace($prefix, $base_dir, $prepend = false)
     {
         // normalize namespace prefix
-        $prefix = trim($prefix, '\\') . '\\';
+        $prefix = trim($prefix, '\\').'\\';
 
         // normalize the base directory with a trailing separator
-        $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR) . '/';
+        $base_dir = rtrim($base_dir, DIRECTORY_SEPARATOR).'/';
 
         // initialize the namespace prefix array
         if (isset($this->prefixes[$prefix]) === false) {
@@ -114,8 +116,8 @@ class Psr4Autoloader
             // replace namespace separators with directory separators
             // in the relative class name, append with .php
             $file = $base_dir
-                . str_replace('\\', '/', $relative_class)
-                . '.php';
+                .str_replace('\\', '/', $relative_class)
+                .'.php';
 
             // if the mapped file exists, require it
             if ($this->requireFile($file)) {
@@ -138,8 +140,10 @@ class Psr4Autoloader
     {
         if (file_exists($file)) {
             require $file;
+
             return true;
         }
+
         return false;
     }
 }
@@ -149,17 +153,17 @@ $loader = new Psr4Autoloader();
 $loader->register();
 
 // Register laravel-s
-$loader->addNamespace('Hhxsv5\LaravelS', $basePath . '/vendor/hhxsv5/laravel-s/src');
+$loader->addNamespace('Hhxsv5\LaravelS', $basePath.'/vendor/hhxsv5/laravel-s/src');
 
 // Register laravel-s dependencies
 
 // To fix issue #364 https://github.com/hhxsv5/laravel-s/issues/364
-$loader->addNamespace('Symfony\Polyfill\Php80', $basePath . '/vendor/symfony/polyfill-php80');
-$loader->requireFile($basePath . '/vendor/symfony/polyfill-php80/bootstrap.php');
+$loader->addNamespace('Symfony\Polyfill\Php80', $basePath.'/vendor/symfony/polyfill-php80');
+$loader->requireFile($basePath.'/vendor/symfony/polyfill-php80/bootstrap.php');
 
-$loader->addNamespace('Symfony\Component\Console', $basePath . '/vendor/symfony/console');
-$loader->addNamespace('Symfony\Contracts\Service', $basePath . '/vendor/symfony/service-contracts');
-$loader->addNamespace('Symfony\Contracts', $basePath . '/vendor/symfony/contracts');
+$loader->addNamespace('Symfony\Component\Console', $basePath.'/vendor/symfony/console');
+$loader->addNamespace('Symfony\Contracts\Service', $basePath.'/vendor/symfony/service-contracts');
+$loader->addNamespace('Symfony\Contracts', $basePath.'/vendor/symfony/contracts');
 
 $command = new Hhxsv5\LaravelS\Console\Portal($basePath);
 $input = new Symfony\Component\Console\Input\ArgvInput();

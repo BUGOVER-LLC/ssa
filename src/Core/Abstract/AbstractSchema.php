@@ -6,7 +6,7 @@ namespace Core\Abstract;
 
 use Illuminate\Contracts\Support\Arrayable;
 
-abstract class AbstractSchema implements Arrayable
+readonly abstract class AbstractSchema implements Arrayable
 {
     final public function toArray(): array
     {

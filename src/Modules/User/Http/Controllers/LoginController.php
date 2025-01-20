@@ -11,7 +11,7 @@ use Module\User\Http\Requests\LoginRequest;
 
 //use Src\Core\Additional\MainDevicer;
 
-class LoginController extends Controller
+final class LoginController extends Controller
 {
     private const CREDENTIALS = [
         'email',
