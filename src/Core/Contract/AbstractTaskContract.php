@@ -13,5 +13,5 @@ interface AbstractTaskContract
      * @param Closure|null $next
      * @return mixed
      */
-    public function handle(mixed $context, ?Closure $next = null);
+    public function handle(mixed $context, ?Closure $next = null): mixed;
 }
