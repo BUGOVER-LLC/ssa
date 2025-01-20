@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Infrastructure\Entity;
 
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -18,6 +19,7 @@ use Ramsey\Uuid\Uuid;
 #[
     ORM\Entity(repositoryClass: UserRepository::class),
     ORM\Table(name: 'users'),
+    ORM\HasLifecycleCallbacks
 ]
 final class User implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -67,9 +69,44 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
     ]
     private string $lastName = '';
 
-    // MANUFACTURE
-    #[ORM\OneToMany(targetEntity: UserSetting::class, mappedBy: 'user')]
+    #[
+        ORM\Column(type: 'datetime_immutable', name: 'created_at')
+    ]
+    private DateTimeInterface $createdAt;
+
+    #[
+        ORM\Column(type: 'datetime_immutable', name: 'updated_at')
+    ]
+    private DateTimeInterface $updatedAt;
+
+    #[
+        ORM\OneToMany(targetEntity: UserSetting::class, mappedBy: 'user')
+    ]
     private Collection $userSettings;
+
+    public function getCreatedAt(): DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(DateTimeInterface $createdAt): User
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(DateTimeInterface $updatedAt): User
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
 
     public function __construct()
     {

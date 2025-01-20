@@ -21,8 +21,11 @@ final class UserSetting
     ]
     private int $id;
 
-    #[ORM\Column(type: 'datetime_immutable')]
+    #[ORM\Column(type: 'datetime_immutable', name: 'created_at')]
     private \DateTimeInterface $createdAt;
+
+    #[ORM\Column(type: 'datetime_immutable', name: 'updated_at')]
+    private \DateTimeInterface $updatedAt;
 
     // Product
     #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
@@ -67,6 +70,18 @@ final class UserSetting
     public function setCreatedAt(\DateTimeInterface $createdAt): UserSetting
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): \DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): UserSetting
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
