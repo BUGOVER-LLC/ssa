@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Core\Enum\Concerns;
+namespace Core\Enum\Concerns;
 
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
@@ -381,7 +381,7 @@ trait EnumConcern
         $labels = [];
 
         /* @noinspection ClassConstantCanBeUsedInspection */
-        if (!\in_array('Core\Core\Enum\Contracts\HasLabel', class_implements(static::class), true)) {
+        if (!\in_array('Core\Enum\Contracts\HasLabel', class_implements(static::class), true)) {
             return [];
         }
 

@@ -1,6 +1,9 @@
 parameters:
     paths:
-        - src/
+        - src
+        - database
+        - config
+        - bootstrap
     level: 6
     phpVersion: 80300
     inferPrivatePropertyTypeFromConstructor: true

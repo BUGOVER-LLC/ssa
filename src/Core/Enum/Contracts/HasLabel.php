@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Core\Enum\Contracts;
+namespace Core\Enum\Contracts;
 
 interface HasLabel
 {

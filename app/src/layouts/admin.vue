@@ -1,9 +1,9 @@
 <template>
     <div class="bg-gray-100 font-family-karla flex">
-        <sidebar-component :active-menu="activeMenu" />
+        <SidebarComponent :active-menu="activeMenu" />
 
         <div class="w-full flex flex-col h-screen overflow-y-hidden">
-            <navbar-component />
+            <NavbarComponent />
             <div class="w-full h-screen overflow-x-hidden border-t flex flex-col">
                 <main class="w-full flex-grow p-6">
                     <slot></slot>
@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import navbarComponent from '@/components/NavbarComponent';
-import sidebarComponent from '@/components/SidebarComponent';
+import NavbarComponent from '@/components/NavbarComponent';
+import SidebarComponent from '@/components/SidebarComponent';
 
 export default {
     name: 'AdminLayout',
 
     components: {
-        sidebarComponent,
-        navbarComponent,
+        SidebarComponent,
+        NavbarComponent,
     },
 
     props: {

@@ -17,7 +17,7 @@ class SendEmail extends Email
      */
     public function send(): void
     {
-        $transport = Transport::fromDsn(env('MAILER_DSN'));
+        $transport = Transport::fromDsn(env('MAIL_MAILER'));
         $mailer = new Mailer($transport);
 
         $mailer->send($this);

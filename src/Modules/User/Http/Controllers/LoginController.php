@@ -32,7 +32,6 @@ class LoginController extends Controller
         if (!$token = Auth::attempt($credentials, $request->remember)) {
             return $this->response(['errors' => ['login' => [__('auth.failed')]]], 423);
         }
-
         $data = [
             'token' => $token,
             'token_type' => 'bearer',

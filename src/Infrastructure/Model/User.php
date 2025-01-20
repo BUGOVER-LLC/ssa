@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Eloquent\Models;
+namespace Infrastructure\Model;
 
 use Core\Model\AuthModel;
 
@@ -17,6 +17,7 @@ final class User extends AuthModel
      * @var string
      */
     protected $table = 'users';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -31,12 +32,15 @@ final class User extends AuthModel
         'gender',
         'setting_id',
     ];
+
     /**
      * The attributes excluded from the model's JSON form.
      *
      * @var array
      */
-    protected $hidden = ['password'];
+    protected $hidden = [
+        'password',
+    ];
 
     /**
      * Get the identifier that will be stored in the subject claim of the JWT.

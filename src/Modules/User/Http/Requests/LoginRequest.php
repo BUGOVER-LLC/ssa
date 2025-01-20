@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
+use Infrastructure\Entity\User;
 use Infrastructure\Http\Request\ApiRequest;
 
 /**
@@ -37,7 +38,7 @@ class LoginRequest extends ApiRequest
                 'string',
                 'max:250',
                 'min:5',
-                'exists:users,email',
+                'exists:' . User::class . ',email',
             ],
             'password' => [
                 'required',

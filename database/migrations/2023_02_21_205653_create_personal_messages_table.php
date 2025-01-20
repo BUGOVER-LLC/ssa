@@ -21,7 +21,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('participant_id')->index('personal_messages_index_participant_id');
             $table->unsignedBigInteger('workspace_id')->index('personal_messages_index_workspace_id');
             $table->unsignedBigInteger('parent_id')->index('personal_messages_index_parent_id')->nullable();
-            $table->json('body')->fulltext('personal_messages_fulltext_body');
+            $table->json('body');
             $table->boolean('viewed')->default(false);
             $table->dateTime('viewed_at')->nullable();
 

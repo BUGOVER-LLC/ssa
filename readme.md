@@ -11,7 +11,7 @@ Introduction
 </p>
 
 . Starting
-- 
+-
 ---
 
 - Install VirtualBox in your system
@@ -26,10 +26,10 @@ Introduction
 - yarn server (for localhost run your app)
 
 HTTPS on Chrome && Firefox
-- 
+-
 ---
 . Chrome
-- 
+-
 
 - Settings
 - Privacy and Security
@@ -39,7 +39,7 @@ HTTPS on Chrome && Firefox
 - Import ssl certificate on path your project, ssa/.etc/ssl/ca.homestead.ssa.crt
 
 . Firefox
-- 
+-
 
 - Settings
 - Privacy & Security

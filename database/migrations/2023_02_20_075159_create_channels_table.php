@@ -14,8 +14,8 @@ return new class extends Migration {
     {
         Schema::create('channels', function (Blueprint $table) {
             $table->id('channel_id')->index('channels_index_channel_id');
-            $table->bigInteger('workspace_id')->index('channels_index_workspace_id');
-            $table->bigInteger('creator_id')->index('channels_index_creator_id');
+            $table->unsignedBigInteger('workspace_id')->index('channels_index_workspace_id');
+            $table->unsignedBigInteger('creator_id')->index('channels_index_creator_id');
             $table->uuid('uid')->index('channels_index_uid');
             $table->string('name', 500)->unique();
             $table->enum('status', ['active', 'archive', 'trashed']);

@@ -1,5 +1,5 @@
 {
-  "name": "laravel/lumen",
+  "name": "laravel/lumens",
   "description": "The Laravel Lumen Framework.",
   "keywords": [
     "framework",
@@ -9,7 +9,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": "<=8.3",
+    "php": "^8.3.2",
     "ext-bcmath": "*",
     "ext-calendar": "*",
     "ext-curl": "*",
@@ -29,6 +29,7 @@
     "hhxsv5/laravel-s": "^3.8",
     "illuminate/redis": "^11.0.0",
     "laravel/lumen-framework": "^11.0.0",
+    "laravel-doctrine/orm": "^3.0.0",
     "laravel/socialite": "^5.0.0",
     "league/flysystem": "^3.29",
     "pda/pheanstalk": "^6.0.0",

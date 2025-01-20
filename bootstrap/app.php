@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
     dirname(__DIR__)
@@ -28,6 +28,20 @@ $app->withEloquent();
 
 /*
 |--------------------------------------------------------------------------
+| Register Config Files
+|--------------------------------------------------------------------------
+|
+| Now we will register the "core" configuration file. If the file exists in
+| your configuration directory it will be loaded; otherwise, we'll load
+| the default version. You may register other files below as needed.
+|
+*/
+foreach (glob(dirname(__DIR__) . '/config/*.php') as $config) {
+    $app->configure(strstr(basename($config), '.', true));
+}
+
+/*
+|--------------------------------------------------------------------------
 | Register Container Bindings
 |--------------------------------------------------------------------------
 |
@@ -38,27 +52,13 @@ $app->withEloquent();
 */
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    Infrastructure\Kernel\Handler::class
+    Core\Kernel\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    Infrastructure\Kernel\Cli::class
+    Core\Kernel\Cli::class
 );
-
-/*
-|--------------------------------------------------------------------------
-| Register Config Files
-|--------------------------------------------------------------------------
-|
-| Now we will register the "core" configuration file. If the file exists in
-| your configuration directory it will be loaded; otherwise, we'll load
-| the default version. You may register other files below as needed.
-|
-*/
-foreach (glob(__DIR__.'/../config/*.php') as $config) {
-    $app->configure($config);
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -91,14 +91,13 @@ $app->routeMiddleware([
 if ($app->isLocal()) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
 }
-
 // System Providers
 $app->register(Illuminate\Redis\RedisServiceProvider::class);
 $app->register(Laravel\Socialite\SocialiteServiceProvider::class);
 $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(SwaggerLume\ServiceProvider::class);
 $app->register(Hhxsv5\LaravelS\Illuminate\LaravelSServiceProvider::class);
-
+$app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
 // App Providers
 $app->register(Core\Providers\AppServiceProvider::class);
 $app->register(Core\Providers\AuthServiceProvider::class);

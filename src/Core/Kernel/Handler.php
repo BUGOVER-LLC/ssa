@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Kernel;
+namespace Core\Kernel;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

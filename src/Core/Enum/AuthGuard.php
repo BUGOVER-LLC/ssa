@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Core\Core\Enum;
+namespace Core\Enum;
 
 enum AuthGuard: string
 {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Core\Core\Enum\Resource;
+namespace Core\Enum\Resource;
 
-use Core\Core\Abstract\AbstractResource;
-use Core\Core\Abstract\AbstractSchema;
-use Core\Core\Enum\Schema\EnumSchema;
+use Core\Abstract\AbstractResource;
+use Core\Abstract\AbstractSchema;
+use Core\Enum\Schema\EnumSchema;
 use Enum;
 use Illuminate\Http\Request;
 
