@@ -22,12 +22,12 @@ final class UserSetting
     private int $id;
 
     #[
-        ORM\Column(name: 'name', type: 'string')
+        ORM\Column(name: 'name', type: 'string', length: 200)
     ]
     private int $name;
 
     #[
-        ORM\Column(name: 'value', type: 'string')
+        ORM\Column(name: 'value', type: 'string', length: 100)
     ]
     private int $value;
 
@@ -78,11 +78,6 @@ final class UserSetting
         return $this->id;
     }
 
-    public function getUserId(): int
-    {
-        return $this->id;
-    }
-
     public function setUserId(int $userId): UserSetting
     {
         $this->id = $userId;
@@ -125,5 +120,17 @@ final class UserSetting
         $this->updatedAt = $updatedAt;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+    #[ORM\PreUpdate]
+    public function setUpdatedAtValue(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 }

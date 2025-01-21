@@ -27,7 +27,7 @@ class MainServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Route::group([
-            'prefix' => config('app.version'),
+            'prefix' => config('app.api_version'),
         ], fn() => $this->loadRoutesFrom(__DIR__ . '/Http/routes.php'));
     }
 }

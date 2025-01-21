@@ -40,12 +40,12 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
      * @var string
      */
     #[
-        ORM\Column(name: 'email', type: 'string', length: 250)
+        ORM\Column(name: 'email', type: 'string', length: 200)
     ]
     private string $email;
 
     #[
-        ORM\Column(name: 'phone', type: 'string', length: 32)
+        ORM\Column(name: 'phone', type: 'string', length: 32, nullable: true)
     ]
     private string $phone;
 
@@ -219,5 +219,17 @@ final class User implements AuthenticatableContract, CanResetPasswordContract
         $this->userSettings[] = $userSettings;
 
         return $this;
+    }
+
+    #[ORM\PrePersist]
+    public function setCreatedAtValue(): void
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
+
+    #[ORM\PreUpdate]
+    public function setUpdatedAtValue(): void
+    {
+        $this->updatedAt = new \DateTimeImmutable();
     }
 }
