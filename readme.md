@@ -7,7 +7,10 @@ Easy to start a new project gradually expanding (Front part VueJs (vuetify)).
 > <p>!CHOOSE WEB SERVER</p>
 > There is integration both on PHP-FPM or SWOOLE-PHP (the rest is described in the <b>doc folder).
 
-<p align="center">
+> <p>Warning !</p>
+> First of all, the project is aimed at those who are trying to write clean code in PHP or Symfony, and not at those who write noodles in laravel with tons of packaging.
+
+<p align="CENTER">
 <img src="https://steringm.ru/uploads/posts/61a00b6d93fd6.png?v0.12.2" alt="drawing" width="290"/>
 <img src=".github/ssa-logo.png" alt="drawing" width="400"/>
 </p>

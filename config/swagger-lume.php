@@ -171,7 +171,6 @@ return [
     | Turn this on to generate a copy of documentation in yaml format
     |--------------------------------------------------------------------------
      */
-
     'generate_yaml_copy' => env('SWAGGER_LUME_GENERATE_YAML_COPY', false),
 
     /*
@@ -179,7 +178,7 @@ return [
     | Edit to set the swagger version number
     |--------------------------------------------------------------------------
      */
-    'swagger_version' => env('SWAGGER_VERSION', '3.0'),
+    'swagger_version' => env('SWAGGER_VERSION', '3.1'),
 
     /*
     |--------------------------------------------------------------------------
@@ -194,7 +193,6 @@ return [
     | See more at: https://github.com/swagger-api/swagger-ui#configs-plugin
     |--------------------------------------------------------------------------
     */
-
     'additional_config_url' => null,
 
     /*
@@ -204,7 +202,6 @@ return [
     | Default is the order returned by the server unchanged.
     |--------------------------------------------------------------------------
     */
-
     'operations_sort' => env('L5_SWAGGER_OPERATIONS_SORT', null),
 
     /*
@@ -213,7 +210,6 @@ return [
     | side.  A null value here disables validation.
     |--------------------------------------------------------------------------
     */
-
     'validator_url' => null,
 
     /*
