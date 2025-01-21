@@ -56,8 +56,9 @@ features:
   - php7.4: false
   - php8.0: false
   - php8.1: false
-  - php8.2: false
+  - php8.2: true
   - php8.3: true
+  - php8.4: true
 
 services:
   - enabled:
