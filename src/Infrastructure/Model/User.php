@@ -7,6 +7,8 @@ namespace Infrastructure\Model;
 use Core\Model\AuthModel;
 
 /**
+ * This model is a basic laravel model for user authentication but not used if Entity User completely satisfies us.
+ *
  * @method static where(string $string, $input)
  */
 final class User extends AuthModel

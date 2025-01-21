@@ -31,7 +31,7 @@ class LoginRequest extends ApiRequest
      *
      * @return array
      */
-    protected function rules(): array
+    public function rules(): array
     {
         return [
             'email' => [

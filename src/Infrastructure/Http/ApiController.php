@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Core\Abstract;
+namespace Infrastructure\Http;
 
-use Infrastructure\Http\Controller;
+use Core\Abstract\BaseController;
 use OpenApi\Attributes\Info;
 use OpenApi\Attributes\PathItem;
 use OpenApi\Attributes\Response;
@@ -27,6 +27,6 @@ use OpenApi\Attributes\Server;
         url: 'https://adcourt.asd.am/api'
     )
 ]), Response(response: '200', description: 'An example resource')]
-abstract class ApiController extends Controller
+abstract class ApiController extends BaseController
 {
 }

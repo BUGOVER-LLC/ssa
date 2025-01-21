@@ -6,10 +6,10 @@ namespace Module\User\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Http\Controller;
+use Infrastructure\Http\WebController;
 use RuntimeException;
 
-final class LogoutController extends Controller
+final class LogoutBaseController extends WebController
 {
     /**
      * @return JsonResponse
@@ -23,6 +23,7 @@ final class LogoutController extends Controller
         }
 
         Auth::logoutCurrentDevice();
+
         return $this->response('logout');
     }
 
@@ -55,6 +56,7 @@ final class LogoutController extends Controller
         }
 
         Auth::logoutOtherDevices();
+
         return $this->response('logout');
     }
 }

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Infrastructure\Http\Request;
 
+use Core\Abstract\AbstractRequest;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
-use Laravel\Lumen\Http\Request;
 
-abstract class ApiRequest extends Request
+abstract class ApiRequest extends AbstractRequest
 {
     /**
      * @var Container|null
@@ -30,6 +30,7 @@ abstract class ApiRequest extends Request
     public function validated(): array
     {
         $this->handler();
+
         return $this->validator->validated();
     }
 
@@ -86,16 +87,6 @@ abstract class ApiRequest extends Request
     protected function prepareForValidation(): void
     {
         // no default action
-    }
-
-    /**
-     * @return array
-     */
-    abstract protected function rules(): array;
-
-    protected function messages(): array
-    {
-        return [];
     }
 
     /**

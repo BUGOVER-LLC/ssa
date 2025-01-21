@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Infrastructure\Http;
+namespace Core\Abstract;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Http\JsonResponse;
 use JsonSerializable;
-use Laravel\Lumen\Routing\Controller as BaseController;
+use Laravel\Lumen\Routing\Controller as BaseSystemController;
 
-abstract class Controller extends BaseController
+abstract class BaseController extends BaseSystemController
 {
     /**
      * Create a json response.
