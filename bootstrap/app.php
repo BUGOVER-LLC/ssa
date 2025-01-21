@@ -89,6 +89,7 @@ $app->routeMiddleware([
 */
 if ($app->isLocal()) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
+    $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 }
 // System Providers
 $app->register(Illuminate\Redis\RedisServiceProvider::class);

@@ -21,16 +21,57 @@ final class UserSetting
     ]
     private int $id;
 
-    #[ORM\Column(type: 'datetime_immutable', name: 'created_at')]
+    #[
+        ORM\Column(name: 'name', type: 'string')
+    ]
+    private int $name;
+
+    #[
+        ORM\Column(name: 'value', type: 'string')
+    ]
+    private int $value;
+
+    #[
+        ORM\Column(type: 'datetime_immutable', name: 'created_at')
+    ]
     private \DateTimeInterface $createdAt;
 
-    #[ORM\Column(type: 'datetime_immutable', name: 'updated_at')]
+    #[
+        ORM\Column(type: 'datetime_immutable', name: 'updated_at')
+    ]
     private \DateTimeInterface $updatedAt;
 
-    // Product
-    #[ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id')]
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'userSettings')]
+    #[
+        ORM\JoinColumn(name: 'user_id', referencedColumnName: 'id'),
+        ORM\ManyToOne(targetEntity: User::class, inversedBy: 'userSettings')
+    ]
     private User $user;
+
+    public function getName(): int
+    {
+        return $this->name;
+    }
+
+    public function setName(int $name): UserSetting
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getValue(): int
+    {
+        return $this->value;
+    }
+
+    // Product
+
+    public function setValue(int $value): UserSetting
+    {
+        $this->value = $value;
+
+        return $this;
+    }
 
     public function getId(): int
     {
