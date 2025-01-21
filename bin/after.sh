@@ -35,10 +35,8 @@ sudo apt install php-bcmath
 sudo apt install php-igbinary
 sudo apt install libc-ares-dev libcurl4-openssl-dev
 
-sudo apt remove --purge php5.*-* -y
-sudo apt remove --purge php7.*-* -y
-sudo apt remove --purge php8.0-* -y
-sudo rm -rf /etc/php/5.* /etc/php/7.* /etc/php/8.0
+sudo apt remove --purge php5.*-* -y php7.*-* -y php8.0-* -y php8.1-* -y
+sudo rm -rf /etc/php/5.* /etc/php/7.* /etc/php/8.0 /etc/php/8.1
 
 sudo pecl install yaml
 sudo apt install php8.3-yaml php8.3-amqp php8.3-igbinary php8.3-redis
@@ -92,11 +90,10 @@ cd /home/vagrant/ssa || exit
 
 composer install
 
-php artisan migrate
+php artisan doctrine:migrations:migrate
 php artisan optimize:clear
 php artisan vendor:publish --tag=log-viewer-assets --force
-php artisan l5-swagger:generate
-php artisan cache:clear
+php artisan swagger-lume:generate
 
 cd public || exit
 unlink storage
