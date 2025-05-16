@@ -49,10 +49,6 @@
     "swoole/ide-helper": "^5"
   },
   "autoload": {
-    "classmap": [
-      "database/seeds",
-      "database/factories"
-    ],
     "files": [
       "src/Core/_helpers.php"
     ],
