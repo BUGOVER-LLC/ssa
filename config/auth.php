@@ -18,7 +18,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'doctrine',
-            'model' => Infrastructure\Entity\User::class,
+            'model' => \Module\User\Entity\User::class,
         ],
     ],
 ];

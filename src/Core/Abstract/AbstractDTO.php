@@ -7,7 +7,7 @@ namespace Core\Abstract;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Entity\User;
+use Module\User\Entity\User;
 
 readonly abstract class AbstractDTO implements Arrayable, Jsonable
 {

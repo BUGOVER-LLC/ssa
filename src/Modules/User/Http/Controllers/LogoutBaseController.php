@@ -4,12 +4,14 @@ declare(strict_types=1);
 
 namespace Module\User\Http\Controllers;
 
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
+use Infrastructure\Http\ApiController;
 use Infrastructure\Http\WebController;
 use RuntimeException;
 
-final class LogoutBaseController extends WebController
+final class LogoutBaseController extends ApiController
 {
     /**
      * @return JsonResponse
@@ -29,6 +31,7 @@ final class LogoutBaseController extends WebController
 
     /**
      * @return JsonResponse
+     * @throws AuthenticationException
      */
     public function logoutAll(): JsonResponse
     {
@@ -46,6 +49,7 @@ final class LogoutBaseController extends WebController
 
     /**
      * @return JsonResponse
+     * @throws AuthenticationException
      */
     public function logoutOther(): JsonResponse
     {
@@ -55,7 +59,7 @@ final class LogoutBaseController extends WebController
             throw new RuntimeException();
         }
 
-        Auth::logoutOtherDevices();
+        Auth::logoutOtherDevices($user->getPassword());
 
         return $this->response('logout');
     }

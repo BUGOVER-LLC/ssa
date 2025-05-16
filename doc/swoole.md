@@ -8,7 +8,7 @@
 ![image info](https://repository-images.githubusercontent.com/5133949/13b58180-bc96-11ea-939f-53b1ca16d341)
 
 (sudo apt install libc-ares-dev libcurl4-openssl-dev libbrotli-dev libzstd-dev liburing-dev)
-1. sudo pecl install swoole-5.1.6
+1. sudo pecl install swoole-5.1.7
 2. ADD swoole.ini file to php mods-available folder
     - ;configuration for php common module
     - ;priority=20

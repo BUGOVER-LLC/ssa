@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Http\Requests;
 
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Entity\User;
+use Module\User\Entity\User;
 use Infrastructure\Http\Request\ApiRequest;
 use Module\User\DTO\LoginUserDto;
 

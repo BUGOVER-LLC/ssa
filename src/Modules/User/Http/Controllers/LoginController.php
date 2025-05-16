@@ -6,12 +6,12 @@ namespace Module\User\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
-use Infrastructure\Http\WebController;
+use Infrastructure\Http\ApiController;
 use Module\User\Http\Requests\LoginRequest;
 
 //use Src\Core\Additional\MainDevicer;
 
-final class LoginController extends WebController
+final class LoginController extends ApiController
 {
     private const CREDENTIALS = [
         'email',

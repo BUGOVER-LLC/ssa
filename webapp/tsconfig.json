@@ -1,0 +1,43 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strictPropertyInitialization": false,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "useDefineForClassFields": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "types": ["webpack-env"],
+        "typeRoots": ["./node_modules/@types"],
+        "paths": {
+            "@/*": ["src/*"],
+            "@core/*": ["src/@core/*"],
+            "@images/*": ["src/assets/images/*"],
+            "@styles/*": ["src/styles/*"]
+        },
+        "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx",
+        "auto-imports.d.ts",
+        "src/@core/types/*.d.ts",
+        "shims.d.ts"
+    ],
+    "exclude": ["node_modules"],
+    "vueCompilerOptions": {
+        "target": 3.5
+    }
+}

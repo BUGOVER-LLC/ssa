@@ -25,10 +25,10 @@ $router->group(
 
 // Users
 $router->group(
-    ['middleware' => ['auth'], 'prefix' => 'started'],
+    ['middleware' => ['auth'], 'prefix' => 'logout'],
     fn() => [
-        $router->post('current-logout', [LogoutBaseController::class, 'logoutCurrent']),
-        $router->post('other-logout', [LogoutBaseController::class, 'logoutOther']),
-        $router->post('all-logout', [LogoutBaseController::class, 'logoutAll']),
+        $router->post('current', [LogoutBaseController::class, 'logoutCurrent']),
+        $router->post('other', [LogoutBaseController::class, 'logoutOther']),
+        $router->post('all', [LogoutBaseController::class, 'logoutAll']),
     ]
 );

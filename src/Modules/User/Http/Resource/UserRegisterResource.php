@@ -7,7 +7,7 @@ namespace Module\User\Http\Resource;
 use Core\Abstract\AbstractResource;
 use Core\Abstract\AbstractSchema;
 use Illuminate\Http\Request;
-use Infrastructure\Entity\User;
+use Module\User\Entity\User;
 use Module\User\Http\Schema\UserRegisterSchema;
 
 /**

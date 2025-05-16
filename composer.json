@@ -22,30 +22,31 @@
     "ext-redis": "*",
     "ext-sockets": "*",
     "ext-zip": "*",
+    "ext-swoole": "*",
     "ext-zlib": "*",
-    "aws/aws-sdk-php": "^3",
-    "darkaonline/swagger-lume": "11.0",
+    "darkaonline/swagger-lume": "^11.0",
     "hhxsv5/laravel-s": "^3.8",
     "illuminate/redis": "^11.0",
-    "laravel/lumen-framework": "^11.0",
     "laravel-doctrine/orm": "^3.0",
+    "laravel/lumen-framework": "^11.0",
     "laravel/socialite": "^5.0",
-    "league/flysystem": "^3.29",
+    "league/flysystem-aws-s3-v3": "^3.29",
     "pda/pheanstalk": "^6.0",
-    "socialiteproviders/apple": "^5.5",
-    "socialiteproviders/google": "^4.1",
+    "socialiteproviders/apple": "^5.0",
+    "socialiteproviders/google": "^4.0",
     "symfony/mailer": "^7.0",
-    "tymon/jwt-auth": "^2.1"
+    "tymon/jwt-auth": "^2.0"
   },
   "require-dev": {
     "flipbox/lumen-generator": "^9.3",
     "friendsofphp/php-cs-fixer": "^3.0",
-    "laravel-doctrine/migrations": "^3.3",
+    "laravel-doctrine/migrations": "^3.4",
     "mockery/mockery": "^1.6",
     "phpstan/phpstan": "^1.0",
     "phpunit/phpunit": "^10.0|^11.0",
     "roave/security-advisories": "dev-latest",
-    "squizlabs/php_codesniffer": "^3.0"
+    "squizlabs/php_codesniffer": "^3.0",
+    "swoole/ide-helper": "^5"
   },
   "autoload": {
     "classmap": [

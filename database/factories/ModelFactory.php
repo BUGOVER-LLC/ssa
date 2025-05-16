@@ -12,7 +12,10 @@ declare(strict_types=1);
 | database. Just tell the factory how a default model should look.
 |
 */
-$factory->define(Infrastructure\Entity\User::class, function (Faker\Generator $faker) {
+
+use Module\User\Entity\User;
+
+$factory->define(User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->email,

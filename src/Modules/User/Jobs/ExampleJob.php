@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 namespace Module\User\Jobs;
 
-use Illuminate\Queue\Jobs\Job;
+use Illuminate\Bus\Batchable;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\SerializesModels;
 
-class ExampleJob
+class ExampleJob implements ShouldQueue
 {
+    use Queueable;
+    use Batchable;
+    use SerializesModels;
+
     /**
      * Create a new job instance.
      *

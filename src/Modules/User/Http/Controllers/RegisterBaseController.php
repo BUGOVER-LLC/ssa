@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Http\Controllers;
 
 use Illuminate\Support\Str;
+use Infrastructure\Http\ApiController;
 use Infrastructure\Http\WebController;
 use Infrastructure\Utils\SendEmail;
 use Module\User\Http\Requests\RegisterRequest;
@@ -12,7 +13,7 @@ use Module\User\Http\Resource\UserRegisterResource;
 use Module\User\Service\QueryService;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
-final class RegisterBaseController extends WebController
+final class RegisterBaseController extends ApiController
 {
     /**
      * @param QueryService $query

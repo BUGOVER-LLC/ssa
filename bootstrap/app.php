@@ -91,18 +91,11 @@ if ($app->isLocal()) {
     $app->register(Flipbox\LumenGenerator\LumenGeneratorServiceProvider::class);
     $app->register(LaravelDoctrine\Migrations\MigrationsServiceProvider::class);
 }
+
 // System Providers
-$app->register(Illuminate\Redis\RedisServiceProvider::class);
-$app->register(Laravel\Socialite\SocialiteServiceProvider::class);
-$app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
-$app->register(SwaggerLume\ServiceProvider::class);
-$app->register(Hhxsv5\LaravelS\Illuminate\LaravelSServiceProvider::class);
-$app->register(LaravelDoctrine\ORM\DoctrineServiceProvider::class);
-// App Providers
-$app->register(Core\Providers\AppServiceProvider::class);
-$app->register(Core\Providers\AuthServiceProvider::class);
-$app->register(Core\Providers\EventServiceProvider::class);
-$app->register(Core\Providers\ModuleServiceProvider::class);
+foreach (require base_path('bootstrap/providers.php') as $provider) {
+    $app->register($provider);
+}
 
 // Run app!
 return $app;

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Module\User\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Infrastructure\Entity\User;
+use Module\User\Entity\User;
 use Module\User\DTO\RegisterUserDto;
 
 class QueryService
