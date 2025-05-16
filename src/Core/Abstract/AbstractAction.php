@@ -17,7 +17,7 @@ abstract class AbstractAction
     /**
      * @param ...$arguments
      * @return mixed
-     * @throws ServerInternalErrorException
+     * @throws ServerInternalErrorException|Throwable
      */
     public function transactionalRun(...$arguments): mixed
     {
